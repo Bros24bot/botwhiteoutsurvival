@@ -1,14 +1,14 @@
- <!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Bros24 — Whiteout Survival Discord Bot | All-in-One Guide (Events, Boosts, Heroes, Calculators)</title>
-  <meta name="description" content="Bros24 Whiteout Survival Discord Bot: All-in-One Guide for your alliance. Event Center, Boost tracking, Hero Hub, Calculators, Welcome, Ranking — multilingual and community-driven." />
-  <meta name="keywords" content="Bros24, Whiteout Survival, Discord Bot, Event Center, Boost, Heroes, Hero Hub, Calculator, Ranking, Welcome, State 214, DOA, guide, wos bot" />
+  <title>Bros24 — Whiteout Survival Discord Bot | All-in-One (Events • Boosts • Heroes • Calculators)</title>
+  <meta name="description" content="Bros24 Whiteout Survival Discord Bot: All-in-One assistant for alliances. Event Center, Boost tracking, Hero Hub, Calculators, Welcome, Ranking — multilingual & community-driven. Built by players for players." />
+  <meta name="keywords" content="Bros24, Whiteout Survival, Discord Bot, Event Center, Boost, Hero, Calculator, Ranking, Welcome, State 214, DOA, guide, wos bot" />
   <meta property="og:title" content="Bros24 — Whiteout Survival Discord Bot (All-in-One)" />
-  <meta property="og:description" content="One bot. All features. Built by players for players. Event Center, Boosts, Heroes, Calculators & more." />
+  <meta property="og:description" content="One bot. All applications. Events, Boosts, Heroes, Calculators & more — no extra bots needed." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/social-preview.jpg" />
   <meta name="theme-color" content="#0ea5e9" />
@@ -20,7 +20,8 @@
       theme: {
         extend: {
           fontFamily: { sans: ["Inter","ui-sans-serif","system-ui","-apple-system","Segoe UI","Roboto","Noto Sans","Helvetica Neue","Arial","sans-serif"] },
-          boxShadow: { glow: "0 0 0 2px rgba(56,189,248,.35), 0 10px 25px -10px rgba(56,189,248,.45)" }
+          boxShadow: { glow: "0 0 0 2px rgba(56,189,248,.35), 0 10px 25px -10px rgba(56,189,248,.45)" },
+          colors: { brand: { 500: "#0ea5e9", 600:"#0284c7"} }
         }
       }
     }
@@ -30,8 +31,10 @@
   <style>
     .gradient-text{background:linear-gradient(90deg,#38bdf8,#a78bfa,#f472b6);-webkit-background-clip:text;background-clip:text;color:transparent}
     .frame{background:#0b1220;border:1px solid rgba(255,255,255,.08)}
-    .shot{aspect-ratio:16/9;max-height:260px;object-fit:contain;background:#0b1220}
-    @media(min-width:1024px){.shot{max-height:320px}}
+    .shot{aspect-ratio:16/9;max-height:420px;object-fit:contain;background:#0b1220}
+    @media(min-width:1280px){.shot{max-height:520px}}
+    .flag-tab{border:1px solid rgba(255,255,255,.12)}
+    .flag-tab.active{background:rgba(56,189,248,.12);border-color:rgba(56,189,248,.45)}
     .modal-open{overflow:hidden}
   </style>
 </head>
@@ -46,47 +49,54 @@
       </a>
 
       <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a id="nav_features" href="#features" class="hover:text-sky-300">Features</a>
-        <a id="nav_media" href="#media" class="hover:text-sky-300">Screenshots</a>
-        <a id="nav_commands" href="#commands" class="hover:text-sky-300">Commands</a>
-        <a id="nav_updates" href="#updates" class="hover:text-sky-300">Updates</a>
-        <a id="nav_topgg" href="#topgg" class="hover:text-sky-300">top.gg</a>
-        <a id="nav_support" href="#support" class="hover:text-sky-300">Support</a>
+        <a id="nav_features" href="#features" class="hover:text-brand-500">Features</a>
+        <a id="nav_media" href="#media" class="hover:text-brand-500">Screenshots</a>
+        <a id="nav_commands" href="#commands" class="hover:text-brand-500">Commands</a>
+        <a id="nav_updates" href="#updates" class="hover:text-brand-500">Updates</a>
+        <a id="nav_topgg" href="#topgg" class="hover:text-brand-500">top.gg</a>
+        <a id="nav_support" href="#support" class="hover:text-brand-500">Support</a>
       </nav>
 
-      <div class="flex items-center gap-3">
-        <!-- Language selector (ready for JSON overrides) -->
-        <select id="lang" aria-label="Language" class="hidden sm:block bg-white/10 hover:bg-white/15 border border-white/10 rounded-lg px-2 py-1 text-sm">
-          <option value="en">EN</option><option value="de">DE</option><option value="pl">PL</option>
-          <option value="it">IT</option><option value="th">TH</option><option value="fr">FR</option>
-        </select>
-
-        <!-- Real invite -->
+      <div class="hidden sm:flex items-center gap-3">
         <a href="https://discord.com/oauth2/authorize?client_id=1387844888187375758&permissions=17869211692048&integration_type=0&scope=bot+applications.commands"
-           class="rounded-xl bg-sky-500 px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-sky-400 shadow-glow">➕ Invite Bot</a>
+           class="rounded-xl bg-brand-500 px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-brand-600 shadow-glow">➕ Invite Bot</a>
       </div>
     </div>
   </header>
 
+  <!-- Language tabs -->
+  <div class="border-b border-white/5 bg-slate-950">
+    <div class="mx-auto max-w-7xl px-4 py-2 overflow-x-auto">
+      <div id="langTabs" class="flex gap-2 text-sm whitespace-nowrap">
+        <button class="flag-tab rounded-lg px-3 py-1.5" data-lang="en">🇬🇧 English</button>
+        <button class="flag-tab rounded-lg px-3 py-1.5" data-lang="de">🇩🇪 Deutsch</button>
+        <button class="flag-tab rounded-lg px-3 py-1.5" data-lang="pl">🇵🇱 Polski</button>
+        <button class="flag-tab rounded-lg px-3 py-1.5" data-lang="th">🇹🇭 ไทย</button>
+        <button class="flag-tab rounded-lg px-3 py-1.5" data-lang="fr">🇫🇷 Français</button>
+        <button class="flag-tab rounded-lg px-3 py-1.5" data-lang="it">🇮🇹 Italiano</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Hero -->
-  <section class="relative py-16 lg:py-20">
-    <div class="mx-auto max-w-7xl px-4 grid lg:grid-cols-2 gap-12 items-center">
+  <section class="relative py-12 lg:py-16">
+    <div class="mx-auto max-w-7xl px-4 grid lg:grid-cols-2 gap-10 items-center">
       <div>
-        <h1 class="text-5xl font-extrabold leading-tight">
+        <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">
           <span id="hero_title_1">One Bot.</span> <span class="gradient-text" id="hero_title_2">All Applications.</span>
         </h1>
         <p id="hero_text" class="mt-6 text-slate-300 text-lg">
-          Stop stacking extra Discord bots. The <strong>Bros24 Whiteout Survival</strong> bot bundles Events, Boosts, Heroes, Calculators, Welcome & Ranking into a single, multilingual assistant — built by players for players.
+          Stop stacking extra Discord bots. The <strong>Bros24 Whiteout Survival</strong> bot unites Events, Boosts, Heroes, Calculators, Welcome & Ranking in one multilingual assistant — built by players for players.
         </p>
         <div class="mt-8 flex flex-wrap gap-3">
           <a id="hero_invite" href="https://discord.com/oauth2/authorize?client_id=1387844888187375758&permissions=17869211692048&integration_type=0&scope=bot+applications.commands"
-             class="bg-sky-500 hover:bg-sky-400 text-slate-900 font-semibold px-6 py-3 rounded-2xl shadow-glow">Invite Now</a>
+             class="bg-brand-500 hover:bg-brand-600 text-slate-900 font-semibold px-6 py-3 rounded-2xl shadow-glow">Invite Now</a>
           <a id="hero_features" href="#features" class="bg-white/10 hover:bg-white/15 font-semibold px-6 py-3 rounded-2xl">See Features</a>
-          <span class="bg-white/10 border border-white/10 rounded-2xl px-3 py-2 text-xs">Community-driven • You shape the bot</span>
+          <span class="bg-white/10 border border-white/10 rounded-2xl px-3 py-2 text-xs">By players, for players — Whiteout Survival</span>
         </div>
       </div>
 
-      <!-- Main menu image (top part visible) -->
+      <!-- BIG hero image -->
       <figure class="rounded-2xl frame p-3">
         <img src="assets/menu.png" alt="Main Menu (/menu)" class="w-full h-auto shot" loading="eager">
       </figure>
@@ -94,7 +104,7 @@
   </section>
 
   <!-- Why / USP -->
-  <section class="py-10">
+  <section class="py-6">
     <div class="mx-auto max-w-7xl px-4 grid md:grid-cols-3 gap-6">
       <div class="rounded-2xl frame p-6">
         <h3 class="text-xl font-bold">All-in-One for Whiteout Survival</h3>
@@ -115,12 +125,12 @@
   <section id="features" class="py-8">
     <div class="mx-auto max-w-7xl px-4 text-center">
       <h2 id="features_title" class="text-4xl font-bold">What you get</h2>
-      <p id="features_sub" class="mt-3 text-slate-300">Everything your alliance needs to win — in one place.</p>
+      <p id="features_sub" class="mt-3 text-slate-300">Everything your alliance needs — in one place.</p>
 
       <div class="mt-10 grid gap-6 lg:grid-cols-2">
         <article class="rounded-2xl frame p-6">
           <h3 class="text-xl font-bold">📅 Event Center</h3>
-          <p class="mt-2 text-slate-300">Create reminders with images & footers; schedule daily/48h/weekly/bi-weekly/4-weeks or custom; target channels, @everyone, roles or members; edit & delete via menu.</p>
+          <p class="mt-2 text-slate-300">Create reminders (title, message, images, thumbnails, custom footer). Schedules: daily / 48h / weekly / bi-weekly / every 4 weeks / custom. Target channels, @everyone, roles or members. Edit & delete via menu.</p>
         </article>
 
         <article class="rounded-2xl frame p-6">
@@ -130,6 +140,7 @@
             <li>28-day active window (auto-expire)</li>
             <li>Persistent public menu • restart-safe</li>
             <li>Weekly summary (Sun 18:00 UTC)</li>
+            <li>Per-guild language switcher</li>
           </ul>
         </article>
 
@@ -146,33 +157,24 @@
     </div>
   </section>
 
-  <!-- Screenshots (click to zoom) -->
-  <section id="media" class="py-12">
+  <!-- Screenshots with Lightbox -->
+  <section id="media" class="py-10">
     <div class="mx-auto max-w-7xl px-4 text-center">
       <h2 class="text-4xl font-bold">Screenshots</h2>
 
       <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        <figure class="rounded-2xl frame p-3 cursor-zoom-in">
-          <img src="assets/menu.png" alt="Main Menu — /menu" class="shot" loading="lazy">
-        </figure>
-        <figure class="rounded-2xl frame p-3 cursor-zoom-in">
-          <img src="assets/event-center.png" alt="Event Center — /event" class="shot" loading="lazy">
-        </figure>
-        <figure class="rounded-2xl frame p-3 cursor-zoom-in">
-          <img src="assets/boost-center.png" alt="Boost Center — /boost" class="shot" loading="lazy">
-        </figure>
-        <figure class="rounded-2xl frame p-3 cursor-zoom-in">
-          <img src="assets/rank-card.png" alt="Ranking — Level Card" class="shot" loading="lazy">
-        </figure>
+        <figure class="rounded-2xl frame p-3 cursor-zoom-in"><img src="assets/menu.png" alt="Main Menu — /menu" class="shot" loading="lazy"></figure>
+        <figure class="rounded-2xl frame p-3 cursor-zoom-in"><img src="assets/event-center.png" alt="Event Center — /event" class="shot" loading="lazy"></figure>
+        <figure class="rounded-2xl frame p-3 cursor-zoom-in"><img src="assets/boost-center.png" alt="Boost Center — /boost" class="shot" loading="lazy"></figure>
+        <figure class="rounded-2xl frame p-3 cursor-zoom-in"><img src="assets/rank-card.png" alt="Ranking — Level Card" class="shot" loading="lazy"></figure>
       </div>
     </div>
   </section>
 
   <!-- Commands -->
-  <section id="commands" class="py-12">
+  <section id="commands" class="py-10">
     <div class="mx-auto max-w-7xl px-4">
       <h2 id="cmd_title" class="text-4xl font-bold text-center">Slash Commands</h2>
-
       <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <div class="rounded-2xl frame p-5"><h3 class="font-semibold">/menu</h3><p class="text-slate-300">Main hub for all features.</p></div>
         <div class="rounded-2xl frame p-5"><h3 class="font-semibold">/event</h3><p class="text-slate-300">Create & manage reminders and schedules.</p></div>
@@ -191,7 +193,7 @@
   </section>
 
   <!-- Updates / Changelog -->
-  <section id="updates" class="mx-auto max-w-7xl px-4 py-12">
+  <section id="updates" class="mx-auto max-w-7xl px-4 py-10">
     <div class="text-center max-w-3xl mx-auto">
       <h2 class="text-3xl sm:text-4xl font-extrabold">Latest Updates</h2>
     </div>
@@ -233,52 +235,45 @@
     </div>
   </section>
 
-  <!-- top.gg -->
-  <section id="topgg" class="py-12">
+  <!-- top.gg (BIG) -->
+  <section id="topgg" class="py-10">
     <div class="mx-auto max-w-7xl px-4">
       <div class="text-center max-w-3xl mx-auto">
         <h2 class="text-4xl font-bold">top.gg — Vote & Discover</h2>
       </div>
-      <div class="mt-8 grid gap-6 lg:grid-cols-2 items-center">
-        <a class="rounded-2xl frame p-4 flex items-center justify-center"
-           href="https://top.gg/bot/1387844888187375758" target="_blank" rel="noopener">
-          <img src="https://top.gg/api/widget/1387844888187375758.svg" alt="top.gg bot widget" class="w-full h-auto">
+      <div class="mt-8 grid gap-6">
+        <!-- Bot widget (SVG scales nicely) -->
+        <a class="rounded-2xl frame p-6 flex items-center justify-center" href="https://top.gg/bot/1387844888187375758" target="_blank" rel="noopener">
+          <img src="https://top.gg/api/widget/1387844888187375758.svg" alt="top.gg bot widget" class="w-full h-[180px] md:h-[220px] xl:h-[260px] max-w-none object-contain">
         </a>
-        <a class="rounded-2xl frame p-4 flex items-center justify-center"
-           href="https://top.gg/discord/servers/747709873159839744" target="_blank" rel="noopener">
+        <!-- Community widget -->
+        <a class="rounded-2xl frame p-3 flex items-center justify-center" href="https://top.gg/discord/servers/747709873159839744" target="_blank" rel="noopener">
           <img src="https://top.gg/api/v1/widgets/large/747709873159839744" alt="top.gg server widget" class="w-full h-auto">
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Support -->
-  <section id="support" class="py-12">
-    <div class="mx-auto max-w-7xl px-4 grid md:grid-cols-3 gap-6">
-      <div class="rounded-2xl frame p-6">
-        <h3 class="text-xl font-semibold">Support & Community</h3>
-        <p class="mt-2 text-slate-300">Questions or feature ideas? Join and tell us — we ship weekly.</p>
-        <a href="https://discord.gg/dBZn8tFx7c" class="mt-4 inline-block rounded-xl bg-sky-500 px-5 py-3 font-semibold text-slate-900 hover:bg-sky-400 shadow-glow">Join Support Server</a>
-      </div>
-
-      <div class="rounded-2xl frame p-6">
-        <h3 class="text-xl font-semibold">Support the Project (Optional)</h3>
-        <p class="mt-2 text-slate-300">Keep Bros24 free for everyone — optional Frost Stars support.</p>
-        <ul class="mt-3 text-slate-300 text-sm">
-          <li>Player ID: <code>32815614</code></li>
-          <li><a class="underline hover:text-sky-300" href="https://pay.whiteoutsurvival.com/">pay.whiteoutsurvival.com</a></li>
-        </ul>
-      </div>
-
-      <div class="rounded-2xl frame p-6">
-        <h3 class="text-xl font-semibold">Direct Contact</h3>
-        <p class="mt-2 text-slate-300">Bros24 • DOA • State 214</p>
-        <div class="mt-4 flex gap-3 flex-wrap">
-          <a href="https://discord.com/users/1154018970572169267" target="_blank" rel="noopener"
-             class="rounded-xl bg-white/10 hover:bg-white/15 px-5 py-3 font-semibold">Contact Support</a>
-          <button id="copyId" class="rounded-xl bg-white/10 hover:bg-white/15 px-5 py-3 font-semibold">Copy ID</button>
+  <!-- Support (highlighted) -->
+  <section id="support" class="py-14">
+    <div class="mx-auto max-w-7xl px-4 grid gap-6">
+      <div class="rounded-3xl p-8 bg-gradient-to-br from-brand-500/20 via-fuchsia-500/10 to-transparent border border-brand-500/30 shadow-glow">
+        <div class="grid lg:grid-cols-3 gap-8 items-center">
+          <div class="lg:col-span-2">
+            <h3 class="text-2xl font-extrabold">Support the Project — Optional</h3>
+            <p class="mt-2 text-slate-200">Bros24 stays free for everyone. If you’d like to help with server costs & weekly development, you can support via Frost Stars in Whiteout Survival — totally optional, no pressure.</p>
+            <ul class="mt-4 text-sm text-slate-100/90">
+              <li><strong>Player ID:</strong> <code>32815614</code></li>
+              <li><strong>Payment:</strong> <a class="underline hover:text-brand-500" href="https://pay.whiteoutsurvival.com/">pay.whiteoutsurvival.com</a></li>
+            </ul>
+          </div>
+          <div class="flex flex-col gap-3">
+            <a href="https://discord.gg/dBZn8tFx7c" class="rounded-xl bg-brand-500 hover:bg-brand-600 px-6 py-3 font-semibold text-slate-900 shadow-glow text-center">Join Support Server</a>
+            <a href="https://discord.com/users/1154018970572169267" target="_blank" rel="noopener" class="rounded-xl bg-white/10 hover:bg-white/15 px-6 py-3 font-semibold text-center">Contact Support</a>
+            <button id="copyId" class="rounded-xl bg-white/10 hover:bg-white/15 px-6 py-3 font-semibold">Copy Contact ID</button>
+            <p class="text-xs text-slate-300">Bros24 • DOA • State 214</p>
+          </div>
         </div>
-        <p class="mt-2 text-slate-400 text-sm">Discord ID: <code>1154018970572169267</code></p>
       </div>
     </div>
   </section>
@@ -288,7 +283,7 @@
     © <span id="year"></span> Bros24 — Whiteout Survival Discord Bot • <span class="text-slate-300">Bros24 • State 214</span>
   </footer>
 
-  <!-- Lightbox Modal -->
+  <!-- Lightbox -->
   <div id="lightbox" class="fixed inset-0 hidden items-center justify-center bg-black/80 p-4">
     <img id="lightbox-img" src="" alt="preview" class="max-h-[90vh] w-auto h-auto rounded-xl border border-white/10 shadow-2xl">
   </div>
@@ -300,11 +295,11 @@
     // Copy Discord ID
     const btn = document.getElementById('copyId');
     if (btn) btn.addEventListener('click', async () => {
-      try { await navigator.clipboard.writeText('1154018970572169267'); btn.textContent='ID Copied!'; setTimeout(()=>btn.textContent='Copy ID',1600); }
+      try { await navigator.clipboard.writeText('1154018970572169267'); btn.textContent='ID Copied!'; setTimeout(()=>btn.textContent='Copy Contact ID',1600); }
       catch { btn.textContent='Copy failed'; }
     });
 
-    // Lightbox for screenshots
+    // Lightbox
     const lb = document.getElementById('lightbox');
     const lbImg = document.getElementById('lightbox-img');
     document.querySelectorAll('.shot').forEach(img => {
@@ -315,16 +310,14 @@
       });
     });
     lb.addEventListener('click', () => {
-      lb.classList.add('hidden');
-      lbImg.src = '';
-      document.body.classList.remove('modal-open');
+      lb.classList.add('hidden'); lbImg.src = ''; document.body.classList.remove('modal-open');
     });
 
     // --- i18n (built-in + optional external overrides in assets/i18n/index.json) ---
     const T = {
-      en:{nav:{features:'Features',media:'Screenshots',commands:'Commands',updates:'Updates',topgg:'top.gg',support:'Support'},hero1:'One Bot.',hero2:'All Applications.',heroText:'Stop stacking extra Discord bots. The Bros24 Whiteout Survival bot bundles Events, Boosts, Heroes, Calculators, Welcome & Ranking into a single, multilingual assistant — built by players for players.',invite:'Invite Now',explore:'See Features',featuresTitle:'What you get',featuresSub:'Everything your alliance needs to win — in one place.',cmdTitle:'Slash Commands'},
+      en:{nav:{features:'Features',media:'Screenshots',commands:'Commands',updates:'Updates',topgg:'top.gg',support:'Support'},hero1:'One Bot.',hero2:'All Applications.',heroText:'Stop stacking extra Discord bots. The Bros24 Whiteout Survival bot unites Events, Boosts, Heroes, Calculators, Welcome & Ranking in one multilingual assistant — built by players for players.',invite:'Invite Now',explore:'See Features',featuresTitle:'What you get',featuresSub:'Everything your alliance needs — in one place.',cmdTitle:'Slash Commands'},
       de:{nav:{features:'Features',media:'Screenshots',commands:'Befehle',updates:'Updates',topgg:'top.gg',support:'Support'},hero1:'Ein Bot.',hero2:'Alle Anwendungen.',heroText:'Schluss mit Bot-Chaos: Bros24 für Whiteout Survival vereint Events, Boosts, Helden, Rechner, Welcome & Ranking in EINEM Bot — von Spielern für Spieler.',invite:'Jetzt einladen',explore:'Features ansehen',featuresTitle:'Das bekommst du',featuresSub:'Alles für eure Allianz — an einem Ort.',cmdTitle:'Slash-Befehle'},
-      pl:{nav:{features:'Funkcje',media:'Zrzuty ekranu',commands:'Komendy',updates:'Aktualizacje',topgg:'top.gg',support:'Support'},hero1:'Jeden bot.',hero2:'Wszystkie aplikacje.',heroText:'Koniec z dodatkowymi botami. Bros24 dla Whiteout Survival łączy wydarzenia, boosty, bohaterów, kalkulatory, powitania i rangi w jednym bota.',invite:'Zaproś teraz',explore:'Zobacz funkcje',featuresTitle:'Co otrzymasz',featuresSub:'Wszystko dla sojuszu w jednym miejscu.',cmdTitle:'Komendy'},
+      pl:{nav:{features:'Funkcje',media:'Zrzuty ekranu',commands:'Komendy',updates:'Aktualizacje',topgg:'top.gg',support:'Support'},hero1:'Jeden bot.',hero2:'Wszystkie aplikacje.',heroText:'Koniec z dodatkowymi botami. Bros24 dla Whiteout Survival łączy wydarzenia, boosty, bohaterów, kalkulatory, powitania i rangi w jednym bocie.',invite:'Zaproś teraz',explore:'Zobacz funkcje',featuresTitle:'Co otrzymasz',featuresSub:'Wszystko dla sojuszu w jednym miejscu.',cmdTitle:'Komendy'},
       it:{nav:{features:'Funzionalità',media:'Screenshot',commands:'Comandi',updates:'Aggiornamenti',topgg:'top.gg',support:'Supporto'},hero1:'Un bot.',hero2:'Tutte le applicazioni.',heroText:'Basta con troppi bot. Bros24 per Whiteout Survival unisce Eventi, Boost, Eroi, Calcolatori, Benvenuto e Ranking in un unico bot.',invite:'Invita ora',explore:'Vedi funzioni',featuresTitle:'Cosa ottieni',featuresSub:'Tutto per la tua alleanza in un posto.',cmdTitle:'Comandi'},
       fr:{nav:{features:'Fonctionnalités',media:'Captures',commands:'Commandes',updates:'Mises à jour',topgg:'top.gg',support:'Support'},hero1:'Un bot.',hero2:'Toutes les applications.',heroText:'Fini l’empilement de bots. Bros24 pour Whiteout Survival réunit événements, boosts, héros, calculateurs, accueil et classement dans un seul bot.',invite:'Inviter',explore:'Voir les fonctions',featuresTitle:'Ce que vous obtenez',featuresSub:'Tout pour votre alliance, au même endroit.',cmdTitle:'Commandes'},
       th:{nav:{features:'Features',media:'Screenshots',commands:'Commands',updates:'Updates',topgg:'top.gg',support:'Support'},hero1:'บอทเดียว',hero2:'ครบทุกเครื่องมือ',heroText:'ไม่ต้องใช้บอทหลายตัว บอท Bros24 สำหรับ Whiteout Survival รวมกิจกรรม บูสต์ ฮีโร่ เครื่องคิดเลข ต้อนรับ และแรงก์ไว้ในที่เดียว',invite:'เชิญบอท',explore:'ดูฟีเจอร์',featuresTitle:'คุณจะได้อะไร',featuresSub:'ทุกอย่างที่พันธมิตรต้องมี รวมในที่เดียว',cmdTitle:'คำสั่ง'}
@@ -339,7 +332,8 @@
 
     function applyLang(lang){
       const d = T[lang] || T.en;
-      const $ = (id,v)=>{ const el=document.getElementById(id); if(el&&typeof v==='string') el.textContent=v; };
+      const set = (id, v) => { const el=document.getElementById(id); if(el&&typeof v==='string') el.textContent=v; };
+
       // nav
       document.getElementById('nav_features').textContent = d.nav.features;
       document.getElementById('nav_media').textContent = d.nav.media;
@@ -347,21 +341,30 @@
       document.getElementById('nav_updates').textContent = d.nav.updates;
       document.getElementById('nav_topgg').textContent = d.nav.topgg;
       document.getElementById('nav_support').textContent = d.nav.support;
-      // hero
-      $('hero_title_1', d.hero1); $('hero_title_2', d.hero2); $('hero_text', d.heroText);
-      $('hero_invite', d.invite); $('hero_features', d.explore);
-      // sections
-      $('features_title', d.featuresTitle); $('features_sub', d.featuresSub);
-      $('cmd_title', d.cmdTitle);
+
+      // hero + sections
+      set('hero_title_1', d.hero1); set('hero_title_2', d.hero2); set('hero_text', d.heroText);
+      set('hero_invite', d.invite); set('hero_features', d.explore);
+      set('features_title', d.featuresTitle); set('features_sub', d.featuresSub);
+      set('cmd_title', d.cmdTitle);
+
+      // tabs active state
+      document.querySelectorAll('[data-lang]').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+
       localStorage.setItem('bros24_lang', lang);
       document.documentElement.setAttribute('lang', lang);
     }
 
+    // lang tabs events
+    document.getElementById('langTabs').addEventListener('click', e=>{
+      const b = e.target.closest('[data-lang]');
+      if(!b) return;
+      applyLang(b.dataset.lang);
+    });
+
     (async ()=>{
       await loadExternalTranslations();
       const saved = localStorage.getItem('bros24_lang') || 'en';
-      const sel = document.getElementById('lang'); sel.value = saved;
-      sel.addEventListener('change', e=>applyLang(e.target.value));
       applyLang(saved);
     })();
   </script>
