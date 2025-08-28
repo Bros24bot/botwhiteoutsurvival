@@ -13,7 +13,7 @@
   <meta property="og:image" content="assets/social-preview.jpg" />
   <meta name="theme-color" content="#0ea5e9" />
 
-  <!-- Preload Video -->
+  <!-- Preload Video (poster wird weiter unten gesetzt) -->
   <link rel="preload" as="video" href="assets/manager.mov" type="video/quicktime" />
 
   <!-- Tailwind -->
@@ -23,7 +23,9 @@
       theme: {
         extend: {
           fontFamily: { sans: ["Inter","ui-sans-serif","system-ui","-apple-system","Segoe UI","Roboto","Noto Sans","Helvetica Neue","Arial","sans-serif"] },
-          boxShadow: { glow: "0 0 0 2px rgba(56,189,248,.35), 0 10px 25px -10px rgba(56,189,248,.45)" },
+          boxShadow: {
+            glow: "0 0 0 2px rgba(56,189,248,.35), 0 10px 25px -10px rgba(56,189,248,.45)"
+          },
           colors: { brand: { 500:"#0ea5e9", 600:"#0284c7"} }
         }
       }
@@ -35,86 +37,68 @@
     .gradient-text{background:linear-gradient(90deg,#38bdf8,#a78bfa,#f472b6);-webkit-background-clip:text;background-clip:text;color:transparent}
     .title-gradient{background:linear-gradient(90deg,#93c5fd,#a78bfa,#38bdf8);-webkit-background-clip:text;background-clip:text;color:transparent}
 
-    /* Base Card */
-    .frame{
+    /* ===== 3D-CARD (clean schwarz/grau) ===== */
+    .card-3d{
       position:relative;border-radius:1rem;overflow:hidden;
-      background:linear-gradient(180deg, rgba(2,6,23,.78), rgba(2,6,23,.62));
-      border:1px solid rgba(255,255,255,.08);
-      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      background:linear-gradient(180deg,#0f141f 0%, #0b0f1a 100%);
+      border:1px solid rgba(255,255,255,.06);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.06),
+        0 10px 24px -12px rgba(0,0,0,.8),
+        0 22px 50px -24px rgba(2,132,199,.25);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
     }
-    .frame:hover{ transform:translateY(-3px); box-shadow:0 22px 50px -18px rgba(56,189,248,.35) }
-
-    /* Frost „seitlich eingefroren“ */
-    .frost-side::before,
-    .frost-side::after{
-      content:""; position:absolute; top:-8%; bottom:-8%; width:54px; pointer-events:none;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.20), rgba(255,255,255,.06) 40%, rgba(255,255,255,0) 85%),
-        radial-gradient(18px 120% at 10% 10%, rgba(186,218,255,.22), rgba(186,218,255,0) 65%),
-        radial-gradient(10px 80% at 80% 80%, rgba(255,255,255,.14), rgba(255,255,255,0) 65%);
-      filter: blur(.6px) drop-shadow(0 10px 26px rgba(56,189,248,.25));
-      opacity:.9;
+    .card-3d::before{
+      content:""; position:absolute; inset:0 0 auto 0; height:28px; pointer-events:none;
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,0));
     }
-    .frost-side::before{ left:-2px; mask-image:linear-gradient(90deg, #000 65%, transparent 100%) }
-    .frost-side::after{ right:-2px; mask-image:linear-gradient(270deg, #000 65%, transparent 100%) }
-
-    /* Kristallkorn */
-    .crystal{
-      background-image:
-        radial-gradient(rgba(255,255,255,.04) 1px, transparent 1.2px),
-        radial-gradient(rgba(148,197,255,.035) 1px, transparent 1.8px);
-      background-size:3px 3px, 5px 5px; background-blend-mode:overlay, overlay;
-      -webkit-backdrop-filter: blur(4px) saturate(112%); backdrop-filter: blur(4px) saturate(112%);
+    .card-3d:hover{
+      transform:translateY(-3px);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.06),
+        0 16px 36px -18px rgba(0,0,0,.85),
+        0 28px 60px -28px rgba(14,165,233,.35);
+      border-color: rgba(255,255,255,.10);
     }
 
-    /* HERO: Logo Bühne mit 3D Tilt */
+    /* Screenshots exakt gleich groß */
+    .shot-box{ position:relative; border-radius:0.75rem; overflow:hidden; aspect-ratio:16/9; background:#0b1220; border:1px solid rgba(255,255,255,.08) }
+    .shot{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover }
+    .is-lightbox{ cursor:zoom-in }
+
+    /* ===== Hero: Logo-Bühne ===== */
     .logo-stage{
       position:relative; border-radius:1.25rem; overflow:hidden;
-      background:
-        radial-gradient(120% 120% at 10% 10%, #0b1220 0%, #0b1220 35%, rgba(2,6,23,1) 100%);
+      background: radial-gradient(120% 120% at 10% 10%, #0b1220 0%, #0b1220 35%, rgba(2,6,23,1) 100%);
       border:1px solid rgba(255,255,255,.08);
       box-shadow: 0 0 0 2px rgba(56,189,248,.18) inset, 0 22px 60px -22px rgba(56,189,248,.35);
       transform-style: preserve-3d; perspective: 900px;
+      padding: 20px;
+    }
+    .logo-wrap{ position:relative; display:grid; place-items:center; padding:10px }
+    .logo-img{
+      width:min(320px, 68%); height:auto; display:block;
+      transform: translateZ(40px) rotateX(2deg) rotateY(-4deg);
+      filter: drop-shadow(0 14px 26px rgba(0,0,0,.45));
     }
     .logo-glow{position:absolute; inset:-20%; background:
         radial-gradient(60% 60% at 50% 55%, rgba(56,189,248,.24), transparent 60%),
         radial-gradient(30% 30% at 75% 25%, rgba(167,139,250,.18), transparent 70%);
-      filter: blur(26px); pointer-events:none;
+      filter: blur(26px); pointer-events:none;}
+    .logo-shine{
+      position:absolute; inset:0; pointer-events:none;
+      background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.22) 50%, transparent 65%);
+      transform: translateX(-160%);
+      animation: sweep 5.8s linear infinite;
+      mix-blend-mode: screen; opacity:.6;
     }
-    .logo-ring::before{
-      content:""; position:absolute; inset:12% 8% 54% 8%;
-      border-radius:1000px;
-      background: conic-gradient(from 0deg, rgba(56,189,248,.35), rgba(167,139,250,.35), rgba(244,114,182,.28), rgba(56,189,248,.35));
-      filter: blur(18px) saturate(110%); opacity:.6; pointer-events:none;
-    }
-    .logo-img{
-      position:relative; display:block; margin: auto;
-      width:min(420px, 78%); height:auto;
-      transform: translateZ(40px);
-      image-rendering:auto;
-      filter: drop-shadow(0 14px 26px rgba(0,0,0,.45));
-    }
-    .logo-floor{
-      position:absolute; left:8%; right:8%; bottom:8%; height:18%;
-      background: radial-gradient(60% 140% at 50% 0%, rgba(56,189,248,.20), rgba(2,6,23,.0) 70%);
-      transform: translateZ(0); pointer-events:none;
-    }
+    @keyframes sweep{ to{ transform: translateX(160%)} }
     @media (prefers-reduced-motion: reduce){
-      .logo-stage{ transform:none !important }
+      .logo-img{ transform:none }
+      .logo-shine{ display:none }
     }
 
-    /* Screenshots – identische Größe */
-    .shot-box{
-      position:relative; border-radius:1rem; overflow:hidden;
-      aspect-ratio:16/9; /* macht alle gleich hoch */
-      background:#0b1220; border:1px solid rgba(255,255,255,.08);
-    }
-    .shot{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
-
-    /* Lightbox Bild */
-    .shot.is-lightbox{ cursor:zoom-in }
-
-    /* Video (zentriert & responsiv) */
+    /* ===== Video (zentriert & responsiv) ===== */
     .video-box{
       position:relative;border-radius:0.9rem;border:1px solid rgba(255,255,255,.1);
       box-shadow:0 0 0 2px rgba(56,189,248,.18) inset, 0 12px 28px -14px rgba(56,189,248,.25);
@@ -126,15 +110,15 @@
     .video-el{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .35s ease}
     .video-el.is-ready{opacity:1}
 
-    /* Community card */
+    /* Community card image ratio */
     .community-card img{ aspect-ratio:16/9; width:100%; height:auto; object-fit:cover; border-radius:0.75rem }
 
-    /* Top.gg widgets größer */
-    .topgg-bot{ height:8rem }
-    .topgg-srv{ height:8rem }
+    /* top.gg etwas größer */
+    .topgg-bot{ height:11.5rem }
+    .topgg-srv{ height:11.5rem }
     @media(min-width:640px){
-      .topgg-bot{ height:9rem }
-      .topgg-srv{ height:9rem }
+      .topgg-bot{ height:12.5rem }
+      .topgg-srv{ height:12.5rem }
     }
   </style>
 </head>
@@ -193,30 +177,31 @@
         </div>
       </div>
 
-      <!-- Neue Logo-Bühne -->
-      <div class="frame frost-side crystal p-3">
+      <!-- Logo-Bühne -->
+      <div class="card-3d p-3">
         <div class="logo-stage" id="logoStage">
           <div class="logo-glow"></div>
-          <div class="logo-ring"></div>
-          <img src="assets/logo.png" alt="Bros24 Logo" class="logo-img" loading="eager">
-          <div class="logo-floor"></div>
+          <div class="logo-wrap">
+            <img src="assets/logo.png" alt="Bros24 Logo" class="logo-img" loading="eager">
+            <div class="logo-shine"></div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Why / USP -->
+  <!-- USP -->
   <section class="py-6">
     <div class="mx-auto max-w-7xl px-4 grid md:grid-cols-3 gap-6">
-      <div class="frame frost-side crystal p-6">
+      <div class="card-3d p-6">
         <h3 id="usp1_title" class="text-xl font-bold title-gradient">All-in-One for Whiteout Survival</h3>
         <p id="usp1_text" class="mt-2 text-slate-300">Event Center, Boost tracking, Hero Hub, Calculators, Welcome & Ranking — everything in one bot.</p>
       </div>
-      <div class="frame frost-side crystal p-6">
+      <div class="card-3d p-6">
         <h3 id="usp2_title" class="text-xl font-bold title-gradient">No Extra Bots Needed</h3>
         <p id="usp2_text" class="mt-2 text-slate-300">Less setup, less clutter. One clean, modern menu flow for everyone.</p>
       </div>
-      <div class="frame frost-side crystal p-6">
+      <div class="card-3d p-6">
         <h3 id="usp3_title" class="text-xl font-bold title-gradient">By Players, For Players</h3>
         <p id="usp3_text" class="mt-2 text-slate-300">You shape the bot with your requests. Community feedback ships weekly.</p>
       </div>
@@ -230,12 +215,12 @@
       <p id="features_sub" class="mt-3 text-slate-300">Everything your alliance needs — in one place.</p>
 
       <div class="mt-10 grid gap-6 lg:grid-cols-2">
-        <article class="frame frost-side crystal p-6 text-left">
+        <article class="card-3d p-6 text-left">
           <h3 id="feature_event_title" class="text-xl font-bold">📅 Event Center</h3>
           <p id="feature_event_text" class="mt-2 text-slate-300">Create reminders (title, message, images, thumbnails, custom footer). Schedules: daily / 48h / weekly / bi-weekly / every 4 weeks / custom. Target channels, @everyone, roles or members. Edit & delete via menu.</p>
         </article>
 
-        <article class="frame frost-side crystal p-6 text-left">
+        <article class="card-3d p-6 text-left">
           <h3 id="feature_boost_title" class="text-xl font-bold">🚀 Boost Center</h3>
           <ul class="mt-2 space-y-1 text-slate-300 list-disc list-inside">
             <li id="feature_boost_b1">Live tracking + hourly reconcile</li>
@@ -246,12 +231,12 @@
           </ul>
         </article>
 
-        <article class="frame frost-side crystal p-6 text-left">
+        <article class="card-3d p-6 text-left">
           <h3 id="feature_hero_title" class="text-xl font-bold">🦸 Hero Hub & Guides</h3>
           <p id="feature_hero_text" class="mt-2 text-slate-300">Hero details, skills, tier lists, building strategies and advanced mechanics.</p>
         </article>
 
-        <article class="frame frost-side crystal p-6 text-left">
+        <article class="card-3d p-6 text-left">
           <h3 id="feature_calc_title" class="text-xl font-bold">🧮 Calculators & Utilities</h3>
           <p id="feature_calc_text" class="mt-2 text-slate-300">Furnace & resource planning, chief gear & charm math, island guide, ranking & welcome, plus minigames.</p>
         </article>
@@ -259,10 +244,10 @@
     </div>
   </section>
 
-  <!-- COMING SOON (Video mittig) -->
+  <!-- COMING SOON -->
   <section id="coming" class="py-12">
     <div class="mx-auto max-w-7xl px-4">
-      <div class="frame frost-side crystal p-6">
+      <div class="card-3d p-6">
         <div class="max-w-3xl mx-auto text-center">
           <h2 id="coming_title" class="text-3xl sm:text-4xl font-bold gradient-text">🚀 Coming Soon</h2>
           <p id="coming_text" class="mt-4 text-slate-300">
@@ -293,50 +278,31 @@
         <div class="mt-8 flex flex-wrap justify-center gap-3">
           <a id="coming_cta_invite" href="https://discord.com/oauth2/authorize?client_id=1387844888187375758&permissions=17869211692048&integration_type=0&scope=bot+applications.commands"
              class="rounded-xl bg-brand-500 hover:bg-brand-600 px-5 py-3 font-semibold text-slate-900 shadow-glow">Invite Bros24</a>
-          <a id="coming_cta_discord" href="https://discord.gg/dBZn8tFx7c"
+          <a id="coming_cta_discord" href="https://discord.gg/rNtp9vrkk9"
              class="rounded-xl bg-white/10 hover:bg-white/15 px-5 py-3 font-semibold">Join Discord</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Screenshots (alle identisch groß) -->
+  <!-- Screenshots -->
   <section id="media" class="py-10">
     <div class="mx-auto max-w-7xl px-4 text-center">
       <h2 id="shots_title" class="text-4xl font-bold gradient-text">Screenshots</h2>
 
       <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        <figure class="frame frost-side crystal p-3">
-          <div class="shot-box">
-            <img src="assets/menu.png" alt="Main Menu — /menu" class="shot is-lightbox" loading="lazy">
-          </div>
-        </figure>
-
-        <figure class="frame frost-side crystal p-3">
-          <div class="shot-box">
-            <img src="assets/event-center.png" alt="Event Center — /event" class="shot is-lightbox" loading="lazy">
-          </div>
-        </figure>
-
-        <figure class="frame frost-side crystal p-3">
-          <div class="shot-box">
-            <img src="assets/boost-center.png" alt="Boost Center — /boost" class="shot is-lightbox" loading="lazy">
-          </div>
-        </figure>
-
-        <figure class="frame frost-side crystal p-3">
-          <div class="shot-box">
-            <img src="assets/rank-card.png" alt="Ranking — Level Card" class="shot is-lightbox" loading="lazy">
-          </div>
-        </figure>
+        <figure class="card-3d p-3"><div class="shot-box"><img src="assets/menu.png" alt="Main Menu — /menu" class="shot is-lightbox" loading="lazy"></div></figure>
+        <figure class="card-3d p-3"><div class="shot-box"><img src="assets/event-center.png" alt="Event Center — /event" class="shot is-lightbox" loading="lazy"></div></figure>
+        <figure class="card-3d p-3"><div class="shot-box"><img src="assets/boost-center.png" alt="Boost Center — /boost" class="shot is-lightbox" loading="lazy"></div></figure>
+        <figure class="card-3d p-3"><div class="shot-box"><img src="assets/rank-card.png" alt="Ranking — Level Card" class="shot is-lightbox" loading="lazy"></div></figure>
       </div>
     </div>
   </section>
 
-  <!-- Upcoming (ohne Tundra Arms) -->
+  <!-- Upcoming -->
   <section id="roadmap" class="py-8">
     <div class="mx-auto max-w-7xl px-4">
-      <div class="frame frost-side crystal p-6">
+      <div class="card-3d p-6">
         <h2 id="upcoming_title" class="text-3xl sm:text-4xl font-bold text-center">🧩 Upcoming Features</h2>
         <ul class="mt-6 grid gap-3 sm:grid-cols-2 text-slate-300">
           <li id="upcoming_b1" class="rounded-xl bg-white/5 border border-white/10 p-4">📣 Event Office 2.0 — smarter reminders (UTC), weekly cycles, fewer duplicates</li>
@@ -348,19 +314,31 @@
     </div>
   </section>
 
-  <!-- Community Invite Card -->
+  <!-- Community Invite Card + Text -->
   <section id="community" class="py-12">
     <div class="mx-auto max-w-7xl px-4">
       <a href="https://discord.gg/rNtp9vrkk9" target="_blank" rel="noopener"
-         class="block frame frost-side crystal p-5 community-card hover:shadow-glow">
+         class="block card-3d p-5 community-card hover:shadow-glow">
         <div class="max-w-3xl mx-auto">
-          <img src="assets/coverdoa.jpg" alt="Join the DOA 214 Community" loading="lazy">
+          <img src="assets/coverdoa.jpg" alt="Join the DOA 214 Community" loading="lazy" style="max-width:860px;margin-inline:auto;display:block;">
           <div class="mt-4 text-center">
             <h3 class="text-2xl font-extrabold gradient-text">Join the ❄ Whiteout Survival | DOA 214 Community</h3>
             <p class="mt-2 text-slate-300">Events, guides, alliance tools & more — be part of it.</p>
           </div>
         </div>
       </a>
+
+      <!-- Dein ausführlicher Infotext -->
+      <div class="max-w-3xl mx-auto mt-6 text-slate-200 leading-relaxed space-y-4">
+        <p>Do you play <strong>Whiteout Survival</strong> and want to get better—faster? Ever wondered how top states plan <strong>Bear Trap</strong> 🐻, perfect <strong>Frostfire Mine</strong> ❄️🔥 rotations, or squeeze every drop from <strong>SVS</strong> ⚔️? You’re in the right place.</p>
+        <p>We’re DOA’s community from <strong>State 214</strong>, but our doors are open to <em>every</em> state and <em>every</em> alliance. Join for teamwork, practical guides, and quick help from people who actually play every day—from absolute beginners to min-max pros.</p>
+        <p><strong>New to the game?</strong> We’ll walk you through the first days and weeks: what to build first, how to pace research, which heroes and pets to focus, how to set daily routines, and where to get the most value as F2P. No fluff—just clear steps you can follow.</p>
+        <p><strong>Already experienced?</strong> Dive into meta chats, tested team comps, damage math, spreadsheets, and high-level planning for Castle/Strongholds 🏰, Frost Dragon Tyrant 🐉, and cross-state coordination. Think your lineup is unbeatable? Post it—let’s test and optimize it together.</p>
+        <p><strong>Never miss rewards again.</strong> Our custom bots run smart timers, rally planners, and reminders so your alliance stays organized without spam. ⏰ Opt in for what you want, mute what you don’t.</p>
+        <p><strong>Communication is effortless</strong> thanks to dedicated language channels for each community. 🌐 🇬🇧 English • 🇩🇪 Deutsch • 🇵🇱 Polski • 🇫🇷 Français • 🇮🇹 Italiano • 🇪🇸 Español • 🇵🇹 Português • 🇳🇱 Nederlands • 🇹🇭 ไทย • 🇺🇦 Українська • 🇷🇺 Русский • 🇯🇵 日本語 • 🇰🇷 한국어 • 🇨🇳 中文 • 🇮🇩 Indonesia … and more on request. Post in your language and you’ll get help—fast.</p>
+        <p><strong>Leaders and guide creators</strong> are welcome. Share strategies, coordinate cross-state projects, recruit respectfully, and build healthier alliances. We keep it fair-play, helpful, and drama-free. 🚫 No account selling/trading.</p>
+        <p><strong>Jump in</strong>, say hello in <code>#arrival</code>, tell us your state and language, and we’ll unlock the right channels. Start learning, winning, and meeting great people today. If you like the vibe, please ⭐ vote for us on top.gg and invite your friends—let’s grow a stronger Whiteout Survival community together!</p>
+      </div>
     </div>
   </section>
 
@@ -369,18 +347,18 @@
     <div class="mx-auto max-w-7xl px-4">
       <h2 id="cmd_title" class="text-4xl font-bold text-center gradient-text">Slash Commands</h2>
       <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <div class="frame frost-side crystal p-5"><h3 id="cmd_menu_title" class="font-semibold">/menu</h3><p id="cmd_menu_text" class="text-slate-300">Main hub for all features.</p></div>
-        <div class="frame frost-side crystal p-5"><h3 id="cmd_event_title" class="font-semibold">/event</h3><p id="cmd_event_text" class="text-slate-300">Create & manage reminders and schedules.</p></div>
-        <div class="frame frost-side crystal p-5"><h3 id="cmd_boost_title" class="font-semibold">/boost</h3><p id="cmd_boost_text" class="text-slate-300">Track boosts, set goals, view leaderboards.</p></div>
-        <div class="frame frost-side crystal p-5"><h3 id="cmd_boostmenu_title" class="font-semibold">/boostmenu</h3><p id="cmd_boostmenu_text" class="text-slate-300">Open the public Boost menu.</p></div>
-        <div class="frame frost-side crystal p-5"><h3 id="cmd_hero_title" class="font-semibold">/hero</h3><p id="cmd_hero_text" class="text-slate-300">Hero details, stats, skills & tiers.</p></div>
-        <div class="frame frost-side crystal p-5"><h3 id="cmd_chief_title" class="font-semibold">/chief</h3><p id="cmd_chief_text" class="text-slate-300">Chief gear & charm calculators.</p></div>
-        <div class="frame frost-side crystal p-5"><h3 id="cmd_calc_title" class="font-semibold">/calc</h3><p id="cmd_calc_text" class="text-slate-300">Universal calculator (resources, furnaces, etc.).</p></div>
-        <div class="frame frost-side crystal p-5"><h3 id="cmd_island_title" class="font-semibold">/island</h3><p id="cmd_island_text" class="text-slate-300">Island guide (buildings & strategies).</p></div>
-        <div class="frame frost-side crystal p-5"><h3 id="cmd_ranking_title" class="font-semibold">/ranking</h3><p id="cmd_ranking_text" class="text-slate-300">XP, leaderboards & rank cards.</p></div>
-        <div class="frame frost-side crystal p-5"><h3 id="cmd_welcome_title" class="font-semibold">/welcome</h3><p id="cmd_welcome_text" class="text-slate-300">Automated welcome system.</p></div>
-        <div class="frame frost-side crystal p-5"><h3 id="cmd_lang_title" class="font-semibold">/lang</h3><p id="cmd_lang_text" class="text-slate-300">Switch UI language per guild.</p></div>
-        <div class="frame frost-side crystal p-5"><h3 id="cmd_games_title" class="font-semibold">/games</h3><p id="cmd_games_text" class="text-slate-300">Minigames like Hangman (EN/DE).</p></div>
+        <div class="card-3d p-5"><h3 id="cmd_menu_title" class="font-semibold">/menu</h3><p id="cmd_menu_text" class="text-slate-300">Main hub for all features.</p></div>
+        <div class="card-3d p-5"><h3 id="cmd_event_title" class="font-semibold">/event</h3><p id="cmd_event_text" class="text-slate-300">Create & manage reminders and schedules.</p></div>
+        <div class="card-3d p-5"><h3 id="cmd_boost_title" class="font-semibold">/boost</h3><p id="cmd_boost_text" class="text-slate-300">Track boosts, set goals, view leaderboards.</p></div>
+        <div class="card-3d p-5"><h3 id="cmd_boostmenu_title" class="font-semibold">/boostmenu</h3><p id="cmd_boostmenu_text" class="text-slate-300">Open the public Boost menu.</p></div>
+        <div class="card-3d p-5"><h3 id="cmd_hero_title" class="font-semibold">/hero</h3><p id="cmd_hero_text" class="text-slate-300">Hero details, stats, skills & tiers.</p></div>
+        <div class="card-3d p-5"><h3 id="cmd_chief_title" class="font-semibold">/chief</h3><p id="cmd_chief_text" class="text-slate-300">Chief gear & charm calculators.</p></div>
+        <div class="card-3d p-5"><h3 id="cmd_calc_title" class="font-semibold">/calc</h3><p id="cmd_calc_text" class="text-slate-300">Universal calculator (resources, furnaces, etc.).</p></div>
+        <div class="card-3d p-5"><h3 id="cmd_island_title" class="font-semibold">/island</h3><p id="cmd_island_text" class="text-slate-300">Island guide (buildings & strategies).</p></div>
+        <div class="card-3d p-5"><h3 id="cmd_ranking_title" class="font-semibold">/ranking</h3><p id="cmd_ranking_text" class="text-slate-300">XP, leaderboards & rank cards.</p></div>
+        <div class="card-3d p-5"><h3 id="cmd_welcome_title" class="font-semibold">/welcome</h3><p id="cmd_welcome_text" class="text-slate-300">Automated welcome system.</p></div>
+        <div class="card-3d p-5"><h3 id="cmd_lang_title" class="font-semibold">/lang</h3><p id="cmd_lang_text" class="text-slate-300">Switch UI language per guild.</p></div>
+        <div class="card-3d p-5"><h3 id="cmd_games_title" class="font-semibold">/games</h3><p id="cmd_games_text" class="text-slate-300">Minigames like Hangman (EN/DE).</p></div>
       </div>
     </div>
   </section>
@@ -392,7 +370,7 @@
     </div>
 
     <div class="mt-8 grid gap-6 lg:grid-cols-2">
-      <article class="frame frost-side crystal p-6" id="menu-update">
+      <article class="card-3d p-6" id="menu-update">
         <div class="flex items-center justify-between gap-2">
           <h3 id="menu_update_title" class="text-xl font-semibold">🚀 /menu — clean & error-free</h3>
           <span id="menu_update_date" class="text-xs text-slate-400">2025-08-26</span>
@@ -404,7 +382,7 @@
         </ul>
       </article>
 
-      <article class="frame frost-side crystal p-6" id="boost-update">
+      <article class="card-3d p-6" id="boost-update">
         <div class="flex items-center justify-between gap-2">
           <h3 id="boost_update_title" class="text-xl font-semibold">⚡ Boost Center Improvements</h3>
           <span id="boost_update_date" class="text-xs text-slate-400">2025-08-26</span>
@@ -417,7 +395,7 @@
         </ul>
       </article>
 
-      <article class="frame frost-side crystal p-6 lg:col-span-2" id="event-update">
+      <article class="card-3d p-6 lg:col-span-2" id="event-update">
         <div class="flex items-center justify-between gap-2">
           <h3 id="event_update_title" class="text-xl font-semibold">📅 Event Center — New!</h3>
           <span id="event_update_date" class="text-xs text-slate-400">2025-08-26</span>
@@ -429,7 +407,7 @@
     </div>
   </section>
 
-  <!-- Support -->
+  <!-- Support (unverändert) -->
   <section id="support" class="py-14">
     <div class="mx-auto max-w-7xl px-4 grid gap-6">
       <div class="rounded-3xl p-8 bg-gradient-to-br from-brand-500/20 via-fuchsia-500/10 to-transparent border border-brand-500/30 shadow-glow">
@@ -536,7 +514,7 @@
       io.observe(v);
     })();
 
-    // Logo 3D Tilt (Desktop)
+    // Logo 3D Tilt (sanft) – Desktop only
     (function(){
       const stage = document.getElementById('logoStage');
       const mq = window.matchMedia('(pointer:fine) and (hover:hover)');
@@ -544,60 +522,66 @@
       if(!stage || !mq.matches || rm.matches) return;
 
       let rafId=null;
-      const onMove = (e)=>{
+      stage.addEventListener('mousemove', (e)=>{
         const r = stage.getBoundingClientRect();
         const cx = r.left + r.width/2, cy = r.top + r.height/2;
         const dx = (e.clientX - cx) / (r.width/2);
         const dy = (e.clientY - cy) / (r.height/2);
-        const rotX = (+dy*6).toFixed(2);
-        const rotY = (-dx*8).toFixed(2);
+        const rotX = (+dy*5).toFixed(2);
+        const rotY = (-dx*7).toFixed(2);
         cancelAnimationFrame(rafId);
         rafId = requestAnimationFrame(()=>{
           stage.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
         });
-      };
-      const reset = ()=>{ stage.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg)' };
-
-      stage.addEventListener('mousemove', onMove);
-      stage.addEventListener('mouseleave', reset);
+      });
+      stage.addEventListener('mouseleave', ()=>{ stage.style.transform='perspective(900px) rotateX(0deg) rotateY(0deg)'; });
     })();
 
     // --- i18n (built-in + optional external overrides in assets/i18n/index.json) ---
     const T = {
       en:{
+        // META
         meta_title:'Bros24 — Whiteout Survival Discord Bot | All-in-One',
         meta_desc:'One bot. All applications. Events, Boosts, Heroes, Calculators & more — built by players for players.',
         meta_keywords:'Bros24, Whiteout Survival, Discord Bot, Event Center, Boost, Hero, Calculator, Ranking, Welcome, State 214, DOA, guide, wos bot, bros24bot',
 
+        // NAV + HEADER
         nav_features:'Features',nav_media:'Screenshots',nav_coming:'Coming Soon',nav_commands:'Commands',nav_updates:'Updates',nav_topgg:'top.gg',nav_support:'Support',
         header_invite:'➕ Invite Bot',
 
+        // HERO
         hero_title_1:'One Bot.',hero_title_2:'All Applications.',
         hero_text:'Stop stacking extra Discord bots. The Bros24 Whiteout Survival bot unites Events, Boosts, Heroes, Calculators, Welcome & Ranking in one multilingual assistant — built by players for players.',
         hero_invite:'Invite Now',hero_features:'See Features',hero_badge:'By players, for players — Whiteout Survival',
 
+        // USP
         usp1_title:'All-in-One for Whiteout Survival',usp1_text:'Event Center, Boost tracking, Hero Hub, Calculators, Welcome & Ranking — everything in one bot.',
         usp2_title:'No Extra Bots Needed',usp2_text:'Less setup, less clutter. One clean, modern menu flow for everyone.',
         usp3_title:'By Players, For Players',usp3_text:'You shape the bot with your requests. Community feedback ships weekly.',
 
+        // FEATURES
         features_title:'What you get',features_sub:'Everything your alliance needs — in one place.',
         feature_event_title:'📅 Event Center',feature_event_text:'Create reminders (title, message, images, thumbnails, custom footer). Schedules: daily / 48h / weekly / bi-weekly / every 4 weeks / custom. Target channels, @everyone, roles or members. Edit & delete via menu.',
         feature_boost_title:'🚀 Boost Center',feature_boost_b1:'Live tracking + hourly reconcile',feature_boost_b2:'28-day active window (auto-expire)',feature_boost_b3:'Persistent public menu • restart-safe',feature_boost_b4:'Weekly summary (Sun 18:00 UTC)',feature_boost_b5:'Per-guild language switcher',
         feature_hero_title:'🦸 Hero Hub & Guides',feature_hero_text:'Hero details, skills, tier lists, building strategies and advanced mechanics.',
         feature_calc_title:'🧮 Calculators & Utilities',feature_calc_text:'Furnace & resource planning, chief gear & charm math, island guide, ranking & welcome, plus minigames.',
 
+        // MEDIA
         shots_title:'Screenshots',
 
+        // COMING SOON
         coming_title:'🚀 Coming Soon',
         coming_text:'New features for Bros24 are on the way — crafted for alliances, smarter coordination and more fun in Whiteout Survival. Got ideas? Tell us!',
-        coming_cta_invite:'Invite Bros24',
-        coming_cta_discord:'Join Discord',
+        coming_cta_invite:'Invite Bros24',coming_cta_discord:'Join Discord',
+
+        // UPCOMING
         upcoming_title:'🧩 Upcoming Features',
         upcoming_b1:'📣 Event Office 2.0 — smarter reminders (UTC), weekly cycles, fewer duplicates',
         upcoming_b2:'🧭 Labyrinth Helper — zone schedule + recommended troop mixes',
         upcoming_b4:'🌍 Multilingual menus (EN/DE/PL/FR/IT/TH) — auto-detect & per-server defaults',
         upcoming_b5:'📊 Alliance Tools — invites planner, transfer tracker, NAP quick lookup',
 
+        // COMMANDS
         cmd_title:'Slash Commands',
         cmd_menu_title:'/menu',cmd_menu_text:'Main hub for all features.',
         cmd_event_title:'/event',cmd_event_text:'Create & manage reminders and schedules.',
@@ -612,6 +596,7 @@
         cmd_lang_title:'/lang',cmd_lang_text:'Switch UI language per guild.',
         cmd_games_title:'/games',cmd_games_text:'Minigames like Hangman (EN/DE).',
 
+        // UPDATES
         updates_title:'Latest Updates',
         menu_update_title:'🚀 /menu — clean & error-free',menu_update_date:'2025-08-26',
         menu_update_b1:'Hub for Boost, Events, Languages, Hero Info, Chief, Calculator, Island, Welcome, Ranking, Games.',
@@ -623,6 +608,7 @@
         event_update_title:'📅 Event Center — New!',event_update_date:'2025-08-26',
         event_update_text:'Create events with titles, messages, images, thumbnails, and custom footers. Schedule daily, every 48h, weekly, bi-weekly, every 4 weeks, or custom intervals. Target channels, @everyone, roles, or members. Edit & delete via menu.',
 
+        // SUPPORT / FOOTER
         support_highlight_title:'Support the Project — Optional',
         support_highlight_text:'Bros24 stays free for everyone. If you’d like to help with server costs & weekly development, you can support via Frost Stars in Whiteout Survival — totally optional, no pressure.',
         support_player_id_label:'Player ID',support_payment_label:'Payment',
@@ -636,7 +622,7 @@
         meta_desc:'Ein Bot. Alle Anwendungen. Events, Boosts, Helden, Rechner & mehr — von Spielern für Spieler.',
         meta_keywords:'Bros24, Whiteout Survival, Discord Bot, Event Center, Boost, Hero, Calculator, Ranking, Welcome, State 214, DOA, guide, wos bot, bros24bot',
 
-        nav_features:'Features',nav_media:'Screenshots',nav_coming:'Bald verfügbar',nav_commands:'Befehle',nav_updates:'Updates',nav_topgg:'top.gg',nav_support:'Support',
+        nav_features:'Features',nav_media:'Screenshots',nav_coming:'Demnächst',nav_commands:'Befehle',nav_updates:'Updates',nav_topgg:'top.gg',nav_support:'Support',
         header_invite:'➕ Bot einladen',
 
         hero_title_1:'Ein Bot.',hero_title_2:'Alle Anwendungen.',
@@ -660,15 +646,15 @@
 
         shots_title:'Screenshots',
 
-        coming_title:'🚀 Bald verfügbar',
-        coming_text:'Neue Funktionen kommen bald in den Bros24 Bot — für Allianzen, bessere Koordination und mehr Spaß in Whiteout Survival. Hast du Ideen? Melde dich!',
-        coming_cta_invite:'Bros24 einladen',
-        coming_cta_discord:'Discord beitreten',
-        upcoming_title:'🧩 Demnächst',
-        upcoming_b1:'📣 Event Office 2.0 — smartere Erinnerungen (UTC), Wochenzyklen, weniger Duplikate',
-        upcoming_b2:'🧭 Labyrinth-Helfer — Zonenplan + empfohlene Truppenmischungen',
-        upcoming_b4:'🌍 Mehrsprachige Menüs (EN/DE/PL/FR/IT/TH) — Auto-Detect & Server-Defaults',
-        upcoming_b5:'📊 Allianz-Tools — Invite-Planer, Transfer-Tracker, NAP-Quick Lookup',
+        coming_title:'🚀 Demnächst',
+        coming_text:'Neue Features für Bros24 sind unterwegs — für bessere Teamkoordination und mehr Spaß in Whiteout Survival. Hast du Ideen? Sag uns Bescheid!',
+        coming_cta_invite:'Bros24 einladen',coming_cta_discord:'Discord beitreten',
+
+        upcoming_title:'🧩 Bevorstehende Features',
+        upcoming_b1:'📣 Event Office 2.0 — schlauere Erinnerungen (UTC), Wochenzyklen, weniger Duplikate',
+        upcoming_b2:'🧭 Labyrinth-Helfer — Zonenplan + empfohlene Truppenmixe',
+        upcoming_b4:'🌍 Mehrsprachige Menüs (EN/DE/PL/FR/IT/TH) — Auto-Detect & Server-Default',
+        upcoming_b5:'📊 Allianz-Tools — Invite-Planer, Transfer-Tracker, NAP-Schnellabfrage',
 
         cmd_title:'Slash-Befehle',
         cmd_menu_title:'/menu',cmd_menu_text:'Zentrales Hub für alle Features.',
@@ -734,15 +720,15 @@
 
         shots_title:'Zrzuty ekranu',
 
-        coming_title:'🚀 Wkrótce dostępne',
-        coming_text:'Nowe funkcje już wkrótce w bocie Bros24 — dla sojuszy, mądrzejszej koordynacji i większej frajdy w Whiteout Survival. Masz pomysł? Daj nam znać!',
-        coming_cta_invite:'Zaproś Bros24',
-        coming_cta_discord:'Dołącz na Discord',
+        coming_title:'🚀 Wkrótce',
+        coming_text:'Nowe funkcje dla Bros24 są w drodze — lepsza koordynacja i więcej frajdy w Whiteout Survival. Masz pomysł? Daj nam znać!',
+        coming_cta_invite:'Zaproś Bros24',coming_cta_discord:'Dołącz na Discord',
+
         upcoming_title:'🧩 Nadchodzące funkcje',
         upcoming_b1:'📣 Event Office 2.0 — sprytniejsze przypomnienia (UTC), cykle tygodniowe, mniej duplikatów',
-        upcoming_b2:'🧭 Labyrinth Helper — harmonogram stref + rekomendowane składy',
-        upcoming_b4:'🌍 Wielojęzyczne menu (EN/DE/PL/FR/IT/TH) — auto-wykrywanie i domyślne na serwer',
-        upcoming_b5:'📊 Narzędzia sojuszu — planer zaproszeń, tracker transferów, szybki podgląd NAP',
+        upcoming_b2:'🧭 Pomocnik Labiryntu — harmonogram stref + polecane miksy oddziałów',
+        upcoming_b4:'🌍 Wielojęzyczne menu (EN/DE/PL/FR/IT/TH) — auto-detect i domyślne per serwer',
+        upcoming_b5:'📊 Narzędzia sojuszu — planer zaproszeń, śledzenie transferów, szybkie NAP',
 
         cmd_title:'Komendy',
         cmd_menu_title:'/menu',cmd_menu_text:'Główne centrum wszystkich funkcji.',
@@ -809,14 +795,14 @@
         shots_title:'Screenshot',
 
         coming_title:'🚀 In arrivo',
-        coming_text:'Nuove funzioni arriveranno presto nel bot Bros24 — per alleanze, coordinamento più smart e più divertimento in Whiteout Survival. Idee? Scrivici!',
-        coming_cta_invite:'Invita Bros24',
-        coming_cta_discord:'Unisciti a Discord',
-        upcoming_title:'🧩 Prossime funzionalità',
-        upcoming_b1:'📣 Event Office 2.0 — promemoria più intelligenti (UTC), cicli settimanali, meno duplicati',
-        upcoming_b2:'🧭 Labyrinth Helper — calendario zone + composizioni consigliate',
-        upcoming_b4:'🌍 Menu multilingua (EN/DE/PL/FR/IT/TH) — auto-detect & default per server',
-        upcoming_b5:'📊 Strumenti alleanza — planner inviti, tracker trasferimenti, NAP quick lookup',
+        coming_text:'Nuove funzionalità per Bros24 stanno arrivando — pensate per le alleanze, una coordinazione più smart e più divertimento in Whiteout Survival. Hai idee? Dicci tutto!',
+        coming_cta_invite:'Invita Bros24',coming_cta_discord:'Entra su Discord',
+
+        upcoming_title:'🧩 Funzionalità in arrivo',
+        upcoming_b1:'📣 Event Office 2.0 — promemoria più smart (UTC), cicli settimanali, meno duplicati',
+        upcoming_b2:'🧭 Labyrinth Helper — pianificazione zone + team consigliati',
+        upcoming_b4:'🌍 Menu multilingue (EN/DE/PL/FR/IT/TH) — auto-detect e default per server',
+        upcoming_b5:'📊 Strumenti alleanza — planner inviti, tracker trasferimenti, lookup rapido NAP',
 
         cmd_title:'Comandi',
         cmd_menu_title:'/menu',cmd_menu_text:'Centro principale di tutte le funzioni.',
@@ -871,21 +857,26 @@
 
         features_title:'Ce que vous obtenez',features_sub:'Tout pour votre alliance — au même endroit.',
         feature_event_title:'📅 Event Center',feature_event_text:'Créez des rappels (titre, message, images, miniatures, pied personnalisé). Plannings : quotidien / 48h / hebdo / bi-hebdo / toutes les 4 semaines / personnalisé. Ciblez des salons, @everyone, rôles ou membres. Modifier & supprimer via le menu.',
-        feature_boost_title:'🚀 Boost Center',feature_boost_b1:'Suivi en direct + rapprochement horaire',feature_boost_b2:'Fenêtre active 28 jours (expiration auto)',feature_boost_b3:'Menu public persistant • résistant aux redémarrages',feature_boost_b4:'Résumé hebdo (dim 18:00 UTC)',feature_boost_b5:'Sélecteur de langue par serveur',
+        feature_boost_title:'🚀 Boost Center',
+        feature_boost_b1:'Suivi en direct + rapprochement horaire',
+        feature_boost_b2:'Fenêtre active 28 jours (expiration auto)',
+        feature_boost_b3:'Menu public persistant • résistant aux redémarrages',
+        feature_boost_b4:'Résumé hebdo (dim 18:00 UTC)',
+        feature_boost_b5:'Sélecteur de langue par serveur',
         feature_hero_title:'🦸 Hero Hub & Guides',feature_hero_text:'Détails des héros, compétences, tiers, stratégies de bâtiments et mécaniques avancées.',
         feature_calc_title:'🧮 Calculateurs & Outils',feature_calc_text:'Planification des ressources & de la fonderie, équipement & charms du Chief, guide de l’île, classement & accueil, plus des mini-jeux.',
 
         shots_title:'Captures',
 
-        coming_title:'🚀 Bientôt disponible',
-        coming_text:'De nouvelles fonctions arrivent bientôt dans le bot Bros24 — pour les alliances, une meilleure coordination et plus de fun dans Whiteout Survival. Des idées ? Dites-le nous !',
-        coming_cta_invite:'Inviter Bros24',
-        coming_cta_discord:'Rejoindre Discord',
+        coming_title:'🚀 Bientôt',
+        coming_text:'De nouvelles fonctionnalités pour Bros24 arrivent — pour une meilleure coordination et plus de fun dans Whiteout Survival. Des idées ? Dites-nous !',
+        coming_cta_invite:'Inviter Bros24',coming_cta_discord:'Rejoindre Discord',
+
         upcoming_title:'🧩 Fonctionnalités à venir',
-        upcoming_b1:'📣 Event Office 2.0 — rappels plus malins (UTC), cycles hebdo, moins de doublons',
-        upcoming_b2:'🧭 Labyrinth Helper — planning des zones + compositions recommandées',
-        upcoming_b4:'🌍 Menus multilingues (EN/DE/PL/FR/IT/TH) — auto-détection & défauts par serveur',
-        upcoming_b5:'📊 Outils d’alliance — planificateur d’invitations, suivi des transferts, NAP quick lookup',
+        upcoming_b1:'📣 Event Office 2.0 — rappels plus intelligents (UTC), cycles hebdo, moins de doublons',
+        upcoming_b2:'🧭 Assistant Labyrinthe — planning des zones + compositions recommandées',
+        upcoming_b4:'🌍 Menus multilingues (EN/DE/PL/FR/IT/TH) — auto-détection & défaut par serveur',
+        upcoming_b5:'📊 Outils d’alliance — planner d’invitations, suivi des transferts, recherche rapide NAP',
 
         cmd_title:'Commandes',
         cmd_menu_title:'/menu',cmd_menu_text:'Hub principal pour toutes les fonctions.',
@@ -905,7 +896,7 @@
         menu_update_title:'🚀 /menu — propre et sans erreur',menu_update_date:'2025-08-26',
         menu_update_b1:'Hub pour Boost, Events, Languages, Hero Info, Chief, Calculator, Island, Welcome, Ranking, Games.',
         menu_update_b2:'Multilingue (EN, DE, FR, IT, PL, TH).',
-        menu_update_b3:'Correction de « Unknown Interaction (10062) ».',
+        menu_update_b3:'Correction de « Unknown Interaction (10062) ».',        
         boost_update_title:'⚡ Améliorations du Boost Center',boost_update_date:'2025-08-26',
         boost_update_b1:'Suivi en direct + rapprochement horaire',
         boost_update_b2:'Fenêtre active 28 jours (expiration auto)',
@@ -940,21 +931,26 @@
 
         features_title:'คุณจะได้อะไร',features_sub:'ทุกอย่างที่พันธมิตรต้องมี — รวมไว้ที่เดียว',
         feature_event_title:'📅 Event Center',feature_event_text:'สร้างการเตือน (ชื่อ ข้อความ รูปภาพ ธัมบ์ และฟุตเตอร์) ตั้งเวลา: รายวัน / 48 ชม. / รายสัปดาห์ / สองสัปดาห์ / ทุก 4 สัปดาห์ / กำหนดเอง ส่งไปยังแชนแนล @everyone บทบาท หรือสมาชิก แก้ไข/ลบผ่านเมนู',
-        feature_boost_title:'🚀 Boost Center',feature_boost_b1:'ติดตามสด + กระทบยอดทุกชั่วโมง',feature_boost_b2:'ช่วงเวลาทำงาน 28 วัน (หมดอายุอัตโนมัติ)',feature_boost_b3:'เมนูสาธารณะคงอยู่ • ทนต่อการรีสตาร์ต',feature_boost_b4:'สรุปรายสัปดาห์ (อาทิตย์ 18:00 UTC)',feature_boost_b5:'สลับภาษาแยกต่อกิลด์',
+        feature_boost_title:'🚀 Boost Center',
+        feature_boost_b1:'ติดตามสด + กระทบยอดทุกชั่วโมง',
+        feature_boost_b2:'ช่วงเวลาทำงาน 28 วัน (หมดอายุอัตโนมัติ)',
+        feature_boost_b3:'เมนูสาธารณะคงอยู่ • ทนต่อการรีสตาร์ต',
+        feature_boost_b4:'สรุปรายสัปดาห์ (อาทิตย์ 18:00 UTC)',
+        feature_boost_b5:'สลับภาษาแยกต่อกิลด์',
         feature_hero_title:'🦸 Hero Hub & Guides',feature_hero_text:'รายละเอียดฮีโร่ สกิล ทีเยอร์ กลยุทธ์อาคาร และเมคานิกขั้นสูง',
         feature_calc_title:'🧮 เครื่องคิดเลข & เครื่องมือ',feature_calc_text:'วางแผนเตาหลอมและทรัพยากร อุปกรณ์และชาร์มของ Chief ไกด์เกาะ จัดอันดับ & ต้อนรับ พร้อมมินิเกม',
 
         shots_title:'สกรีนช็อต',
 
         coming_title:'🚀 เร็ว ๆ นี้',
-        coming_text:'ฟังก์ชันใหม่ ๆ กำลังจะมาในบอท Bros24 — เพื่อกิลด์ การประสานงานที่ฉลาดขึ้น และความสนุกใน Whiteout Survival ใครมีไอเดียบอกเราได้เลย!',
-        coming_cta_invite:'เชิญ Bros24',
-        coming_cta_discord:'เข้าร่วม Discord',
-        upcoming_title:'🧩 ฟีเจอร์ที่กำลังมา',
-        upcoming_b1:'📣 Event Office 2.0 — เตือนอัจฉริยะ (UTC) วนรายสัปดาห์ ลดปัญหาซ้ำ',
-        upcoming_b2:'🧭 Labyrinth Helper — ตารางโซน + คอมโบหน่วยแนะนำ',
-        upcoming_b4:'🌍 เมนูหลายภาษา (EN/DE/PL/FR/IT/TH) — ตรวจจับอัตโนมัติ & ค่าเริ่มต้นรายกิลด์',
-        upcoming_b5:'📊 เครื่องมือกิลด์ — วางแผนเชิญ ติดตามการย้าย ดู NAP แบบรวดเร็ว',
+        coming_text:'ฟีเจอร์ใหม่สำหรับ Bros24 กำลังมา — เพื่อการประสานงานที่ฉลาดขึ้นและความสนุกมากขึ้นใน Whiteout Survival มีไอเดียไหม? บอกเราได้เลย!',
+        coming_cta_invite:'เชิญ Bros24',coming_cta_discord:'เข้าร่วม Discord',
+
+        upcoming_title:'🧩 ฟีเจอร์ที่กำลังจะมา',
+        upcoming_b1:'📣 Event Office 2.0 — เตือนอัจฉริยะ (UTC), วนรายสัปดาห์, ลดการซ้ำ',
+        upcoming_b2:'🧭 ผู้ช่วย Labyrinth — ตารางโซน + แนะนำทีม',
+        upcoming_b4:'🌍 เมนูหลายภาษา (EN/DE/PL/FR/IT/TH) — ตรวจจับอัตโนมัติ & ตั้งค่าต่อกิลด์',
+        upcoming_b5:'📊 เครื่องมือพันธมิตร — วางแผนเชิญ ติดตามการย้าย ตรวจ NAP แบบเร็ว',
 
         cmd_title:'คำสั่ง',
         cmd_menu_title:'/menu',cmd_menu_text:'ศูนย์รวมทุกฟีเจอร์',
@@ -998,7 +994,6 @@
         if(r.ok){ Object.assign(T, await r.json()); }
       }catch(_){}
     }
-
     function setText(id, v){ const el=document.getElementById(id); if(el && typeof v==='string'){ el.textContent=v; } }
     function setMeta(nameOrProp, content, isOg=false){
       const selector = isOg ? `meta[property="${nameOrProp}"]` : `meta[name="${nameOrProp}"]`;
@@ -1009,75 +1004,62 @@
     function applyLang(lang){
       const d = T[lang] || T.en;
 
+      // Meta / Title
       document.title = d.meta_title || document.title;
       setMeta('description', d.meta_desc || '');
       setMeta('keywords', d.meta_keywords || '');
       setMeta('og:title', d.meta_title || '', true);
       setMeta('og:description', d.meta_desc || '', true);
 
-      setText('nav_features', d.nav_features); setText('nav_media', d.nav_media);
-      setText('nav_coming', d.nav_coming);
-      setText('nav_commands', d.nav_commands); setText('nav_updates', d.nav_updates);
-      setText('nav_topgg', d.nav_topgg); setText('nav_support', d.nav_support);
-      setText('header_invite', d.header_invite);
+      // NAV + header invite
+      ['nav_features','nav_media','nav_coming','nav_commands','nav_updates','nav_topgg','nav_support','header_invite']
+        .forEach(id=> setText(id, d[id]));
 
-      setText('hero_title_1', d.hero_title_1); setText('hero_title_2', d.hero_title_2);
-      setText('hero_text', d.hero_text); setText('hero_invite', d.hero_invite);
-      setText('hero_features', d.hero_features); setText('hero_badge', d.hero_badge);
+      // HERO
+      ['hero_title_1','hero_title_2','hero_text','hero_invite','hero_features','hero_badge']
+        .forEach(id=> setText(id, d[id]));
 
-      setText('usp1_title', d.usp1_title); setText('usp1_text', d.usp1_text);
-      setText('usp2_title', d.usp2_title); setText('usp2_text', d.usp2_text);
-      setText('usp3_title', d.usp3_title); setText('usp3_text', d.usp3_text);
+      // USP
+      ['usp1_title','usp1_text','usp2_title','usp2_text','usp3_title','usp3_text']
+        .forEach(id=> setText(id, d[id]));
 
-      setText('features_title', d.features_title); setText('features_sub', d.features_sub);
-      setText('feature_event_title', d.feature_event_title); setText('feature_event_text', d.feature_event_text);
-      setText('feature_boost_title', d.feature_boost_title);
-      setText('feature_boost_b1', d.feature_boost_b1); setText('feature_boost_b2', d.feature_boost_b2);
-      setText('feature_boost_b3', d.feature_boost_b3); setText('feature_boost_b4', d.feature_boost_b4); setText('feature_boost_b5', d.feature_boost_b5);
-      setText('feature_hero_title', d.feature_hero_title); setText('feature_hero_text', d.feature_hero_text);
-      setText('feature_calc_title', d.feature_calc_title); setText('feature_calc_text', d.feature_calc_text);
+      // Features
+      ['features_title','features_sub','feature_event_title','feature_event_text','feature_boost_title',
+       'feature_boost_b1','feature_boost_b2','feature_boost_b3','feature_boost_b4','feature_boost_b5',
+       'feature_hero_title','feature_hero_text','feature_calc_title','feature_calc_text']
+        .forEach(id=> setText(id, d[id]));
 
-      setText('coming_title', d.coming_title); setText('coming_text', d.coming_text);
-      setText('coming_cta_invite', d.coming_cta_invite); setText('coming_cta_discord', d.coming_cta_discord);
+      // Coming Soon + Upcoming + Media
+      ['shots_title','coming_title','coming_text','coming_cta_invite','coming_cta_discord',
+       'upcoming_title','upcoming_b1','upcoming_b2','upcoming_b4','upcoming_b5']
+        .forEach(id=> setText(id, d[id]));
 
-      setText('shots_title', d.shots_title);
+      // Commands
+      ['cmd_title','cmd_menu_title','cmd_menu_text','cmd_event_title','cmd_event_text','cmd_boost_title','cmd_boost_text',
+       'cmd_boostmenu_title','cmd_boostmenu_text','cmd_hero_title','cmd_hero_text','cmd_chief_title','cmd_chief_text',
+       'cmd_calc_title','cmd_calc_text','cmd_island_title','cmd_island_text','cmd_ranking_title','cmd_ranking_text',
+       'cmd_welcome_title','cmd_welcome_text','cmd_lang_title','cmd_lang_text','cmd_games_title','cmd_games_text']
+        .forEach(id=> setText(id, d[id]));
 
-      setText('upcoming_title', d.upcoming_title);
-      setText('upcoming_b1', d.upcoming_b1); setText('upcoming_b2', d.upcoming_b2);
-      setText('upcoming_b4', d.upcoming_b4); setText('upcoming_b5', d.upcoming_b5);
+      // Updates
+      ['updates_title','menu_update_title','menu_update_date','menu_update_b1','menu_update_b2','menu_update_b3',
+       'boost_update_title','boost_update_date','boost_update_b1','boost_update_b2','boost_update_b3','boost_update_b4',
+       'event_update_title','event_update_date','event_update_text']
+        .forEach(id=> setText(id, d[id]));
 
-      setText('cmd_title', d.cmd_title);
-      setText('cmd_menu_title', d.cmd_menu_title); setText('cmd_menu_text', d.cmd_menu_text);
-      setText('cmd_event_title', d.cmd_event_title); setText('cmd_event_text', d.cmd_event_text);
-      setText('cmd_boost_title', d.cmd_boost_title); setText('cmd_boost_text', d.cmd_boost_text);
-      setText('cmd_boostmenu_title', d.cmd_boostmenu_title); setText('cmd_boostmenu_text', d.cmd_boostmenu_text);
-      setText('cmd_hero_title', d.cmd_hero_title); setText('cmd_hero_text', d.cmd_hero_text);
-      setText('cmd_chief_title', d.cmd_chief_title); setText('cmd_chief_text', d.cmd_chief_text);
-      setText('cmd_calc_title', d.cmd_calc_title); setText('cmd_calc_text', d.cmd_calc_text);
-      setText('cmd_island_title', d.cmd_island_title); setText('cmd_island_text', d.cmd_island_text);
-      setText('cmd_ranking_title', d.cmd_ranking_title); setText('cmd_ranking_text', d.cmd_ranking_text);
-      setText('cmd_welcome_title', d.cmd_welcome_title); setText('cmd_welcome_text', d.cmd_welcome_text);
-      setText('cmd_lang_title', d.cmd_lang_title); setText('cmd_lang_text', d.cmd_lang_text);
-      setText('cmd_games_title', d.cmd_games_title); setText('cmd_games_text', d.cmd_games_text);
-
-      setText('updates_title', d.updates_title);
-      setText('menu_update_title', d.menu_update_title); setText('menu_update_date', d.menu_update_date);
-      setText('menu_update_b1', d.menu_update_b1); setText('menu_update_b2', d.menu_update_b2); setText('menu_update_b3', d.menu_update_b3);
-      setText('boost_update_title', d.boost_update_title); setText('boost_update_date', d.boost_update_date);
-      setText('boost_update_b1', d.boost_update_b1); setText('boost_update_b2', d.boost_update_b2);
-      setText('boost_update_b3', d.boost_update_b3); setText('boost_update_b4', d.boost_update_b4);
-      setText('event_update_title', d.event_update_title); setText('event_update_date', d.event_update_date);
-      setText('event_update_text', d.event_update_text);
-
+      // Footer
       setText('footer_brand', d.footer_brand);
 
+      // Save & set html lang + sync dropdown
       localStorage.setItem('bros24_lang', lang);
       document.documentElement.setAttribute('lang', lang);
       const sel = document.getElementById('langSelect'); if (sel && sel.value !== lang) sel.value = lang;
     }
 
+    // Language select change
     document.getElementById('langSelect').addEventListener('change', e=> applyLang(e.target.value));
 
+    // Init
     (async ()=>{
       await loadExternalTranslations();
       const saved = localStorage.getItem('bros24_lang') || 'en';
