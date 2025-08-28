@@ -1,11 +1,17 @@
 {
   "en": {
+    "meta_title": "Bros24 — Whiteout Survival Discord Bot | All-in-One",
+    "meta_desc": "One bot. All applications. Events, Boosts, Heroes, Calculators & more — built by players for players.",
+    "meta_keywords": "Bros24, Whiteout Survival, Discord Bot, Event Center, Boost, Hero, Calculator, Ranking, Welcome, State 214, DOA, guide, wos bot, bros24bot",
+
     "nav_features": "Features",
     "nav_media": "Screenshots",
+    "nav_coming": "Coming Soon",
     "nav_commands": "Commands",
     "nav_updates": "Updates",
     "nav_topgg": "top.gg",
     "nav_support": "Support",
+    "header_invite": "➕ Invite Bot",
 
     "hero_title_1": "One Bot.",
     "hero_title_2": "All Applications.",
@@ -37,6 +43,17 @@
     "feature_calc_text": "Furnace & resource planning, chief gear & charm math, island guide, ranking & welcome, plus minigames.",
 
     "shots_title": "Screenshots",
+
+    "coming_title": "🚀 Coming Soon",
+    "coming_text": "New features for Bros24 are on the way — crafted for alliances, smarter coordination and more fun in Whiteout Survival. Got ideas? Tell us!",
+    "coming_cta_invite": "Invite Bros24",
+    "coming_cta_discord": "Join Discord",
+
+    "upcoming_title": "🧩 Upcoming Features",
+    "upcoming_b1": "📣 Event Office 2.0 — smarter reminders (UTC), weekly cycles, fewer duplicates",
+    "upcoming_b2": "🧭 Labyrinth Helper — zone schedule + recommended troop mixes",
+    "upcoming_b4": "🌍 Multilingual menus (EN/DE/PL/FR/IT/TH) — auto-detect & per-server defaults",
+    "upcoming_b5": "📊 Alliance Tools — invites planner, transfer tracker, NAP quick lookup",
 
     "cmd_title": "Slash Commands",
     "cmd_menu_title": "/menu",
@@ -91,18 +108,25 @@
     "support_contact_btn": "Contact Support",
     "support_copy_btn": "Copy Contact ID",
     "support_copied": "ID Copied!",
+    "copy_failed": "Copy failed",
     "support_brand_line": "Bros24 • DOA • State 214",
 
     "footer_brand": "Bros24 • State 214"
   },
 
   "de": {
+    "meta_title": "Bros24 — Whiteout Survival Discord Bot | All-in-One",
+    "meta_desc": "Ein Bot. Alle Anwendungen. Events, Boosts, Helden, Rechner & mehr — von Spielern für Spieler.",
+    "meta_keywords": "Bros24, Whiteout Survival, Discord Bot, Event Center, Boost, Hero, Calculator, Ranking, Welcome, State 214, DOA, guide, wos bot, bros24bot",
+
     "nav_features": "Features",
     "nav_media": "Screenshots",
+    "nav_coming": "Demnächst",
     "nav_commands": "Befehle",
     "nav_updates": "Updates",
     "nav_topgg": "top.gg",
     "nav_support": "Support",
+    "header_invite": "➕ Bot einladen",
 
     "hero_title_1": "Ein Bot.",
     "hero_title_2": "Alle Anwendungen.",
@@ -134,6 +158,17 @@
     "feature_calc_text": "Ofen- & Ressourcenplanung, Chief-Gear & Charms, Island Guide, Ranking & Welcome, plus Minigames.",
 
     "shots_title": "Screenshots",
+
+    "coming_title": "🚀 Demnächst",
+    "coming_text": "Neue Features für Bros24 sind unterwegs — für bessere Teamkoordination und mehr Spaß in Whiteout Survival. Hast du Ideen? Sag uns Bescheid!",
+    "coming_cta_invite": "Bros24 einladen",
+    "coming_cta_discord": "Discord beitreten",
+
+    "upcoming_title": "🧩 Bevorstehende Features",
+    "upcoming_b1": "📣 Event Office 2.0 — schlauere Erinnerungen (UTC), Wochenzyklen, weniger Duplikate",
+    "upcoming_b2": "🧭 Labyrinth-Helfer — Zonenplan + empfohlene Truppenmixe",
+    "upcoming_b4": "🌍 Mehrsprachige Menüs (EN/DE/PL/FR/IT/TH) — Auto-Detect & Server-Default",
+    "upcoming_b5": "📊 Allianz-Tools — Invite-Planer, Transfer-Tracker, NAP-Schnellabfrage",
 
     "cmd_title": "Slash-Befehle",
     "cmd_menu_title": "/menu",
@@ -188,18 +223,25 @@
     "support_contact_btn": "Support kontaktieren",
     "support_copy_btn": "Kontakt-ID kopieren",
     "support_copied": "ID kopiert!",
+    "copy_failed": "Kopieren fehlgeschlagen",
     "support_brand_line": "Bros24 • DOA • State 214",
 
     "footer_brand": "Bros24 • State 214"
   },
 
   "pl": {
+    "meta_title": "Bros24 — Whiteout Survival Discord Bot | All-in-One",
+    "meta_desc": "Jeden bot. Wszystkie aplikacje. Wydarzenia, Boosty, Bohaterowie, Kalkulatory i więcej — od graczy dla graczy.",
+    "meta_keywords": "Bros24, Whiteout Survival, Discord Bot, Event Center, Boost, Hero, Calculator, Ranking, Welcome, State 214, DOA, guide, wos bot, bros24bot",
+
     "nav_features": "Funkcje",
     "nav_media": "Zrzuty ekranu",
+    "nav_coming": "Wkrótce",
     "nav_commands": "Komendy",
     "nav_updates": "Aktualizacje",
     "nav_topgg": "top.gg",
     "nav_support": "Support",
+    "header_invite": "➕ Zaproś bota",
 
     "hero_title_1": "Jeden bot.",
     "hero_title_2": "Wszystkie aplikacje.",
@@ -221,7 +263,7 @@
     "feature_event_text": "Twórz przypomnienia (tytuł, wiadomość, obrazy, miniatury, własna stopka). Harmonogramy: codziennie / 48h / co tydzień / co dwa tygodnie / co 4 tygodnie / własne. Kanały docelowe, @everyone, role lub członkowie. Edycja i usuwanie w menu.",
     "feature_boost_title": "🚀 Boost Center",
     "feature_boost_b1": "Śledzenie na żywo + godzinne uzgadnianie",
-    "feature_boost_b2": "28-dniowe okno aktywności (automatyczne wygaszanie)",
+    "feature_boost_b2": "28-dniowe okno aktywności (auto-wygaśnięcie)",
     "feature_boost_b3": "Trwałe publiczne menu • odporne na restart",
     "feature_boost_b4": "Cotygodniowe podsumowanie (niedziela 18:00 UTC)",
     "feature_boost_b5": "Przełącznik języka per serwer",
@@ -231,6 +273,17 @@
     "feature_calc_text": "Planowanie pieca i zasobów, obliczenia ekwipunku i charmsów, przewodnik wyspy, rangi i powitania, plus minigry.",
 
     "shots_title": "Zrzuty ekranu",
+
+    "coming_title": "🚀 Wkrótce",
+    "coming_text": "Nowe funkcje dla Bros24 są w drodze — lepsza koordynacja i więcej frajdy w Whiteout Survival. Masz pomysł? Daj nam znać!",
+    "coming_cta_invite": "Zaproś Bros24",
+    "coming_cta_discord": "Dołącz na Discord",
+
+    "upcoming_title": "🧩 Nadchodzące funkcje",
+    "upcoming_b1": "📣 Event Office 2.0 — sprytniejsze przypomnienia (UTC), cykle tygodniowe, mniej duplikatów",
+    "upcoming_b2": "🧭 Pomocnik Labiryntu — harmonogram stref + polecane miksy oddziałów",
+    "upcoming_b4": "🌍 Wielojęzyczne menu (EN/DE/PL/FR/IT/TH) — auto-detect i domyślne per serwer",
+    "upcoming_b5": "📊 Narzędzia sojuszu — planer zaproszeń, śledzenie transferów, szybkie NAP",
 
     "cmd_title": "Komendy",
     "cmd_menu_title": "/menu",
@@ -285,18 +338,25 @@
     "support_contact_btn": "Skontaktuj się ze wsparciem",
     "support_copy_btn": "Kopiuj ID kontaktu",
     "support_copied": "Skopiowano ID!",
+    "copy_failed": "Błąd kopiowania",
     "support_brand_line": "Bros24 • DOA • State 214",
 
     "footer_brand": "Bros24 • State 214"
   },
 
   "it": {
+    "meta_title": "Bros24 — Whiteout Survival Discord Bot | All-in-One",
+    "meta_desc": "Un bot. Tutte le applicazioni. Eventi, Boost, Eroi, Calcolatori & altro — creato dai giocatori per i giocatori.",
+    "meta_keywords": "Bros24, Whiteout Survival, Discord Bot, Event Center, Boost, Hero, Calculator, Ranking, Welcome, State 214, DOA, guide, wos bot, bros24bot",
+
     "nav_features": "Funzionalità",
     "nav_media": "Screenshot",
+    "nav_coming": "In arrivo",
     "nav_commands": "Comandi",
     "nav_updates": "Aggiornamenti",
     "nav_topgg": "top.gg",
     "nav_support": "Supporto",
+    "header_invite": "➕ Invita il bot",
 
     "hero_title_1": "Un bot.",
     "hero_title_2": "Tutte le applicazioni.",
@@ -329,6 +389,17 @@
 
     "shots_title": "Screenshot",
 
+    "coming_title": "🚀 In arrivo",
+    "coming_text": "Nuove funzionalità per Bros24 stanno arrivando — pensate per le alleanze, una coordinazione più smart e più divertimento in Whiteout Survival. Hai idee? Dicci tutto!",
+    "coming_cta_invite": "Invita Bros24",
+    "coming_cta_discord": "Entra su Discord",
+
+    "upcoming_title": "🧩 Funzionalità in arrivo",
+    "upcoming_b1": "📣 Event Office 2.0 — promemoria più smart (UTC), cicli settimanali, meno duplicati",
+    "upcoming_b2": "🧭 Labyrinth Helper — pianificazione zone + team consigliati",
+    "upcoming_b4": "🌍 Menu multilingue (EN/DE/PL/FR/IT/TH) — auto-detect e default per server",
+    "upcoming_b5": "📊 Strumenti alleanza — planner inviti, tracker trasferimenti, lookup rapido NAP",
+
     "cmd_title": "Comandi",
     "cmd_menu_title": "/menu",
     "cmd_menu_text": "Centro principale di tutte le funzioni.",
@@ -348,7 +419,7 @@
     "cmd_island_text": "Guida isola (edifici e strategie).",
     "cmd_ranking_title": "/ranking",
     "cmd_ranking_text": "XP, classifiche e card di rango.",
-    "cmd_welcome_title": "/welcome",
+    "cmd_wwelcome_title": "/welcome",
     "cmd_welcome_text": "Sistema di benvenuto automatico.",
     "cmd_lang_title": "/lang",
     "cmd_lang_text": "Cambia lingua UI per server.",
@@ -382,18 +453,25 @@
     "support_contact_btn": "Contatta il supporto",
     "support_copy_btn": "Copia ID contatto",
     "support_copied": "ID copiato!",
+    "copy_failed": "Copia non riuscita",
     "support_brand_line": "Bros24 • DOA • State 214",
 
     "footer_brand": "Bros24 • State 214"
   },
 
   "fr": {
+    "meta_title": "Bros24 — Whiteout Survival Discord Bot | All-in-One",
+    "meta_desc": "Un bot. Toutes les applications. Évènements, Boosts, Héros, Calculateurs & plus — par des joueurs pour des joueurs.",
+    "meta_keywords": "Bros24, Whiteout Survival, Discord Bot, Event Center, Boost, Hero, Calculator, Ranking, Welcome, State 214, DOA, guide, wos bot, bros24bot",
+
     "nav_features": "Fonctionnalités",
     "nav_media": "Captures",
+    "nav_coming": "Bientôt",
     "nav_commands": "Commandes",
     "nav_updates": "Mises à jour",
     "nav_topgg": "top.gg",
     "nav_support": "Support",
+    "header_invite": "➕ Inviter le bot",
 
     "hero_title_1": "Un bot.",
     "hero_title_2": "Toutes les applications.",
@@ -425,6 +503,17 @@
     "feature_calc_text": "Planification des ressources & de la fonderie, équipement & charms du Chief, guide de l’île, classement & accueil, plus des mini-jeux.",
 
     "shots_title": "Captures",
+
+    "coming_title": "🚀 Bientôt",
+    "coming_text": "De nouvelles fonctionnalités pour Bros24 arrivent — pour une meilleure coordination et plus de fun dans Whiteout Survival. Des idées ? Dites-nous !",
+    "coming_cta_invite": "Inviter Bros24",
+    "coming_cta_discord": "Rejoindre Discord",
+
+    "upcoming_title": "🧩 Fonctionnalités à venir",
+    "upcoming_b1": "📣 Event Office 2.0 — rappels plus intelligents (UTC), cycles hebdo, moins de doublons",
+    "upcoming_b2": "🧭 Assistant Labyrinthe — planning des zones + compositions recommandées",
+    "upcoming_b4": "🌍 Menus multilingues (EN/DE/PL/FR/IT/TH) — auto-détection & défaut par serveur",
+    "upcoming_b5": "📊 Outils d’alliance — planner d’invitations, suivi des transferts, recherche rapide NAP",
 
     "cmd_title": "Commandes",
     "cmd_menu_title": "/menu",
@@ -479,18 +568,25 @@
     "support_contact_btn": "Contacter le support",
     "support_copy_btn": "Copier l’ID de contact",
     "support_copied": "ID copié !",
+    "copy_failed": "Échec de la copie",
     "support_brand_line": "Bros24 • DOA • State 214",
 
     "footer_brand": "Bros24 • State 214"
   },
 
   "th": {
+    "meta_title": "Bros24 — Whiteout Survival Discord Bot | All-in-One",
+    "meta_desc": "บอทเดียว ครบทุกเครื่องมือ — กิจกรรม บูสต์ ฮีโร่ เครื่องคิดเลข และอื่น ๆ สร้างโดยผู้เล่นเพื่อผู้เล่น",
+    "meta_keywords": "Bros24, Whiteout Survival, Discord Bot, Event Center, Boost, Hero, Calculator, Ranking, Welcome, State 214, DOA, guide, wos bot, bros24bot",
+
     "nav_features": "Features",
     "nav_media": "Screenshots",
+    "nav_coming": "เร็ว ๆ นี้",
     "nav_commands": "Commands",
     "nav_updates": "Updates",
     "nav_topgg": "top.gg",
     "nav_support": "Support",
+    "header_invite": "➕ เชิญบอท",
 
     "hero_title_1": "บอทเดียว",
     "hero_title_2": "ครบทุกเครื่องมือ",
@@ -522,6 +618,17 @@
     "feature_calc_text": "วางแผนเตาหลอมและทรัพยากร อุปกรณ์และชาร์มของ Chief ไกด์เกาะ จัดอันดับ & ต้อนรับ พร้อมมินิเกม",
 
     "shots_title": "สกรีนช็อต",
+
+    "coming_title": "🚀 เร็ว ๆ นี้",
+    "coming_text": "ฟีเจอร์ใหม่สำหรับ Bros24 กำลังมา — เพื่อการประสานงานที่ฉลาดขึ้นและความสนุกมากขึ้นใน Whiteout Survival มีไอเดียไหม? บอกเราได้เลย!",
+    "coming_cta_invite": "เชิญ Bros24",
+    "coming_cta_discord": "เข้าร่วม Discord",
+
+    "upcoming_title": "🧩 ฟีเจอร์ที่กำลังจะมา",
+    "upcoming_b1": "📣 Event Office 2.0 — เตือนอัจฉริยะ (UTC), วนรายสัปดาห์, ลดการซ้ำ",
+    "upcoming_b2": "🧭 ผู้ช่วย Labyrinth — ตารางโซน + แนะนำทีม",
+    "upcoming_b4": "🌍 เมนูหลายภาษา (EN/DE/PL/FR/IT/TH) — ตรวจจับอัตโนมัติ & ตั้งค่าต่อกิลด์",
+    "upcoming_b5": "📊 เครื่องมือพันธมิตร — วางแผนเชิญ ติดตามการย้าย ตรวจ NAP แบบเร็ว",
 
     "cmd_title": "คำสั่ง",
     "cmd_menu_title": "/menu",
@@ -576,9 +683,9 @@
     "support_contact_btn": "ติดต่อซัพพอร์ต",
     "support_copy_btn": "คัดลอก ID ติดต่อ",
     "support_copied": "คัดลอกแล้ว!",
+    "copy_failed": "คัดลอกไม่สำเร็จ",
     "support_brand_line": "Bros24 • DOA • State 214",
 
     "footer_brand": "Bros24 • State 214"
   }
 }
-
