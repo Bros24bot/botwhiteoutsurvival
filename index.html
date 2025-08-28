@@ -13,6 +13,9 @@
   <meta property="og:image" content="assets/social-preview.jpg" />
   <meta name="theme-color" content="#0ea5e9" />
 
+  <!-- Preload des Videos (beschleunigt erstes Rendering) -->
+  <link rel="preload" as="video" href="assets/manager.mov" type="video/quicktime" />
+
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -34,6 +37,17 @@
     .shot{aspect-ratio:16/9;max-height:460px;object-fit:contain;background:#0b1220}
     @media(min-width:1280px){.shot{max-height:540px}}
     .modal-open{overflow:hidden}
+
+    /* Video-Verbesserungen */
+    .video-shell{position:relative}
+    .video-skel{
+      position:absolute; inset:0; border-radius:0.75rem;
+      background: linear-gradient(90deg, #0b1220 0%, #0e1629 50%, #0b1220 100%);
+      animation: shimmer 1.3s infinite;
+    }
+    @keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+    .video-el{opacity:0; transition:opacity .35s ease}
+    .video-el.is-ready{opacity:1}
   </style>
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans">
@@ -49,6 +63,7 @@
       <nav class="hidden md:flex items-center gap-6 text-sm">
         <a id="nav_features" href="#features" class="hover:text-brand-500">Features</a>
         <a id="nav_media" href="#media" class="hover:text-brand-500">Screenshots</a>
+        <a id="nav_coming" href="#coming" class="hover:text-brand-500">Coming Soon</a>
         <a id="nav_commands" href="#commands" class="hover:text-brand-500">Commands</a>
         <a id="nav_updates" href="#updates" class="hover:text-brand-500">Updates</a>
         <a id="nav_topgg" href="#topgg" class="hover:text-brand-500">top.gg</a>
@@ -150,6 +165,42 @@
     </div>
   </section>
 
+  <!-- COMING SOON -->
+  <section id="coming" class="py-10">
+    <div class="mx-auto max-w-7xl px-4">
+      <div class="rounded-2xl frame p-6">
+        <h2 id="coming_title" class="text-3xl sm:text-4xl font-bold text-center">🚀 Coming Soon</h2>
+        <p id="coming_text" class="mt-4 text-slate-300 text-center max-w-3xl mx-auto">
+          Exciting new functions will soon be available in the <strong>Bros24 Bot</strong> — designed for alliances, smarter coordination and more fun in Whiteout Survival. Got ideas? Tell us!
+        </p>
+
+        <!-- Video mit Best Practices -->
+        <div class="video-shell mt-6 rounded-xl w-full max-w-4xl mx-auto border border-white/10 shadow-glow">
+          <div class="video-skel rounded-xl" id="videoSkel" aria-hidden="true"></div>
+          <video id="comingVideo"
+                 class="video-el rounded-xl w-full h-auto"
+                 preload="metadata"
+                 autoplay
+                 muted
+                 loop
+                 playsinline
+                 controls
+                 poster="assets/social-preview.jpg">
+            <source src="assets/manager.mov" type="video/quicktime">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <div class="mt-6 flex justify-center gap-3">
+          <a id="coming_cta_invite" href="https://discord.com/oauth2/authorize?client_id=1387844888187375758&permissions=17869211692048&integration_type=0&scope=bot+applications.commands"
+             class="rounded-xl bg-brand-500 hover:bg-brand-600 px-5 py-3 font-semibold text-slate-900 shadow-glow">Invite Bros24</a>
+          <a id="coming_cta_discord" href="https://discord.gg/dBZn8tFx7c"
+             class="rounded-xl bg-white/10 hover:bg-white/15 px-5 py-3 font-semibold">Join Discord</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Screenshots -->
   <section id="media" class="py-10">
     <div class="mx-auto max-w-7xl px-4 text-center">
@@ -160,6 +211,22 @@
         <figure class="rounded-2xl frame p-3 cursor-zoom-in"><img src="assets/event-center.png" alt="Event Center — /event" class="shot" loading="lazy"></figure>
         <figure class="rounded-2xl frame p-3 cursor-zoom-in"><img src="assets/boost-center.png" alt="Boost Center — /boost" class="shot" loading="lazy"></figure>
         <figure class="rounded-2xl frame p-3 cursor-zoom-in"><img src="assets/rank-card.png" alt="Ranking — Level Card" class="shot" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Roadmap / Upcoming -->
+  <section id="roadmap" class="py-8">
+    <div class="mx-auto max-w-7xl px-4">
+      <div class="rounded-2xl frame p-6">
+        <h2 id="upcoming_title" class="text-3xl sm:text-4xl font-bold text-center">🧩 Upcoming Features</h2>
+        <ul class="mt-6 grid gap-3 sm:grid-cols-2 text-slate-300">
+          <li id="upcoming_b1" class="rounded-xl bg-white/5 border border-white/10 p-4">📣 Event Office 2.0 — smarter reminders (UTC), weekly cycles, fewer duplicates</li>
+          <li id="upcoming_b2" class="rounded-xl bg-white/5 border border-white/10 p-4">🧭 Labyrinth Helper — zone schedule + recommended troop mixes</li>
+          <li id="upcoming_b3" class="rounded-xl bg-white/5 border border-white/10 p-4">🏆 Tundra Arms League — match pings, registration checks, roster snapshots</li>
+          <li id="upcoming_b4" class="rounded-xl bg-white/5 border border-white/10 p-4">🌍 Multilingual menus (EN/DE/PL/FR/IT/TH) — auto-detect & per-server defaults</li>
+          <li id="upcoming_b5" class="rounded-xl bg-white/5 border border-white/10 p-4">📊 Alliance Tools — invites planner, transfer tracker, NAP quick lookup</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -229,7 +296,23 @@
     </div>
   </section>
 
-  <!-- Support (highlighted) -->
+  <!-- Ideas / Contact -->
+  <section id="ideas" class="py-10">
+    <div class="mx-auto max-w-7xl px-4">
+      <div class="rounded-2xl frame p-6">
+        <h2 id="ideas_title" class="text-3xl sm:text-4xl font-extrabold text-center">💡 Have ideas for the bot or alliance?</h2>
+        <p id="ideas_text" class="mt-3 text-slate-300 text-center max-w-3xl mx-auto">
+          We’re building Bros24 together with the community. If you have ideas, feature requests, or want to help with translations, reach out anytime — we’re happy to hear from you!
+        </p>
+        <div class="mt-6 flex justify-center gap-3">
+          <a id="ideas_cta_discord" href="https://discord.gg/dBZn8tFx7c" class="rounded-xl bg-brand-500 hover:bg-brand-600 px-5 py-3 font-semibold text-slate-900 shadow-glow">Contact on Discord</a>
+          <a id="ideas_cta_invite" href="https://discord.com/oauth2/authorize?client_id=1387844888187375758&permissions=17869211692048&integration_type=0&scope=bot+applications.commands" class="rounded-xl bg-white/10 hover:bg-white/15 px-5 py-3 font-semibold">Invite Bros24</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Support (highlighted) — ohne Brand-Zeile -->
   <section id="support" class="py-14">
     <div class="mx-auto max-w-7xl px-4 grid gap-6">
       <div class="rounded-3xl p-8 bg-gradient-to-br from-brand-500/20 via-fuchsia-500/10 to-transparent border border-brand-500/30 shadow-glow">
@@ -246,7 +329,6 @@
             <a id="support_join_btn" href="https://discord.gg/dBZn8tFx7c" class="rounded-xl bg-brand-500 hover:bg-brand-600 px-6 py-3 font-semibold text-slate-900 shadow-glow text-center">Join Support Server</a>
             <a id="support_contact_btn" href="https://discord.com/users/1154018970572169267" target="_blank" rel="noopener" class="rounded-xl bg-white/10 hover:bg-white/15 px-6 py-3 font-semibold text-center">Contact Support</a>
             <button id="copyId" class="rounded-xl bg-white/10 hover:bg-white/15 px-6 py-3 font-semibold" data-copied="ID Copied!">Copy Contact ID</button>
-            <p id="support_brand_line" class="text-xs text-slate-300">Bros24 • DOA • State 214</p>
           </div>
         </div>
       </div>
@@ -259,14 +341,14 @@
       <div id="topgg" class="flex items-center justify-center gap-3 flex-wrap mb-5">
         <a href="https://top.gg/bot/1387844888187375758" target="_blank" rel="noopener"
            class="rounded-lg border border-white/10 bg-white/5 p-2 hover:bg-white/10 transition">
-          <!-- ~80% bigger than before -->
+          <!-- etwas größer -->
           <img src="https://top.gg/api/widget/1387844888187375758.svg" alt="Vote on top.gg"
-               class="w-auto object-contain h-[4.5rem] sm:h-[5.4rem]">
+               class="w-auto object-contain h-[5.5rem] sm:h-[6.5rem]">
         </a>
         <a href="https://top.gg/discord/servers/747709873159839744" target="_blank" rel="noopener"
            class="rounded-lg border border-white/10 bg-white/5 p-2 hover:bg-white/10 transition">
           <img src="https://top.gg/api/v1/widgets/large/747709873159839744" alt="WS Community (State 214) on top.gg"
-               class="w-auto object-contain h-[4.5rem] sm:h-[5.4rem]">
+               class="w-auto object-contain h-[5.5rem] sm:h-[6.5rem]">
         </a>
       </div>
 
@@ -319,6 +401,26 @@
       lb.classList.add('hidden'); lbImg.src = ''; document.body.classList.remove('modal-open');
     });
 
+    // --- Video UX: Fade-in + Auto-Pause außerhalb Viewport ---
+    (function(){
+      const v = document.getElementById('comingVideo');
+      const skel = document.getElementById('videoSkel');
+      if(!v) return;
+      v.addEventListener('loadeddata', ()=>{
+        v.classList.add('is-ready');
+        if(skel) skel.style.display = 'none';
+      }, { once:true });
+
+      // Autoplay-Management via IntersectionObserver
+      const io = new IntersectionObserver(entries=>{
+        for(const e of entries){
+          if(e.isIntersecting){ try{ v.play(); }catch(_){} }
+          else { try{ v.pause(); }catch(_){} }
+        }
+      }, { threshold: 0.25 });
+      io.observe(v);
+    })();
+
     // --- i18n (built-in + optional external overrides in assets/i18n/index.json) ---
     const T = {
       en:{
@@ -328,7 +430,7 @@
         meta_keywords:'Bros24, Whiteout Survival, Discord Bot, Event Center, Boost, Hero, Calculator, Ranking, Welcome, State 214, DOA, guide, wos bot, bros24bot',
 
         // NAV + HEADER
-        nav_features:'Features',nav_media:'Screenshots',nav_commands:'Commands',nav_updates:'Updates',nav_topgg:'top.gg',nav_support:'Support',
+        nav_features:'Features',nav_media:'Screenshots',nav_coming:'Coming Soon',nav_commands:'Commands',nav_updates:'Updates',nav_topgg:'top.gg',nav_support:'Support',
         header_invite:'➕ Invite Bot',
 
         // HERO
@@ -348,8 +450,22 @@
         feature_hero_title:'🦸 Hero Hub & Guides',feature_hero_text:'Hero details, skills, tier lists, building strategies and advanced mechanics.',
         feature_calc_title:'🧮 Calculators & Utilities',feature_calc_text:'Furnace & resource planning, chief gear & charm math, island guide, ranking & welcome, plus minigames.',
 
+        // COMING
+        coming_title:'🚀 Coming Soon',
+        coming_text:'Exciting new functions will soon be available in the Bros24 Bot — designed for alliances, smarter coordination and more fun in Whiteout Survival. Got ideas? Tell us!',
+        coming_cta_invite:'Invite Bros24',
+        coming_cta_discord:'Join Discord',
+
         // MEDIA
         shots_title:'Screenshots',
+
+        // ROADMAP
+        upcoming_title:'🧩 Upcoming Features',
+        upcoming_b1:'📣 Event Office 2.0 — smarter reminders (UTC), weekly cycles, fewer duplicates',
+        upcoming_b2:'🧭 Labyrinth Helper — zone schedule + recommended troop mixes',
+        upcoming_b3:'🏆 Tundra Arms League — match pings, registration checks, roster snapshots',
+        upcoming_b4:'🌍 Multilingual menus (EN/DE/PL/FR/IT/TH) — auto-detect & per-server defaults',
+        upcoming_b5:'📊 Alliance Tools — invites planner, transfer tracker, NAP quick lookup',
 
         // COMMANDS
         cmd_title:'Slash Commands',
@@ -378,13 +494,18 @@
         event_update_title:'📅 Event Center — New!',event_update_date:'2025-08-26',
         event_update_text:'Create events with titles, messages, images, thumbnails, and custom footers. Schedule daily, every 48h, weekly, bi-weekly, every 4 weeks, or custom intervals. Target channels, @everyone, roles, or members. Edit & delete via menu.',
 
+        // IDEAS / CONTACT
+        ideas_title:'💡 Have ideas for the bot or alliance?',
+        ideas_text:'We’re building Bros24 together with the community. If you have ideas, feature requests, or want to help with translations, reach out anytime — we’re happy to hear from you!',
+        ideas_cta_discord:'Contact on Discord',
+        ideas_cta_invite:'Invite Bros24',
+
         // SUPPORT
         support_highlight_title:'Support the Project — Optional',
         support_highlight_text:'Bros24 stays free for everyone. If you’d like to help with server costs & weekly development, you can support via Frost Stars in Whiteout Survival — totally optional, no pressure.',
         support_player_id_label:'Player ID',support_payment_label:'Payment',
         support_join_btn:'Join Support Server',support_contact_btn:'Contact Support',
         support_copy_btn:'Copy Contact ID',support_copied:'ID Copied!',copy_failed:'Copy failed',
-        support_brand_line:'Bros24 • DOA • State 214',
 
         // FOOTER
         footer_brand:'Bros24 • State 214'
@@ -395,7 +516,7 @@
         meta_desc:'Ein Bot. Alle Anwendungen. Events, Boosts, Helden, Rechner & mehr — von Spielern für Spieler.',
         meta_keywords:'Bros24, Whiteout Survival, Discord Bot, Event Center, Boost, Hero, Calculator, Ranking, Welcome, State 214, DOA, guide, wos bot, bros24bot',
 
-        nav_features:'Features',nav_media:'Screenshots',nav_commands:'Befehle',nav_updates:'Updates',nav_topgg:'top.gg',nav_support:'Support',
+        nav_features:'Features',nav_media:'Screenshots',nav_coming:'Demnächst',nav_commands:'Befehle',nav_updates:'Updates',nav_topgg:'top.gg',nav_support:'Support',
         header_invite:'➕ Bot einladen',
 
         hero_title_1:'Ein Bot.',hero_title_2:'Alle Anwendungen.',
@@ -417,7 +538,20 @@
         feature_hero_title:'🦸 Hero Hub & Guides',feature_hero_text:'Helden-Details, Skills, Tierlists, Gebäude-Strategien & Advanced-Mechanics.',
         feature_calc_title:'🧮 Rechner & Utilities',feature_calc_text:'Ofen- & Ressourcenplanung, Chief-Gear & Charms, Island Guide, Ranking & Welcome, plus Minigames.',
 
+        coming_title:'🚀 Demnächst verfügbar',
+        coming_text:'Bald gibt es neue Funktionen im Bros24 Bot — für Allianzen, bessere Koordination und mehr Spaß in Whiteout Survival. Ideen? Sag uns Bescheid!',
+        coming_cta_invite:'Bros24 einladen',
+        coming_cta_discord:'Discord beitreten',
+
         shots_title:'Screenshots',
+
+        upcoming_title:'🧩 Bevorstehende Funktionen',
+        upcoming_b1:'📣 Event Office 2.0 — schlauere Erinnerungen (UTC), Wochenzyklen, weniger Duplikate',
+        upcoming_b2:'🧭 Labyrinth-Helfer — Zonenplan + empfohlene Truppenmischungen',
+        upcoming_b3:'🏆 Tundra Arms League — Match-Pings, Registrierungs-Checks, Roster-Snapshots',
+        upcoming_b4:'🌍 Mehrsprachige Menüs (EN/DE/PL/FR/IT/TH) — Auto-Detect & Server-Defaults',
+        upcoming_b5:'📊 Allianz-Tools — Invite-Planer, Transfer-Tracker, NAP-Quick Lookup',
+
         cmd_title:'Slash-Befehle',
         cmd_menu_title:'/menu',cmd_menu_text:'Zentrales Hub für alle Features.',
         cmd_event_title:'/event',cmd_event_text:'Events & Erinnerungen erstellen und planen.',
@@ -445,12 +579,16 @@
         event_update_title:'📅 Event Center — Neu!',event_update_date:'2025-08-26',
         event_update_text:'Events mit Titeln, Nachrichten, Bildern, Thumbnails und Custom-Footer. Zeitpläne: täglich, alle 48h, wöchentlich, zweiwöchentlich, alle 4 Wochen oder frei. Ziel-Channel, @everyone, Rollen oder Member. Bearbeitung & Löschen im Menü.',
 
+        ideas_title:'💡 Ideen für den Bot oder unsere Allianz?',
+        ideas_text:'Wir bauen Bros24 gemeinsam mit der Community. Hast du Ideen, Feature-Wünsche oder willst bei Übersetzungen helfen? Melde dich jederzeit — wir freuen uns!',
+        ideas_cta_discord:'Kontakt auf Discord',
+        ideas_cta_invite:'Bros24 einladen',
+
         support_highlight_title:'Projekt unterstützen — optional',
-        support_highlight_text:'Bros24 bleibt für alle kostenlos. Wenn du Serverkosten & wöchentliche Entwicklung unterstützen willst, geht das über Frost Stars in Whiteout Survival — komplett optional, ohne Druck.',
+        support_highlight_text:'Bros24 bleibt kostenlos. Wenn du Serverkosten & wöchentliche Entwicklung unterstützen willst, geht das über Frost Stars in Whiteout Survival — komplett optional.',
         support_player_id_label:'Player ID',support_payment_label:'Zahlung',
         support_join_btn:'Support-Server beitreten',support_contact_btn:'Support kontaktieren',
         support_copy_btn:'Kontakt-ID kopieren',support_copied:'ID kopiert!',copy_failed:'Kopieren fehlgeschlagen',
-        support_brand_line:'Bros24 • DOA • State 214',
 
         footer_brand:'Bros24 • State 214'
       },
@@ -460,7 +598,7 @@
         meta_desc:'Jeden bot. Wszystkie aplikacje. Wydarzenia, Boosty, Bohaterowie, Kalkulatory i więcej — od graczy dla graczy.',
         meta_keywords:'Bros24, Whiteout Survival, Discord Bot, Event Center, Boost, Hero, Calculator, Ranking, Welcome, State 214, DOA, guide, wos bot, bros24bot',
 
-        nav_features:'Funkcje',nav_media:'Zrzuty ekranu',nav_commands:'Komendy',nav_updates:'Aktualizacje',nav_topgg:'top.gg',nav_support:'Support',
+        nav_features:'Funkcje',nav_media:'Zrzuty ekranu',nav_coming:'Wkrótce',nav_commands:'Komendy',nav_updates:'Aktualizacje',nav_topgg:'top.gg',nav_support:'Support',
         header_invite:'➕ Zaproś bota',
 
         hero_title_1:'Jeden bot.',hero_title_2:'Wszystkie aplikacje.',
@@ -475,14 +613,27 @@
         feature_event_title:'📅 Event Center',feature_event_text:'Twórz przypomnienia (tytuł, wiadomość, obrazy, miniatury, własna stopka). Harmonogramy: codziennie / 48h / co tydzień / co dwa tygodnie / co 4 tygodnie / własne. Kanały docelowe, @everyone, role lub członkowie. Edycja i usuwanie w menu.',
         feature_boost_title:'🚀 Boost Center',
         feature_boost_b1:'Śledzenie na żywo + godzinne uzgadnianie',
-        feature_boost_b2:'28-dniowe okno aktywności (automatyczne wygasanie)',
+        feature_boost_b2:'28-dniowe okno aktywności (auto-wygaśnięcie)',
         feature_boost_b3:'Trwałe publiczne menu • odporne na restart',
         feature_boost_b4:'Cotygodniowe podsumowanie (niedziela 18:00 UTC)',
         feature_boost_b5:'Przełącznik języka per serwer',
         feature_hero_title:'🦸 Hero Hub i przewodniki',feature_hero_text:'Szczegóły bohaterów, umiejętności, tier listy, budynki i zaawansowana mechanika.',
         feature_calc_title:'🧮 Kalkulatory i narzędzia',feature_calc_text:'Planowanie pieca i zasobów, obliczenia ekwipunku i charmsów, przewodnik wyspy, rangi i powitania, plus minigry.',
 
+        coming_title:'🚀 Wkrótce dostępne',
+        coming_text:'Wkrótce nowe funkcje w Bocie Bros24 — dla sojuszy, lepszej koordynacji i większej frajdy w Whiteout Survival. Masz pomysły? Daj znać!',
+        coming_cta_invite:'Zaproś Bros24',
+        coming_cta_discord:'Dołącz do Discorda',
+
         shots_title:'Zrzuty ekranu',
+
+        upcoming_title:'🧩 Nadchodzące funkcje',
+        upcoming_b1:'📣 Event Office 2.0 — mądrzejsze przypomnienia (UTC), cykle tygodniowe, mniej duplikatów',
+        upcoming_b2:'🧭 Labyrinth Helper — harmonogram stref + zalecane miksy wojsk',
+        upcoming_b3:'🏆 Tundra Arms League — pingi meczów, weryfikacja rejestracji, migawki składu',
+        upcoming_b4:'🌍 Menu wielojęzyczne (EN/DE/PL/FR/IT/TH) — auto-wykrywanie i domyślne per serwer',
+        upcoming_b5:'📊 Narzędzia sojuszu — planer zaproszeń, tracker transferów, szybkie NAP',
+
         cmd_title:'Komendy',
         cmd_menu_title:'/menu',cmd_menu_text:'Główne centrum wszystkich funkcji.',
         cmd_event_title:'/event',cmd_event_text:'Twórz i zarządzaj przypomnieniami i harmonogramami.',
@@ -510,208 +661,68 @@
         event_update_title:'📅 Event Center — Nowość!',event_update_date:'2025-08-26',
         event_update_text:'Twórz wydarzenia z tytułem, wiadomością, obrazami, miniaturami i własną stopką. Harmonogramy: codziennie, co 48h, co tydzień, co dwa tygodnie, co 4 tygodnie lub własne. Kanały, @everyone, role lub członkowie. Edycja i usuwanie w menu.',
 
+        ideas_title:'💡 Masz pomysły dla bota lub sojuszu?',
+        ideas_text:'Budujemy Bros24 razem ze społecznością. Masz pomysły, prośby o funkcje lub chcesz pomóc w tłumaczeniach? Odezwij się w każdej chwili — chętnie posłuchamy!',
+        ideas_cta_discord:'Kontakt na Discordzie',
+        ideas_cta_invite:'Zaproś Bros24',
+
         support_highlight_title:'Wesprzyj projekt — opcjonalnie',
-        support_highlight_text:'Bros24 pozostaje darmowy dla wszystkich. Jeśli chcesz pomóc w kosztach serwera i cotygodniowym rozwoju, możesz wesprzeć nas przez Frost Stars w Whiteout Survival — całkowicie opcjonalnie.',
+        support_highlight_text:'Bros24 pozostaje darmowy. Jeśli chcesz pomóc w kosztach serwera i cotygodniowym rozwoju, możesz wesprzeć nas przez Frost Stars w Whiteout Survival — całkowicie opcjonalnie.',
         support_player_id_label:'Player ID',support_payment_label:'Płatność',
         support_join_btn:'Dołącz na serwer wsparcia',support_contact_btn:'Skontaktuj się ze wsparciem',
         support_copy_btn:'Kopiuj ID kontaktu',support_copied:'Skopiowano ID!',copy_failed:'Błąd kopiowania',
-        support_brand_line:'Bros24 • DOA • State 214',
 
         footer_brand:'Bros24 • State 214'
       },
 
       it:{
-        meta_title:'Bros24 — Whiteout Survival Discord Bot | All-in-One',
-        meta_desc:'Un bot. Tutte le applicazioni. Eventi, Boost, Eroi, Calcolatori & altro — creato dai giocatori per i giocatori.',
-        meta_keywords:'Bros24, Whiteout Survival, Discord Bot, Event Center, Boost, Hero, Calculator, Ranking, Welcome, State 214, DOA, guide, wos bot, bros24bot',
-
-        nav_features:'Funzionalità',nav_media:'Screenshot',nav_commands:'Comandi',nav_updates:'Aggiornamenti',nav_topgg:'top.gg',nav_support:'Supporto',
-        header_invite:'➕ Invita il bot',
-
-        hero_title_1:'Un bot.',hero_title_2:'Tutte le applicazioni.',
-        hero_text:'Basta con troppi bot. Il bot Bros24 per Whiteout Survival unisce Eventi, Boost, Eroi, Calcolatori, Benvenuto e Ranking in un unico assistente multilingue — creato dai giocatori per i giocatori.',
-        hero_invite:'Invita ora',hero_features:'Vedi funzioni',hero_badge:'Da giocatori, per giocatori — Whiteout Survival',
-
-        usp1_title:'All-in-One per Whiteout Survival',usp1_text:'Event Center, tracciamento Boost, Hero Hub, Calcolatori, Benvenuto e Ranking — tutto in un bot.',
-        usp2_title:'Nessun bot aggiuntivo',usp2_text:'Meno configurazione, meno caos. Un flusso di menu chiaro e moderno.',
-        usp3_title:'Da giocatori, per giocatori',usp3_text:'Modellate il bot con le vostre richieste. Aggiornamenti settimanali guidati dalla community.',
-
-        features_title:'Cosa ottieni',features_sub:'Tutto ciò di cui ha bisogno la tua alleanza — in un solo posto.',
-        feature_event_title:'📅 Event Center',feature_event_text:'Crea promemoria (titolo, messaggio, immagini, miniature, footer personalizzato). Pianificazioni: giornaliere / 48h / settimanali / bisettimanali / ogni 4 settimane / personalizzate. Canali, @everyone, ruoli o membri. Modifica ed elimina dal menu.',
-        feature_boost_title:'🚀 Boost Center',
-        feature_boost_b1:'Tracciamento live + riconciliazione oraria',
-        feature_boost_b2:'Finestra attiva 28 giorni (scadenza auto)',
-        feature_boost_b3:'Menu pubblico persistente • resistente ai riavvii',
-        feature_boost_b4:'Riepilogo settimanale (dom 18:00 UTC)',
-        feature_boost_b5:'Switch lingua per server',
-        feature_hero_title:'🦸 Hero Hub & Guide',feature_hero_text:'Dettagli eroi, abilità, tier list, strategie edifici e meccaniche avanzate.',
-        feature_calc_title:'🧮 Calcolatori & Utility',feature_calc_text:'Pianificazione fonderia e risorse, gear & charm del Chief, guida all’isola, ranking & benvenuto, più minigiochi.',
-
-        shots_title:'Screenshot',
-        cmd_title:'Comandi',
-        cmd_menu_title:'/menu',cmd_menu_text:'Centro principale di tutte le funzioni.',
-        cmd_event_title:'/event',cmd_event_text:'Crea e gestisci promemorie e pianificazioni.',
-        cmd_boost_title:'/boost',cmd_boost_text:'Traccia boost, imposta obiettivi, vedi classifiche.',
-        cmd_boostmenu_title:'/boostmenu',cmd_boostmenu_text:'Apre il menu pubblico Boost.',
-        cmd_hero_title:'/hero',cmd_hero_text:'Dettagli eroe, statistiche, abilità e tier.',
-        cmd_chief_title:'/chief',cmd_chief_text:'Calcolatori equipaggiamento Chief e charms.',
-        cmd_calc_title:'/calc',cmd_calc_text:'Calcolatore universale (risorse, fonderie, ecc.).',
-        cmd_island_title:'/island',cmd_island_text:'Guida isola (edifici e strategie).',
-        cmd_ranking_title:'/ranking',cmd_ranking_text:'XP, classifiche e card di rango.',
-        cmd_welcome_title:'/welcome',cmd_welcome_text:'Sistema di benvenuto automatico.',
-        cmd_lang_title:'/lang',cmd_lang_text:'Cambia lingua UI per server.',
-        cmd_games_title:'/games',cmd_games_text:'Minigiochi come Impiccato (EN/DE).',
-
-        updates_title:'Ultimi aggiornamenti',
-        menu_update_title:'🚀 /menu — pulito e senza errori',menu_update_date:'2025-08-26',
-        menu_update_b1:'Hub per Boost, Events, Languages, Hero Info, Chief, Calculator, Island, Welcome, Ranking, Games.',
-        menu_update_b2:'Multilingue (EN, DE, FR, IT, PL, TH).',
-        menu_update_b3:'Risolto “Unknown Interaction (10062)”.',
-        boost_update_title:'⚡ Migliorie al Boost Center',boost_update_date:'2025-08-26',
-        boost_update_b1:'Tracciamento live + riconciliazione oraria',
-        boost_update_b2:'Finestra attiva di 28 giorni (scadenza auto)',
-        boost_update_b3:'Menu pubblico persistente via /boost',
-        boost_update_b4:'Riepilogo settimanale domenica 18:00 UTC',
-        event_update_title:'📅 Event Center — Nuovo!',event_update_date:'2025-08-26',
-        event_update_text:'Crea eventi con titoli, messaggi, immagini, miniature e footer personalizzati. Pianifica giornalmente, ogni 48h, settimanalmente, bisettimanalmente, ogni 4 settimane o personalizzato. Target canali, @everyone, ruoli o membri. Modifica ed elimina dal menu.',
-
-        support_highlight_title:'Sostieni il progetto — Opzionale',
-        support_highlight_text:'Bros24 resta gratuito per tutti. Se vuoi aiutare con i costi del server e lo sviluppo settimanale, puoi sostenerci con Frost Stars in Whiteout Survival — del tutto opzionale.',
-        support_player_id_label:'Player ID',support_payment_label:'Pagamento',
-        support_join_btn:'Entra nel server di supporto',support_contact_btn:'Contatta il supporto',
-        support_copy_btn:'Copia ID contatto',support_copied:'ID copiato!',copy_failed:'Copia non riuscita',
-        support_brand_line:'Bros24 • DOA • State 214',
-
+        nav_features:'Funzionalità',nav_media:'Screenshot',nav_coming:'In arrivo',nav_commands:'Comandi',nav_updates:'Aggiornamenti',nav_topgg:'top.gg',nav_support:'Supporto',
+        coming_title:'🚀 In arrivo',
+        coming_text:'Presto nuove funzioni nel bot Bros24 — per alleanze, coordinazione più smart e più divertimento in Whiteout Survival. Idee? Faccelo sapere!',
+        coming_cta_invite:'Invita Bros24',coming_cta_discord:'Entra su Discord',
+        upcoming_title:'🧩 Prossime funzionalità',
+        upcoming_b1:'📣 Event Office 2.0 — promemoria più intelligenti (UTC), cicli settimanali, meno duplicati',
+        upcoming_b2:'🧭 Labyrinth Helper — pianificazione zone + mix truppe consigliati',
+        upcoming_b3:'🏆 Tundra Arms League — ping partite, controlli registrazione, snapshot roster',
+        upcoming_b4:'🌍 Menu multilingue (EN/DE/PL/FR/IT/TH) — auto-detect & default per server',
+        upcoming_b5:'📊 Strumenti alleanza — planner inviti, tracker trasferimenti, NAP rapido',
+        ideas_title:'💡 Idee per il bot o l’alleanza?',
+        ideas_text:'Costruiamo Bros24 insieme alla community. Hai idee, richieste o vuoi aiutare con le traduzioni? Scrivici quando vuoi!',
+        ideas_cta_discord:'Contatta su Discord',ideas_cta_invite:'Invita Bros24',
         footer_brand:'Bros24 • State 214'
       },
 
       fr:{
-        meta_title:'Bros24 — Whiteout Survival Discord Bot | All-in-One',
-        meta_desc:'Un bot. Toutes les applications. Évènements, Boosts, Héros, Calculateurs & plus — par des joueurs pour des joueurs.',
-        meta_keywords:'Bros24, Whiteout Survival, Discord Bot, Event Center, Boost, Hero, Calculator, Ranking, Welcome, State 214, DOA, guide, wos bot, bros24bot',
-
-        nav_features:'Fonctionnalités',nav_media:'Captures',nav_commands:'Commandes',nav_updates:'Mises à jour',nav_topgg:'top.gg',nav_support:'Support',
-        header_invite:'➕ Inviter le bot',
-
-        hero_title_1:'Un bot.',hero_title_2:'Toutes les applications.',
-        hero_text:'Fini l’empilement de bots. Le bot Bros24 pour Whiteout Survival réunit Évènements, Boosts, Héros, Calculateurs, Accueil et Classement dans un assistant multilingue — créé par des joueurs pour des joueurs.',
-        hero_invite:'Inviter',hero_features:'Voir les fonctions',hero_badge:'Par des joueurs, pour des joueurs — Whiteout Survival',
-
-        usp1_title:'All-in-One pour Whiteout Survival',usp1_text:'Event Center, suivi des boosts, Hero Hub, calculateurs, accueil et classement — le tout dans un seul bot.',
-        usp2_title:'Plus besoin d’autres bots',usp2_text:'Moins de configuration, moins de désordre. Un flux de menus clair et moderne.',
-        usp3_title:'Par des joueurs, pour des joueurs',usp3_text:'Vous façonnez le bot avec vos demandes. Mises à jour hebdomadaires guidées par la communauté.',
-
-        features_title:'Ce que vous obtenez',features_sub:'Tout pour votre alliance — au même endroit.',
-        feature_event_title:'📅 Event Center',feature_event_text:'Créez des rappels (titre, message, images, miniatures, pied personnalisé). Plannings : quotidien / 48h / hebdo / bi-hebdo / toutes les 4 semaines / personnalisé. Ciblez des salons, @everyone, rôles ou membres. Modifier & supprimer via le menu.',
-        feature_boost_title:'🚀 Boost Center',
-        feature_boost_b1:'Suivi en direct + rapprochement horaire',
-        feature_boost_b2:'Fenêtre active 28 jours (expiration auto)',
-        feature_boost_b3:'Menu public persistant • résistant aux redémarrages',
-        feature_boost_b4:'Résumé hebdo (dim 18:00 UTC)',
-        feature_boost_b5:'Sélecteur de langue par serveur',
-        feature_hero_title:'🦸 Hero Hub & Guides',feature_hero_text:'Détails des héros, compétences, tiers, stratégies de bâtiments et mécaniques avancées.',
-        feature_calc_title:'🧮 Calculateurs & Outils',feature_calc_text:'Planification des ressources & de la fonderie, équipement & charms du Chief, guide de l’île, classement & accueil, plus des mini-jeux.',
-
-        shots_title:'Captures',
-        cmd_title:'Commandes',
-        cmd_menu_title:'/menu',cmd_menu_text:'Hub principal pour toutes les fonctions.',
-        cmd_event_title:'/event',cmd_event_text:'Créer et gérer rappels et plannings.',
-        cmd_boost_title:'/boost',cmd_boost_text:'Suivi des boosts, objectifs, classements.',
-        cmd_boostmenu_title:'/boostmenu',cmd_boostmenu_text:'Ouvre le menu public des boosts.',
-        cmd_hero_title:'/hero',cmd_hero_text:'Détails, statistiques, compétences et tiers des héros.',
-        cmd_chief_title:'/chief',cmd_chief_text:'Calculateurs d’équipement du Chief et de charms.',
-        cmd_calc_title:'/calc',cmd_calc_text:'Calculateur universel (ressources, fonderies, etc.).',
-        cmd_island_title:'/island',cmd_island_text:'Guide de l’île (bâtiments & stratégies).',
-        cmd_ranking_title:'/ranking',cmd_ranking_text:'XP, classements & cartes de rang.',
-        cmd_welcome_title:'/welcome',cmd_welcome_text:'Système d’accueil automatique.',
-        cmd_lang_title:'/lang',cmd_lang_text:'Changer la langue par serveur.',
-        cmd_games_title:'/games',cmd_games_text:'Mini-jeux comme le pendu (EN/DE).',
-
-        updates_title:'Dernières mises à jour',
-        menu_update_title:'🚀 /menu — propre et sans erreur',menu_update_date:'2025-08-26',
-        menu_update_b1:'Hub pour Boost, Events, Languages, Hero Info, Chief, Calculator, Island, Welcome, Ranking, Games.',
-        menu_update_b2:'Multilingue (EN, DE, FR, IT, PL, TH).',
-        menu_update_b3:'Correction de « Unknown Interaction (10062) ».',        
-        boost_update_title:'⚡ Améliorations du Boost Center',boost_update_date:'2025-08-26',
-        boost_update_b1:'Suivi en direct + rapprochement horaire',
-        boost_update_b2:'Fenêtre active 28 jours (expiration auto)',
-        boost_update_b3:'Menu public persistant via /boost',
-        boost_update_b4:'Résumé hebdo chaque dimanche 18:00 UTC',
-        event_update_title:'📅 Event Center — Nouveau !',event_update_date:'2025-08-26',
-        event_update_text:'Créez des évènements avec titres, messages, images, miniatures et pied personnalisé. Planifiez quotidien, 48h, hebdo, bi-hebdo, toutes les 4 semaines ou personnalisé. Ciblez salons, @everyone, rôles ou membres. Modifier & supprimer dans le menu.',
-
-        support_highlight_title:'Soutenir le projet — optionnel',
-        support_highlight_text:'Bros24 reste gratuit pour tous. Pour aider aux coûts serveur et au développement hebdo, vous pouvez soutenir via Frost Stars dans Whiteout Survival — totalement optionnel.',
-        support_player_id_label:'Player ID',support_payment_label:'Paiement',
-        support_join_btn:'Rejoindre le serveur support',support_contact_btn:'Contacter le support',
-        support_copy_btn:"Copier l’ID de contact",support_copied:'ID copié !',copy_failed:'Échec de la copie',
-        support_brand_line:'Bros24 • DOA • State 214',
-
+        nav_features:'Fonctionnalités',nav_media:'Captures',nav_coming:'Bientôt',nav_commands:'Commandes',nav_updates:'Mises à jour',nav_topgg:'top.gg',nav_support:'Support',
+        coming_title:'🚀 Bientôt disponible',
+        coming_text:'De nouvelles fonctions arrivent bientôt dans le bot Bros24 — pour les alliances, une meilleure coordination et plus de fun dans Whiteout Survival. Des idées ? Dites-nous !',
+        coming_cta_invite:'Inviter Bros24',coming_cta_discord:'Rejoindre Discord',
+        upcoming_title:'🧩 Fonctionnalités à venir',
+        upcoming_b1:'📣 Event Office 2.0 — rappels plus malins (UTC), cycles hebdo, moins de doublons',
+        upcoming_b2:'🧭 Labyrinth Helper — planning des zones + compositions conseillées',
+        upcoming_b3:'🏆 Tundra Arms League — pings de match, vérif. inscriptions, snapshots d’effectifs',
+        upcoming_b4:'🌍 Menus multilingues (EN/DE/PL/FR/IT/TH) — auto-detect & par défaut serveur',
+        upcoming_b5:'📊 Outils d’alliance — planif. d’invitations, suivi transferts, NAP rapide',
+        ideas_title:'💡 Des idées pour le bot ou l’alliance ?',
+        ideas_text:'Nous construisons Bros24 avec la communauté. Idées, demandes de fonctionnalités ou aide aux traductions ? Contactez-nous à tout moment !',
+        ideas_cta_discord:'Contacter sur Discord',ideas_cta_invite:'Inviter Bros24',
         footer_brand:'Bros24 • State 214'
       },
 
       th:{
-        meta_title:'Bros24 — Whiteout Survival Discord Bot | All-in-One',
-        meta_desc:'บอทเดียว ครบทุกเครื่องมือ — กิจกรรม บูสต์ ฮีโร่ เครื่องคิดเลข และอื่น ๆ สร้างโดยผู้เล่นเพื่อผู้เล่น',
-        meta_keywords:'Bros24, Whiteout Survival, Discord Bot, Event Center, Boost, Hero, Calculator, Ranking, Welcome, State 214, DOA, guide, wos bot, bros24bot',
-
-        nav_features:'Features',nav_media:'Screenshots',nav_commands:'Commands',nav_updates:'Updates',nav_topgg:'top.gg',nav_support:'Support',
-        header_invite:'➕ เชิญบอท',
-
-        hero_title_1:'บอทเดียว',hero_title_2:'ครบทุกเครื่องมือ',
-        hero_text:'ไม่ต้องใช้บอทหลายตัว บอท Bros24 สำหรับ Whiteout Survival รวมกิจกรรม บูสต์ ฮีโร่ เครื่องคิดเลข ต้อนรับ และแรงก์ไว้ในที่เดียว — สร้างโดยผู้เล่นเพื่อผู้เล่น รองรับหลายภาษา',
-        hero_invite:'เชิญบอท',hero_features:'ดูฟีเจอร์',hero_badge:'โดยผู้เล่น เพื่อผู้เล่น — Whiteout Survival',
-
-        usp1_title:'All-in-One สำหรับ Whiteout Survival',usp1_text:'Event Center, ติดตามบูสต์, Hero Hub, เครื่องคิดเลข, Welcome และ Ranking — ทั้งหมดในบอทเดียว',
-        usp2_title:'ไม่ต้องมีบอทเสริม',usp2_text:'ตั้งค่าน้อยลง เป็นระเบียบ ใช้งานง่ายด้วยเมนูเดียว',
-        usp3_title:'จากผู้เล่นสู่ผู้เล่น',usp3_text:'คุณคือผู้กำหนดอนาคตของบอท ข้อเสนอแนะจากชุมชนอัปเดตทุกสัปดาห์',
-
-        features_title:'คุณจะได้อะไร',features_sub:'ทุกอย่างที่พันธมิตรต้องมี — รวมไว้ที่เดียว',
-        feature_event_title:'📅 Event Center',feature_event_text:'สร้างการเตือน (ชื่อ ข้อความ รูปภาพ ธัมบ์ และฟุตเตอร์) ตั้งเวลา: รายวัน / 48 ชม. / รายสัปดาห์ / สองสัปดาห์ / ทุก 4 สัปดาห์ / กำหนดเอง ส่งไปยังแชนแนล @everyone บทบาท หรือสมาชิก แก้ไข/ลบผ่านเมนู',
-        feature_boost_title:'🚀 Boost Center',
-        feature_boost_b1:'ติดตามสด + กระทบยอดทุกชั่วโมง',
-        feature_boost_b2:'ช่วงเวลาทำงาน 28 วัน (หมดอายุอัตโนมัติ)',
-        feature_boost_b3:'เมนูสาธารณะคงอยู่ • ทนต่อการรีสตาร์ต',
-        feature_boost_b4:'สรุปรายสัปดาห์ (อาทิตย์ 18:00 UTC)',
-        feature_boost_b5:'สลับภาษาแยกต่อกิลด์',
-        feature_hero_title:'🦸 Hero Hub & Guides',feature_hero_text:'รายละเอียดฮีโร่ สกิล ทีเยอร์ กลยุทธ์อาคาร และเมคานิกขั้นสูง',
-        feature_calc_title:'🧮 เครื่องคิดเลข & เครื่องมือ',feature_calc_text:'วางแผนเตาหลอมและทรัพยากร อุปกรณ์และชาร์มของ Chief ไกด์เกาะ จัดอันดับ & ต้อนรับ พร้อมมินิเกม',
-
-        shots_title:'สกรีนช็อต',
-        cmd_title:'คำสั่ง',
-        cmd_menu_title:'/menu',cmd_menu_text:'ศูนย์รวมทุกฟีเจอร์',
-        cmd_event_title:'/event',cmd_event_text:'สร้างและจัดการการเตือน/ตารางเวลา',
-        cmd_boost_title:'/boost',cmd_boost_text:'ติดตามบูสต์ ตั้งเป้าหมาย ดูลีดเดอร์บอร์ด',
-        cmd_boostmenu_title:'/boostmenu',cmd_boostmenu_text:'เปิดเมนูบูสต์สาธารณะ',
-        cmd_hero_title:'/hero',cmd_hero_text:'รายละเอียด สเตตัส สกิล และทีเยอร์ของฮีโร่',
-        cmd_chief_title:'/chief',cmd_chief_text:'เครื่องคิดเลขอุปกรณ์ & ชาร์มของ Chief',
-        cmd_calc_title:'/calc',cmd_calc_text:'เครื่องคิดเลขอเนกประสงค์ (ทรัพยากร เตาหลอม ฯลฯ)',
-        cmd_island_title:'/island',cmd_island_text:'ไกด์เกาะ (อาคาร & กลยุทธ์)',
-        cmd_ranking_title:'/ranking',cmd_ranking_text:'XP ลีดเดอร์บอร์ด & การ์ดแรงก์',
-        cmd_welcome_title:'/welcome',cmd_welcome_text:'ระบบต้อนรับอัตโนมัติ',
-        cmd_lang_title:'/lang',cmd_lang_text:'สลับภาษา UI ต่อกิลด์',
-        cmd_games_title:'/games',cmd_games_text:'มินิเกม เช่น Hangman (EN/DE)',
-
-        updates_title:'อัปเดตล่าสุด',
-        menu_update_title:'🚀 /menu — สะอาดและไร้ข้อผิดพลาด',menu_update_date:'2025-08-26',
-        menu_update_b1:'ศูนย์รวม Boost, Events, Languages, Hero Info, Chief, Calculator, Island, Welcome, Ranking, Games',
-        menu_update_b2:'รองรับหลายภาษา (EN, DE, FR, IT, PL, TH)',
-        menu_update_b3:'แก้ไข “Unknown Interaction (10062)”',
-        boost_update_title:'⚡ ปรับปรุง Boost Center',boost_update_date:'2025-08-26',
-        boost_update_b1:'ติดตามสด + กระทบยอดทุกชั่วโมง',
-        boost_update_b2:'ช่วงทำงาน 28 วัน (หมดอายุอัตโนมัติ)',
-        boost_update_b3:'เมนูสาธารณะคงอยู่ด้วย /boost',
-        boost_update_b4:'สรุปรายสัปดาห์ ทุกวันอาทิตย์ 18:00 UTC',
-        event_update_title:'📅 Event Center — ใหม่!',event_update_date:'2025-08-26',
-        event_update_text:'สร้างอีเวนต์พร้อมชื่อ ข้อความ รูปภาพ ธัมบ์ และฟุตเตอร์ ตั้งเวลาแบบรายวัน ทุก 48 ชม. รายสัปดาห์ สองสัปดาห์ ทุก 4 สัปดาห์ หรือกำหนดเอง เลือกแชนแนล @everyone บทบาท หรือสมาชิก แก้ไข/ลบในเมนู',
-
-        support_highlight_title:'สนับสนุนโปรเจกต์ — ไม่บังคับ',
-        support_highlight_text:'Bros24 ฟรีสำหรับทุกคน หากต้องการช่วยค่าบริการเซิร์ฟเวอร์และการพัฒนารายสัปดาห์ สามารถสนับสนุนผ่าน Frost Stars ใน Whiteout Survival (ไม่บังคับ)',
-        support_player_id_label:'Player ID',support_payment_label:'การชำระเงิน',
-        support_join_btn:'เข้าร่วมเซิร์ฟเวอร์ซัพพอร์ต',support_contact_btn:'ติดต่อซัพพอร์ต',
-        support_copy_btn:'คัดลอก ID ติดต่อ',support_copied:'คัดลอกแล้ว!',copy_failed:'คัดลอกไม่สำเร็จ',
-        support_brand_line:'Bros24 • DOA • State 214',
-
+        nav_features:'Features',nav_media:'Screenshots',nav_coming:'เร็ว ๆ นี้',nav_commands:'Commands',nav_updates:'Updates',nav_topgg:'top.gg',nav_support:'Support',
+        coming_title:'🚀 เร็ว ๆ นี้',
+        coming_text:'ฟีเจอร์ใหม่กำลังจะมาถึงในบอท Bros24 — เพื่อกิลด์ การประสานงานที่ฉลาดขึ้น และสนุกกับ Whiteout Survival มากกว่าเดิม มีไอเดียไหม? บอกเราได้เลย!',
+        coming_cta_invite:'เชิญ Bros24',coming_cta_discord:'เข้าร่วม Discord',
+        upcoming_title:'🧩 ฟีเจอร์ที่จะมา',
+        upcoming_b1:'📣 Event Office 2.0 — เตือนอัจฉริยะ (UTC), วนรายสัปดาห์, ลดซ้ำ',
+        upcoming_b2:'🧭 Labyrinth Helper — ตารางโซน + คอมโบกองทัพแนะนำ',
+        upcoming_b3:'🏆 Tundra Arms League — พิงแมตช์ ตรวจลงทะเบียน สแน็ปรายชื่อทีม',
+        upcoming_b4:'🌍 เมนูหลายภาษา (EN/DE/PL/FR/IT/TH) — ตรวจจับอัตโนมัติ & ค่าเริ่มต้นรายเซิร์ฟเวอร์',
+        upcoming_b5:'📊 เครื่องมือกิลด์ — วางแผนเชิญ ติดตามโอนสมาชิก ค้นหา NAP แบบเร็ว',
+        ideas_title:'💡 มีไอเดียสำหรับบอทหรือกิลด์ไหม?',
+        ideas_text:'เราพัฒนา Bros24 ร่วมกับชุมชน หากมีไอเดีย คำขอฟีเจอร์ หรืออยากช่วยแปล ติดต่อเราได้ทุกเมื่อ!',
+        ideas_cta_discord:'ติดต่อผ่าน Discord',ideas_cta_invite:'เชิญ Bros24',
         footer_brand:'Bros24 • State 214'
       }
     };
@@ -742,8 +753,9 @@
 
       // nav + header invite
       setText('nav_features', d.nav_features); setText('nav_media', d.nav_media);
-      setText('nav_commands', d.nav_commands); setText('nav_updates', d.nav_updates);
-      setText('nav_topgg', d.nav_topgg); setText('nav_support', d.nav_support);
+      setText('nav_coming', d.nav_coming); setText('nav_commands', d.nav_commands);
+      setText('nav_updates', d.nav_updates); setText('nav_topgg', d.nav_topgg);
+      setText('nav_support', d.nav_support);
       setText('header_invite', d.header_invite);
 
       // hero
@@ -765,8 +777,20 @@
       setText('feature_hero_title', d.feature_hero_title); setText('feature_hero_text', d.feature_hero_text);
       setText('feature_calc_title', d.feature_calc_title); setText('feature_calc_text', d.feature_calc_text);
 
+      // Coming Soon
+      setText('coming_title', d.coming_title);
+      setText('coming_text', d.coming_text);
+      setText('coming_cta_invite', d.coming_cta_invite);
+      setText('coming_cta_discord', d.coming_cta_discord);
+
       // Screenshots
       setText('shots_title', d.shots_title);
+
+      // Roadmap
+      setText('upcoming_title', d.upcoming_title);
+      setText('upcoming_b1', d.upcoming_b1); setText('upcoming_b2', d.upcoming_b2);
+      setText('upcoming_b3', d.upcoming_b3); setText('upcoming_b4', d.upcoming_b4);
+      setText('upcoming_b5', d.upcoming_b5);
 
       // Commands
       setText('cmd_title', d.cmd_title);
@@ -793,12 +817,21 @@
       setText('event_update_title', d.event_update_title); setText('event_update_date', d.event_update_date);
       setText('event_update_text', d.event_update_text);
 
+      // Ideas / Contact
+      setText('ideas_title', d.ideas_title);
+      setText('ideas_text', d.ideas_text);
+      setText('ideas_cta_discord', d.ideas_cta_discord);
+      setText('ideas_cta_invite', d.ideas_cta_invite);
+
       // Support
-      setText('support_highlight_title', d.support_highlight_title); setText('support_highlight_text', d.support_highlight_text);
-      setText('support_player_id_label', d.support_player_id_label); setText('support_payment_label', d.support_payment_label);
-      setText('support_join_btn', d.support_join_btn); setText('support_contact_btn', d.support_contact_btn);
-      setText('support_copy_btn', d.support_copy_btn); copyBtn && copyBtn.setAttribute('data-copied', d.support_copied || 'ID Copied!');
-      setText('support_brand_line', d.support_brand_line);
+      setText('support_highlight_title', d.support_highlight_title);
+      setText('support_highlight_text', d.support_highlight_text);
+      setText('support_player_id_label', d.support_player_id_label);
+      setText('support_payment_label', d.support_payment_label);
+      setText('support_join_btn', d.support_join_btn);
+      setText('support_contact_btn', d.support_contact_btn);
+      setText('support_copy_btn', d.support_copy_btn);
+      copyBtn && copyBtn.setAttribute('data-copied', d.support_copied || 'ID Copied!');
 
       // Footer
       setText('footer_brand', d.footer_brand);
