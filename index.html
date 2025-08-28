@@ -13,7 +13,7 @@
   <meta property="og:image" content="assets/social-preview.jpg" />
   <meta name="theme-color" content="#0ea5e9" />
 
-  <!-- Preload Video (poster wird weiter unten gesetzt) -->
+  <!-- Preload Video -->
   <link rel="preload" as="video" href="assets/manager.mov" type="video/quicktime" />
 
   <!-- Tailwind -->
@@ -110,8 +110,16 @@
     .video-el{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .35s ease}
     .video-el.is-ready{opacity:1}
 
-    /* Community card image ratio */
-    .community-card img{ aspect-ratio:16/9; width:100%; height:auto; object-fit:cover; border-radius:0.75rem }
+    /* Community card combined (Bild + Text in einem Kasten) */
+    .community-card .comm-img{
+      aspect-ratio:16/9; width:min(760px, 88%); height:auto; object-fit:cover; border-radius:0.75rem;
+      display:block; margin-inline:auto;
+      box-shadow: 0 8px 30px -12px rgba(0,0,0,.65);
+      border:1px solid rgba(255,255,255,.08);
+    }
+    @media(max-width:640px){
+      .community-card .comm-img{ width:min(520px, 96%) }
+    }
 
     /* top.gg etwas größer */
     .topgg-bot{ height:11.5rem }
@@ -314,30 +322,36 @@
     </div>
   </section>
 
-  <!-- Community Invite Card + Text -->
+  <!-- Community (kombiniert) -->
   <section id="community" class="py-12">
     <div class="mx-auto max-w-7xl px-4">
-      <a href="https://discord.gg/rNtp9vrkk9" target="_blank" rel="noopener"
-         class="block card-3d p-5 community-card hover:shadow-glow">
-        <div class="max-w-3xl mx-auto">
-          <img src="assets/coverdoa.jpg" alt="Join the DOA 214 Community" loading="lazy" style="max-width:860px;margin-inline:auto;display:block;">
-          <div class="mt-4 text-center">
+      <div class="card-3d p-6 community-card">
+        <div class="max-w-4xl mx-auto text-center">
+          <img src="assets/coverdoa.jpg" alt="Join the DOA 214 Community" loading="lazy" class="comm-img">
+          <div class="mt-5">
             <h3 class="text-2xl font-extrabold gradient-text">Join the ❄ Whiteout Survival | DOA 214 Community</h3>
             <p class="mt-2 text-slate-300">Events, guides, alliance tools & more — be part of it.</p>
           </div>
-        </div>
-      </a>
 
-      <!-- Dein ausführlicher Infotext -->
-      <div class="max-w-3xl mx-auto mt-6 text-slate-200 leading-relaxed space-y-4">
-        <p>Do you play <strong>Whiteout Survival</strong> and want to get better—faster? Ever wondered how top states plan <strong>Bear Trap</strong> 🐻, perfect <strong>Frostfire Mine</strong> ❄️🔥 rotations, or squeeze every drop from <strong>SVS</strong> ⚔️? You’re in the right place.</p>
-        <p>We’re DOA’s community from <strong>State 214</strong>, but our doors are open to <em>every</em> state and <em>every</em> alliance. Join for teamwork, practical guides, and quick help from people who actually play every day—from absolute beginners to min-max pros.</p>
-        <p><strong>New to the game?</strong> We’ll walk you through the first days and weeks: what to build first, how to pace research, which heroes and pets to focus, how to set daily routines, and where to get the most value as F2P. No fluff—just clear steps you can follow.</p>
-        <p><strong>Already experienced?</strong> Dive into meta chats, tested team comps, damage math, spreadsheets, and high-level planning for Castle/Strongholds 🏰, Frost Dragon Tyrant 🐉, and cross-state coordination. Think your lineup is unbeatable? Post it—let’s test and optimize it together.</p>
-        <p><strong>Never miss rewards again.</strong> Our custom bots run smart timers, rally planners, and reminders so your alliance stays organized without spam. ⏰ Opt in for what you want, mute what you don’t.</p>
-        <p><strong>Communication is effortless</strong> thanks to dedicated language channels for each community. 🌐 🇬🇧 English • 🇩🇪 Deutsch • 🇵🇱 Polski • 🇫🇷 Français • 🇮🇹 Italiano • 🇪🇸 Español • 🇵🇹 Português • 🇳🇱 Nederlands • 🇹🇭 ไทย • 🇺🇦 Українська • 🇷🇺 Русский • 🇯🇵 日本語 • 🇰🇷 한국어 • 🇨🇳 中文 • 🇮🇩 Indonesia … and more on request. Post in your language and you’ll get help—fast.</p>
-        <p><strong>Leaders and guide creators</strong> are welcome. Share strategies, coordinate cross-state projects, recruit respectfully, and build healthier alliances. We keep it fair-play, helpful, and drama-free. 🚫 No account selling/trading.</p>
-        <p><strong>Jump in</strong>, say hello in <code>#arrival</code>, tell us your state and language, and we’ll unlock the right channels. Start learning, winning, and meeting great people today. If you like the vibe, please ⭐ vote for us on top.gg and invite your friends—let’s grow a stronger Whiteout Survival community together!</p>
+          <!-- Dein kompletter Infotext in derselben Card -->
+          <div class="mt-6 text-slate-200 leading-relaxed space-y-4 text-left mx-auto max-w-3xl">
+            <p>Do you play <strong>Whiteout Survival</strong> and want to get better—faster? Ever wondered how top states plan <strong>Bear Trap</strong> 🐻, perfect <strong>Frostfire Mine</strong> ❄️🔥 rotations, or squeeze every drop from <strong>SVS</strong> ⚔️? You’re in the right place.</p>
+            <p>We’re DOA’s community from <strong>State 214</strong>, but our doors are open to <em>every</em> state and <em>every</em> alliance. Join for teamwork, practical guides, and quick help from people who actually play every day—from absolute beginners to min-max pros.</p>
+            <p><strong>New to the game?</strong> We’ll walk you through the first days and weeks: what to build first, how to pace research, which heroes and pets to focus, how to set daily routines, and where to get the most value as F2P. No fluff—just clear steps you can follow.</p>
+            <p><strong>Already experienced?</strong> Dive into meta chats, tested team comps, damage math, spreadsheets, and high-level planning for Castle/Strongholds 🏰, Frost Dragon Tyrant 🐉, and cross-state coordination. Think your lineup is unbeatable? Post it—let’s test and optimize it together.</p>
+            <p><strong>Never miss rewards again.</strong> Our custom bots run smart timers, rally planners, and reminders so your alliance stays organized without spam. ⏰ Opt in for what you want, mute what you don’t.</p>
+            <p><strong>Communication is effortless</strong> thanks to dedicated language channels for each community. 🌐 🇬🇧 English • 🇩🇪 Deutsch • 🇵🇱 Polski • 🇫🇷 Français • 🇮🇹 Italiano • 🇪🇸 Español • 🇵🇹 Português • 🇳🇱 Nederlands • 🇹🇭 ไทย • 🇺🇦 Українська • 🇷🇺 Русский • 🇯🇵 日本語 • 🇰🇷 한국어 • 🇨🇳 中文 • 🇮🇩 Indonesia … and more on request. Post in your language and you’ll get help—fast.</p>
+            <p><strong>Leaders and guide creators</strong> are welcome. Share strategies, coordinate cross-state projects, recruit respectfully, and build healthier alliances. We keep it fair-play, helpful, and drama-free. 🚫 No account selling/trading.</p>
+            <p><strong>Jump in</strong>, say hello in <code>#arrival</code>, tell us your state and language, and we’ll unlock the right channels. Start learning, winning, and meeting great people today. If you like the vibe, please ⭐ vote for us on top.gg and invite your friends—let’s grow a stronger Whiteout Survival community together!</p>
+          </div>
+
+          <div class="mt-6 flex flex-wrap justify-center gap-3">
+            <a href="https://discord.gg/rNtp9vrkk9" target="_blank" rel="noopener"
+               class="rounded-xl bg-brand-500 hover:bg-brand-600 px-6 py-3 font-semibold text-slate-900 shadow-glow">Join the Community</a>
+            <a href="https://top.gg/discord/servers/747709873159839744" target="_blank" rel="noopener"
+               class="rounded-xl bg-white/10 hover:bg-white/15 px-6 py-3 font-semibold">Vote on top.gg ⭐</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -758,7 +772,8 @@
         event_update_text:'Twórz wydarzenia z tytułem, wiadomością, obrazami, miniaturami i własną stopką. Harmonogramy: codziennie, co 48h, co tydzień, co dwa tygodnie, co 4 tygodnie lub własne. Kanały, @everyone, role lub członkowie. Edycja i usuwanie w menu.',
 
         support_highlight_title:'Wesprzyj projekt — opcjonalnie',
-        support_highlight_text:'Bros24 pozostaje darmowy dla wszystkich. Jeśli chcesz pomóc w kosztach serwera i cotygodniowym rozwoju, możesz wesprzeć nas przez Frost Stars w Whiteout Survival — całkowicie opcjonalnie.',
+        support_highlight_text:'Bros24 pozostaje darmowy dla wszystkich. Jeśli chcesz pomóc w kosztach serwera i cotygodniowym rozwoju, możesz wesprzy
+        ć nas przez Frost Stars w Whiteout Survival — całkowicie opcjonalnie.',
         support_player_id_label:'Player ID',support_payment_label:'Płatność',
         support_join_btn:'Dołącz na serwer wsparcia',support_contact_btn:'Skontaktuj się ze wsparciem',
         support_copy_btn:'Kopiuj ID kontaktu',support_copied:'Skopiowano ID!',copy_failed:'Błąd kopiowania',
@@ -789,7 +804,7 @@
         feature_boost_b3:'Menu pubblico persistente • resistente ai riavvii',
         feature_boost_b4:'Riepilogo settimanale (dom 18:00 UTC)',
         feature_boost_b5:'Switch lingua per server',
-        feature_hero_title:'🦸 Hero Hub & Guide',feature_hero_text:'Dettagli eroi, abilità, tier list, strategie edifici e meccaniche avanzate.',
+        feature_hero_title:'🦸 Hero Hub & Guides',feature_hero_text:'Dettagli eroi, abilità, tier list, strategie edifici e meccaniche avanzate.',
         feature_calc_title:'🧮 Calcolatori & Utility',feature_calc_text:'Pianificazione fonderia e risorse, gear & charm del Chief, guida all’isola, ranking & benvenuto, più minigiochi.',
 
         shots_title:'Screenshot',
