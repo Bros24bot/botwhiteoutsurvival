@@ -13,8 +13,9 @@
   <meta property="og:image" content="assets/social-preview.jpg" />
   <meta name="theme-color" content="#0ea5e9" />
 
-  <!-- Preload Video -->
-  <link rel="preload" as="video" href="assets/manager.mov" type="video/quicktime" />
+  <!-- === FIX: Preload kompatibler Formate (WebM + MP4) === -->
+  <link rel="preload" as="video" href="assets/manager.webm" type="video/webm" />
+  <link rel="preload" as="video" href="assets/manager.mp4"  type="video/mp4" />
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -266,6 +267,8 @@
         <div class="mt-8">
           <div class="video-box">
             <div class="video-skel" id="videoSkel" aria-hidden="true"></div>
+
+            <!-- === FIX: Mehrere Quellen in kompatiblen Formaten === -->
             <video id="comingVideo"
                   class="video-el"
                   preload="metadata"
@@ -273,11 +276,15 @@
                   muted
                   loop
                   playsinline
+                  webkit-playsinline
                   controls
                   poster="assets/social-preview.jpg"
                   controlslist="nodownload noplaybackrate"
                   disablepictureinpicture>
-              <source src="assets/manager.mov" type="video/quicktime">
+              <!-- Bevorzuge WebM, dann MP4; MOV nur als letzter Fallback -->
+              <source src="assets/manager.webm" type="video/webm">
+              <source src="assets/manager.mp4"  type="video/mp4">
+              <source src="assets/manager.mov"  type="video/quicktime">
               Your browser does not support the video tag.
             </video>
           </div>
@@ -514,10 +521,17 @@
       const v = document.getElementById('comingVideo');
       const skel = document.getElementById('videoSkel');
       if(!v) return;
+
+      // Bei Erfolg ausblenden + einblenden
       v.addEventListener('loadeddata', ()=>{
         v.classList.add('is-ready');
         if(skel) skel.style.display = 'none';
       }, { once:true });
+
+      // Wenn nichts abspielbar ist, Skeleton ausblenden und Poster zeigen
+      v.addEventListener('error', ()=>{
+        if(skel) skel.style.display = 'none';
+      });
 
       const io = new IntersectionObserver(entries=>{
         for(const e of entries){
