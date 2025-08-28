@@ -44,7 +44,7 @@
     }
     .frame:hover{ transform:translateY(-3px); box-shadow:0 22px 50px -18px rgba(56,189,248,.35) }
 
-    /* Frost „seitlich eingefroren“ (links & rechts) – pures CSS, ohne GIF */
+    /* Frost „seitlich eingefroren“ */
     .frost-side::before,
     .frost-side::after{
       content:""; position:absolute; top:-8%; bottom:-8%; width:54px; pointer-events:none;
@@ -58,7 +58,7 @@
     .frost-side::before{ left:-2px; mask-image:linear-gradient(90deg, #000 65%, transparent 100%) }
     .frost-side::after{ right:-2px; mask-image:linear-gradient(270deg, #000 65%, transparent 100%) }
 
-    /* Light ice grain on card content */
+    /* Kristallkorn */
     .crystal{
       background-image:
         radial-gradient(rgba(255,255,255,.04) 1px, transparent 1.2px),
@@ -67,10 +67,52 @@
       -webkit-backdrop-filter: blur(4px) saturate(112%); backdrop-filter: blur(4px) saturate(112%);
     }
 
-    /* Screenshots */
-    .shot{aspect-ratio:16/9;max-height:460px;object-fit:contain;background:#0b1220;border-radius:1rem}
-    @media(min-width:1280px){.shot{max-height:540px}}
-    .modal-open{overflow:hidden}
+    /* HERO: Logo Bühne mit 3D Tilt */
+    .logo-stage{
+      position:relative; border-radius:1.25rem; overflow:hidden;
+      background:
+        radial-gradient(120% 120% at 10% 10%, #0b1220 0%, #0b1220 35%, rgba(2,6,23,1) 100%);
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow: 0 0 0 2px rgba(56,189,248,.18) inset, 0 22px 60px -22px rgba(56,189,248,.35);
+      transform-style: preserve-3d; perspective: 900px;
+    }
+    .logo-glow{position:absolute; inset:-20%; background:
+        radial-gradient(60% 60% at 50% 55%, rgba(56,189,248,.24), transparent 60%),
+        radial-gradient(30% 30% at 75% 25%, rgba(167,139,250,.18), transparent 70%);
+      filter: blur(26px); pointer-events:none;
+    }
+    .logo-ring::before{
+      content:""; position:absolute; inset:12% 8% 54% 8%;
+      border-radius:1000px;
+      background: conic-gradient(from 0deg, rgba(56,189,248,.35), rgba(167,139,250,.35), rgba(244,114,182,.28), rgba(56,189,248,.35));
+      filter: blur(18px) saturate(110%); opacity:.6; pointer-events:none;
+    }
+    .logo-img{
+      position:relative; display:block; margin: auto;
+      width:min(420px, 78%); height:auto;
+      transform: translateZ(40px);
+      image-rendering:auto;
+      filter: drop-shadow(0 14px 26px rgba(0,0,0,.45));
+    }
+    .logo-floor{
+      position:absolute; left:8%; right:8%; bottom:8%; height:18%;
+      background: radial-gradient(60% 140% at 50% 0%, rgba(56,189,248,.20), rgba(2,6,23,.0) 70%);
+      transform: translateZ(0); pointer-events:none;
+    }
+    @media (prefers-reduced-motion: reduce){
+      .logo-stage{ transform:none !important }
+    }
+
+    /* Screenshots – identische Größe */
+    .shot-box{
+      position:relative; border-radius:1rem; overflow:hidden;
+      aspect-ratio:16/9; /* macht alle gleich hoch */
+      background:#0b1220; border:1px solid rgba(255,255,255,.08);
+    }
+    .shot{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+
+    /* Lightbox Bild */
+    .shot.is-lightbox{ cursor:zoom-in }
 
     /* Video (zentriert & responsiv) */
     .video-box{
@@ -84,15 +126,15 @@
     .video-el{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .35s ease}
     .video-el.is-ready{opacity:1}
 
-    /* Community card (coverdoa.jpg) */
+    /* Community card */
     .community-card img{ aspect-ratio:16/9; width:100%; height:auto; object-fit:cover; border-radius:0.75rem }
 
-    /* Top.gg widgets a bit bigger */
-    .topgg-bot{ height:6.8rem }
-    .topgg-srv{ height:6.8rem }
+    /* Top.gg widgets größer */
+    .topgg-bot{ height:8rem }
+    .topgg-srv{ height:8rem }
     @media(min-width:640px){
-      .topgg-bot{ height:7.6rem }
-      .topgg-srv{ height:7.6rem }
+      .topgg-bot{ height:9rem }
+      .topgg-srv{ height:9rem }
     }
   </style>
 </head>
@@ -151,9 +193,15 @@
         </div>
       </div>
 
-      <figure class="rounded-2xl p-3 frame frost-side crystal">
-        <img src="assets/menu.png" alt="Main Menu (/menu)" class="w-full h-auto shot" loading="eager">
-      </figure>
+      <!-- Neue Logo-Bühne -->
+      <div class="frame frost-side crystal p-3">
+        <div class="logo-stage" id="logoStage">
+          <div class="logo-glow"></div>
+          <div class="logo-ring"></div>
+          <img src="assets/logo.png" alt="Bros24 Logo" class="logo-img" loading="eager">
+          <div class="logo-floor"></div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -211,7 +259,7 @@
     </div>
   </section>
 
-  <!-- COMING SOON: mittig (Video + Beschreibung) -->
+  <!-- COMING SOON (Video mittig) -->
   <section id="coming" class="py-12">
     <div class="mx-auto max-w-7xl px-4">
       <div class="frame frost-side crystal p-6">
@@ -236,8 +284,6 @@
                   poster="assets/social-preview.jpg"
                   controlslist="nodownload noplaybackrate"
                   disablepictureinpicture>
-              <!-- Optional MP4 als erste Source, falls vorhanden:
-              <source src="assets/manager.mp4" type="video/mp4"> -->
               <source src="assets/manager.mov" type="video/quicktime">
               Your browser does not support the video tag.
             </video>
@@ -254,21 +300,40 @@
     </div>
   </section>
 
-  <!-- Screenshots -->
+  <!-- Screenshots (alle identisch groß) -->
   <section id="media" class="py-10">
     <div class="mx-auto max-w-7xl px-4 text-center">
       <h2 id="shots_title" class="text-4xl font-bold gradient-text">Screenshots</h2>
 
       <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        <figure class="frame frost-side crystal p-3 cursor-zoom-in"><img src="assets/menu.png" alt="Main Menu — /menu" class="shot" loading="lazy"></figure>
-        <figure class="frame frost-side crystal p-3 cursor-zoom-in"><img src="assets/event-center.png" alt="Event Center — /event" class="shot" loading="lazy"></figure>
-        <figure class="frame frost-side crystal p-3 cursor-zoom-in"><img src="assets/boost-center.png" alt="Boost Center — /boost" class="shot" loading="lazy"></figure>
-        <figure class="frame frost-side crystal p-3 cursor-zoom-in"><img src="assets/rank-card.png" alt="Ranking — Level Card" class="shot" loading="lazy"></figure>
+        <figure class="frame frost-side crystal p-3">
+          <div class="shot-box">
+            <img src="assets/menu.png" alt="Main Menu — /menu" class="shot is-lightbox" loading="lazy">
+          </div>
+        </figure>
+
+        <figure class="frame frost-side crystal p-3">
+          <div class="shot-box">
+            <img src="assets/event-center.png" alt="Event Center — /event" class="shot is-lightbox" loading="lazy">
+          </div>
+        </figure>
+
+        <figure class="frame frost-side crystal p-3">
+          <div class="shot-box">
+            <img src="assets/boost-center.png" alt="Boost Center — /boost" class="shot is-lightbox" loading="lazy">
+          </div>
+        </figure>
+
+        <figure class="frame frost-side crystal p-3">
+          <div class="shot-box">
+            <img src="assets/rank-card.png" alt="Ranking — Level Card" class="shot is-lightbox" loading="lazy">
+          </div>
+        </figure>
       </div>
     </div>
   </section>
 
-  <!-- Roadmap / Upcoming (ohne Tundra Arms) -->
+  <!-- Upcoming (ohne Tundra Arms) -->
   <section id="roadmap" class="py-8">
     <div class="mx-auto max-w-7xl px-4">
       <div class="frame frost-side crystal p-6">
@@ -283,7 +348,7 @@
     </div>
   </section>
 
-  <!-- Community Invite Card (coverdoa.jpg + link) -->
+  <!-- Community Invite Card -->
   <section id="community" class="py-12">
     <div class="mx-auto max-w-7xl px-4">
       <a href="https://discord.gg/rNtp9vrkk9" target="_blank" rel="noopener"
@@ -387,7 +452,7 @@
     </div>
   </section>
 
-  <!-- Footer with bigger top.gg widgets -->
+  <!-- Footer / top.gg -->
   <footer class="border-t border-white/5 bg-slate-950">
     <div class="mx-auto max-w-7xl px-4 py-8">
       <div id="topgg" class="flex items-center justify-center gap-3 flex-wrap mb-5">
@@ -441,7 +506,7 @@
     // Lightbox
     const lb = document.getElementById('lightbox');
     const lbImg = document.getElementById('lightbox-img');
-    document.querySelectorAll('.shot').forEach(img => {
+    document.querySelectorAll('.is-lightbox').forEach(img => {
       img.addEventListener('click', () => {
         lbImg.src = img.getAttribute('src');
         lb.classList.remove('hidden');
@@ -469,6 +534,32 @@
         }
       }, { threshold: 0.25 });
       io.observe(v);
+    })();
+
+    // Logo 3D Tilt (Desktop)
+    (function(){
+      const stage = document.getElementById('logoStage');
+      const mq = window.matchMedia('(pointer:fine) and (hover:hover)');
+      const rm = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if(!stage || !mq.matches || rm.matches) return;
+
+      let rafId=null;
+      const onMove = (e)=>{
+        const r = stage.getBoundingClientRect();
+        const cx = r.left + r.width/2, cy = r.top + r.height/2;
+        const dx = (e.clientX - cx) / (r.width/2);
+        const dy = (e.clientY - cy) / (r.height/2);
+        const rotX = (+dy*6).toFixed(2);
+        const rotY = (-dx*8).toFixed(2);
+        cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(()=>{
+          stage.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+        });
+      };
+      const reset = ()=>{ stage.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg)' };
+
+      stage.addEventListener('mousemove', onMove);
+      stage.addEventListener('mouseleave', reset);
     })();
 
     // --- i18n (built-in + optional external overrides in assets/i18n/index.json) ---
@@ -918,31 +1009,26 @@
     function applyLang(lang){
       const d = T[lang] || T.en;
 
-      // Meta / Title
       document.title = d.meta_title || document.title;
       setMeta('description', d.meta_desc || '');
       setMeta('keywords', d.meta_keywords || '');
       setMeta('og:title', d.meta_title || '', true);
       setMeta('og:description', d.meta_desc || '', true);
 
-      // nav + header invite
       setText('nav_features', d.nav_features); setText('nav_media', d.nav_media);
       setText('nav_coming', d.nav_coming);
       setText('nav_commands', d.nav_commands); setText('nav_updates', d.nav_updates);
       setText('nav_topgg', d.nav_topgg); setText('nav_support', d.nav_support);
       setText('header_invite', d.header_invite);
 
-      // hero
       setText('hero_title_1', d.hero_title_1); setText('hero_title_2', d.hero_title_2);
       setText('hero_text', d.hero_text); setText('hero_invite', d.hero_invite);
       setText('hero_features', d.hero_features); setText('hero_badge', d.hero_badge);
 
-      // USP
       setText('usp1_title', d.usp1_title); setText('usp1_text', d.usp1_text);
       setText('usp2_title', d.usp2_title); setText('usp2_text', d.usp2_text);
       setText('usp3_title', d.usp3_title); setText('usp3_text', d.usp3_text);
 
-      // Features
       setText('features_title', d.features_title); setText('features_sub', d.features_sub);
       setText('feature_event_title', d.feature_event_title); setText('feature_event_text', d.feature_event_text);
       setText('feature_boost_title', d.feature_boost_title);
@@ -951,19 +1037,15 @@
       setText('feature_hero_title', d.feature_hero_title); setText('feature_hero_text', d.feature_hero_text);
       setText('feature_calc_title', d.feature_calc_title); setText('feature_calc_text', d.feature_calc_text);
 
-      // Coming
       setText('coming_title', d.coming_title); setText('coming_text', d.coming_text);
       setText('coming_cta_invite', d.coming_cta_invite); setText('coming_cta_discord', d.coming_cta_discord);
 
-      // Screenshots
       setText('shots_title', d.shots_title);
 
-      // Roadmap
       setText('upcoming_title', d.upcoming_title);
       setText('upcoming_b1', d.upcoming_b1); setText('upcoming_b2', d.upcoming_b2);
       setText('upcoming_b4', d.upcoming_b4); setText('upcoming_b5', d.upcoming_b5);
 
-      // Commands
       setText('cmd_title', d.cmd_title);
       setText('cmd_menu_title', d.cmd_menu_title); setText('cmd_menu_text', d.cmd_menu_text);
       setText('cmd_event_title', d.cmd_event_title); setText('cmd_event_text', d.cmd_event_text);
@@ -978,7 +1060,6 @@
       setText('cmd_lang_title', d.cmd_lang_title); setText('cmd_lang_text', d.cmd_lang_text);
       setText('cmd_games_title', d.cmd_games_title); setText('cmd_games_text', d.cmd_games_text);
 
-      // Updates
       setText('updates_title', d.updates_title);
       setText('menu_update_title', d.menu_update_title); setText('menu_update_date', d.menu_update_date);
       setText('menu_update_b1', d.menu_update_b1); setText('menu_update_b2', d.menu_update_b2); setText('menu_update_b3', d.menu_update_b3);
@@ -988,19 +1069,15 @@
       setText('event_update_title', d.event_update_title); setText('event_update_date', d.event_update_date);
       setText('event_update_text', d.event_update_text);
 
-      // Footer
       setText('footer_brand', d.footer_brand);
 
-      // Save & set html lang + sync dropdown
       localStorage.setItem('bros24_lang', lang);
       document.documentElement.setAttribute('lang', lang);
       const sel = document.getElementById('langSelect'); if (sel && sel.value !== lang) sel.value = lang;
     }
 
-    // Language select change
     document.getElementById('langSelect').addEventListener('change', e=> applyLang(e.target.value));
 
-    // Init
     (async ()=>{
       await loadExternalTranslations();
       const saved = localStorage.getItem('bros24_lang') || 'en';
