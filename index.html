@@ -25,7 +25,6 @@
           fontFamily: { sans: ["Inter","ui-sans-serif","system-ui","-apple-system","Segoe UI","Roboto","Noto Sans","Helvetica Neue","Arial","sans-serif"] },
           boxShadow: {
             glow: "0 0 0 2px rgba(56,189,248,.35), 0 10px 25px -10px rgba(56,189,248,.45)",
-            soft: "0 10px 30px -12px rgba(56,189,248,.25), 0 1px 0 rgba(255,255,255,.04) inset"
           },
           colors: { brand: { 500:"#0ea5e9", 600:"#0284c7"} }
         }
@@ -35,43 +34,62 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    .gradient-text{background:linear-gradient(90deg,#38bdf8,#a78bfa,#f472b6);-webkit-background-clip:text;background-clip:text;color:transparent}
-
-    /* Neuer Card-Look + Frost-Akzent */
-    .frame{
-      position:relative;border-radius:1rem;
-      background:
-        linear-gradient(180deg, rgba(2,6,23,.72), rgba(2,6,23,.58)) padding-box,
-        linear-gradient(135deg, rgba(56,189,248,.38), rgba(168,85,247,.30), rgba(14,165,233,.28)) border-box;
-      border:1px solid transparent; box-shadow:var(--shadow, 0 0 #0000);
-      --shadow: 0 10px 30px -12px rgba(56,189,248,.25), 0 1px 0 rgba(255,255,255,.04) inset;
-      transition:transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
-      overflow: hidden;
+    .gradient-text{
+      background:linear-gradient(90deg,#38bdf8,#a78bfa,#f472b6);
+      -webkit-background-clip:text;background-clip:text;color:transparent
     }
-    .frame:hover{ transform:translateY(-3px); box-shadow:0 20px 40px -16px rgba(56,189,248,.35) }
-    .frame .title-gradient{background:linear-gradient(90deg,#93c5fd,#a78bfa,#38bdf8);-webkit-background-clip:text;background-clip:text;color:transparent}
 
-    /* Frost/Snow Akzent (oben rechts) */
+    /* ===== Whiteout Frost Card (kein GIF, pures CSS) ===== */
+    .frame{
+      position:relative;border-radius:1rem;overflow:hidden;
+      background:
+        linear-gradient(180deg, rgba(2,6,23,.78), rgba(2,6,23,.62)) padding-box,
+        linear-gradient(135deg, rgba(56,189,248,.35), rgba(168,85,247,.28), rgba(14,165,233,.28)) border-box;
+      border:1px solid transparent;
+      transition:transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+    }
+    .frame:hover{ transform:translateY(-3px); box-shadow:0 22px 50px -18px rgba(56,189,248,.35) }
+
+    /* feine Eiskristall-Struktur */
+    .frame::marker{content:""} /* Safari Bugfix */
+    .frost{
+      background-image:
+        radial-gradient(rgba(255,255,255,.045) 1px, transparent 1.2px),
+        radial-gradient(rgba(148,197,255,.035) 1px, transparent 1.8px),
+        linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
+      background-size: 3px 3px, 5px 5px, auto;
+      background-blend-mode: overlay, overlay, normal;
+      -webkit-backdrop-filter: blur(6px) saturate(115%);
+      backdrop-filter: blur(6px) saturate(115%);
+    }
+
+    /* Schnee-Kappe + Eiszapfen oben rechts */
     .frost::before{
       content:"";
-      position:absolute; top:-14px; right:-12px; width:140px; height:100px;
+      position:absolute; top:-16px; right:-10px; width:160px; height:110px;
       background:
-        radial-gradient(70px 40px at 70% 20%, rgba(255,255,255,.95), rgba(255,255,255,0) 70%),
-        radial-gradient(60px 25px at 25% 78%, rgba(186,220,255,.7), rgba(186,220,255,0) 60%),
-        conic-gradient(from .15turn, rgba(255,255,255,.5), rgba(255,255,255,0) 70%);
-      filter: drop-shadow(0 10px 22px rgba(56,189,248,.28));
+        radial-gradient(80px 38px at 68% 20%, rgba(255,255,255,.98), rgba(255,255,255,0) 70%),
+        radial-gradient(64px 26px at 28% 78%, rgba(194,226,255,.82), rgba(194,226,255,0) 60%),
+        radial-gradient(110px 55px at 40% -10%, rgba(255,255,255,.9), rgba(255,255,255,0) 70%);
       transform: rotate(7deg);
+      filter: drop-shadow(0 10px 22px rgba(56,189,248,.28));
       pointer-events:none;
-      border-top-right-radius:1rem;
       mix-blend-mode:screen;
+      border-top-right-radius:1rem;
     }
     .frost::after{
       content:"";
-      position:absolute; top:-2px; right:20px; width:80px; height:24px;
-      background: linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,0));
-      clip-path: polygon(0 0,100% 0,90% 45%,82% 0,70% 60%,62% 0,50% 55%,42% 0,28% 48%,20% 0,0 0);
-      opacity:.92; filter: blur(.2px);
+      position:absolute; top:-1px; right:18px; width:88px; height:28px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,.65) 48%, rgba(255,255,255,0) 100%);
+      clip-path: polygon(0 0,100% 0,92% 44%,84% 0,72% 62%,64% 0,52% 58%,44% 0,30% 50%,22% 0,0 0);
+      opacity:.96; filter: blur(.2px);
       pointer-events:none;
+    }
+
+    .title-gradient{
+      background:linear-gradient(90deg,#93c5fd,#a78bfa,#38bdf8);
+      -webkit-background-clip:text;background-clip:text;color:transparent
     }
 
     /* Screenshots */
@@ -79,12 +97,12 @@
     @media(min-width:1280px){.shot{max-height:540px}}
     .modal-open{overflow:hidden}
 
-    /* Video: responsiv & kleiner auf Handy + Desktop */
-    .video-wrap{margin-inline:auto;width:100%;max-width:clamp(280px, 92vw, 1024px)}
+    /* Video (responsiv & ausgerichtet) */
     .video-box{
       position:relative;border-radius:0.75rem;border:1px solid rgba(255,255,255,.08);
       box-shadow:0 0 0 2px rgba(56,189,248,.18) inset, 0 12px 28px -14px rgba(56,189,248,.25);
-      overflow:hidden;background:#0b1220;aspect-ratio:16/9;max-height:clamp(220px, 48vh, 560px)
+      overflow:hidden;background:#0b1220;aspect-ratio:16/9;
+      max-width:min(960px, 92vw);max-height:clamp(220px, 48vh, 540px);margin-inline:auto;
     }
     .video-skel{position:absolute;inset:0;background:linear-gradient(90deg,#0b1220 0%,#0e1629 50%,#0b1220 100%);animation:shimmer 1.3s infinite;opacity:.9}
     @keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
@@ -207,42 +225,47 @@
     </div>
   </section>
 
-  <!-- COMING SOON -->
+  <!-- COMING SOON (Text & Video zentriert) -->
   <section id="coming" class="py-10">
     <div class="mx-auto max-w-7xl px-4">
       <div class="frame frost p-6">
-        <h2 id="coming_title" class="text-3xl sm:text-4xl font-bold text-center">🚀 Coming Soon</h2>
-        <p id="coming_text" class="mt-4 text-slate-300 text-center max-w-3xl mx-auto">
-          Exciting new functions will soon be available in the <strong>Bros24 Bot</strong> — designed for alliances, smarter coordination and more fun in Whiteout Survival. Got ideas? Tell us!
-        </p>
-
-        <div class="video-wrap mt-6">
-          <div class="video-box">
-            <div class="video-skel" id="videoSkel" aria-hidden="true"></div>
-            <video id="comingVideo"
-                  class="video-el"
-                  preload="metadata"
-                  autoplay
-                  muted
-                  loop
-                  playsinline
-                  controls
-                  poster="assets/social-preview.jpg"
-                  controlslist="nodownload noplaybackrate"
-                  disablepictureinpicture>
-              <!-- Optional: MP4 zuerst, wenn vorhanden
-              <source src="assets/manager.mp4" type="video/mp4"> -->
-              <source src="assets/manager.mov" type="video/quicktime">
-              Your browser does not support the video tag.
-            </video>
+        <div class="grid lg:grid-cols-2 gap-8 items-center">
+          <!-- Text -->
+          <div class="text-center lg:text-left">
+            <h2 id="coming_title" class="text-3xl sm:text-4xl font-bold">🚀 Coming Soon</h2>
+            <p id="coming_text" class="mt-4 text-slate-300 max-w-2xl mx-auto lg:mx-0">
+              Exciting new functions will soon be available in the <strong>Bros24 Bot</strong> — designed for alliances, smarter coordination and more fun in Whiteout Survival. Got ideas? Tell us!
+            </p>
+            <div class="mt-6 flex flex-wrap justify-center lg:justify-start gap-3">
+              <a id="coming_cta_invite" href="https://discord.com/oauth2/authorize?client_id=1387844888187375758&permissions=17869211692048&integration_type=0&scope=bot+applications.commands"
+                 class="rounded-xl bg-brand-500 hover:bg-brand-600 px-5 py-3 font-semibold text-slate-900 shadow-glow">Invite Bros24</a>
+              <a id="coming_cta_discord" href="https://discord.gg/dBZn8tFx7c"
+                 class="rounded-xl bg-white/10 hover:bg-white/15 px-5 py-3 font-semibold">Join Discord</a>
+            </div>
           </div>
-        </div>
 
-        <div class="mt-6 flex justify-center gap-3">
-          <a id="coming_cta_invite" href="https://discord.com/oauth2/authorize?client_id=1387844888187375758&permissions=17869211692048&integration_type=0&scope=bot+applications.commands"
-             class="rounded-xl bg-brand-500 hover:bg-brand-600 px-5 py-3 font-semibold text-slate-900 shadow-glow">Invite Bros24</a>
-          <a id="coming_cta_discord" href="https://discord.gg/dBZn8tFx7c"
-             class="rounded-xl bg-white/10 hover:bg-white/15 px-5 py-3 font-semibold">Join Discord</a>
+          <!-- Video -->
+          <div>
+            <div class="video-box">
+              <div class="video-skel" id="videoSkel" aria-hidden="true"></div>
+              <video id="comingVideo"
+                    class="video-el"
+                    preload="metadata"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    controls
+                    poster="assets/social-preview.jpg"
+                    controlslist="nodownload noplaybackrate"
+                    disablepictureinpicture>
+                <!-- Optional: MP4 bevorzugt, wenn vorhanden
+                <source src="assets/manager.mp4" type="video/mp4"> -->
+                <source src="assets/manager.mov" type="video/quicktime">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -340,22 +363,6 @@
           Create events with titles, messages, images, thumbnails, and custom footers. Schedule daily, every 48h, weekly, bi-weekly, every 4 weeks, or custom intervals. Target channels, @everyone, roles, or members. Edit & delete via menu.
         </p>
       </article>
-    </div>
-  </section>
-
-  <!-- Ideas / Contact -->
-  <section id="ideas" class="py-10">
-    <div class="mx-auto max-w-7xl px-4">
-      <div class="frame frost p-6">
-        <h2 id="ideas_title" class="text-3xl sm:text-4xl font-extrabold gradient-text text-center">💡 Have ideas for the bot or alliance?</h2>
-        <p id="ideas_text" class="mt-3 text-slate-300 text-center max-w-3xl mx-auto">
-          We’re building Bros24 together with the community. If you have ideas, feature requests, or want to help with translations, reach out anytime — we’re happy to hear from you!
-        </p>
-        <div class="mt-6 flex justify-center gap-3">
-          <a id="ideas_cta_discord" href="https://discord.gg/dBZn8tFx7c" class="rounded-xl bg-brand-500 hover:bg-brand-600 px-5 py-3 font-semibold text-slate-900 shadow-glow">Contact on Discord</a>
-          <a id="ideas_cta_invite" href="https://discord.com/oauth2/authorize?client_id=1387844888187375758&permissions=17869211692048&integration_type=0&scope=bot+applications.commands" class="rounded-xl bg-white/10 hover:bg-white/15 px-5 py-3 font-semibold">Invite Bros24</a>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -462,7 +469,7 @@
           if(e.isIntersecting){ try{ v.play(); }catch(_){} }
           else { try{ v.pause(); }catch(_){} }
         }
-      }, { threshold: 0.2 });
+      }, { threshold: 0.25 });
       io.observe(v);
     })();
 
@@ -498,6 +505,18 @@
         // MEDIA
         shots_title:'Screenshots',
 
+        // COMING / ROADMAP
+        coming_title:'🚀 Coming Soon',
+        coming_text:'Exciting new functions will soon be available in the Bros24 Bot — designed for alliances, smarter coordination and more fun in Whiteout Survival. Got ideas? Tell us!',
+        coming_cta_invite:'Invite Bros24',
+        coming_cta_discord:'Join Discord',
+        upcoming_title:'🧩 Upcoming Features',
+        upcoming_b1:'📣 Event Office 2.0 — smarter reminders (UTC), weekly cycles, fewer duplicates',
+        upcoming_b2:'🧭 Labyrinth Helper — zone schedule + recommended troop mixes',
+        upcoming_b3:'🏆 Tundra Arms League — match pings, registration checks, roster snapshots',
+        upcoming_b4:'🌍 Multilingual menus (EN/DE/PL/FR/IT/TH) — auto-detect & per-server defaults',
+        upcoming_b5:'📊 Alliance Tools — invites planner, transfer tracker, NAP quick lookup',
+
         // COMMANDS
         cmd_title:'Slash Commands',
         cmd_menu_title:'/menu',cmd_menu_text:'Main hub for all features.',
@@ -525,27 +544,13 @@
         event_update_title:'📅 Event Center — New!',event_update_date:'2025-08-26',
         event_update_text:'Create events with titles, messages, images, thumbnails, and custom footers. Schedule daily, every 48h, weekly, bi-weekly, every 4 weeks, or custom intervals. Target channels, @everyone, roles, or members. Edit & delete via menu.',
 
-        // SUPPORT
+        // SUPPORT / FOOTER
         support_highlight_title:'Support the Project — Optional',
         support_highlight_text:'Bros24 stays free for everyone. If you’d like to help with server costs & weekly development, you can support via Frost Stars in Whiteout Survival — totally optional, no pressure.',
         support_player_id_label:'Player ID',support_payment_label:'Payment',
         support_join_btn:'Join Support Server',support_contact_btn:'Contact Support',
         support_copy_btn:'Copy Contact ID',support_copied:'ID Copied!',copy_failed:'Copy failed',
-
-        // FOOTER
-        footer_brand:'Bros24 • State 214',
-
-        // NEW (Coming/Roadmap)
-        coming_title:'🚀 Coming Soon',
-        coming_text:'Exciting new functions will soon be available in the Bros24 Bot — designed for alliances, smarter coordination and more fun in Whiteout Survival. Got ideas? Tell us!',
-        coming_cta_invite:'Invite Bros24',
-        coming_cta_discord:'Join Discord',
-        upcoming_title:'🧩 Upcoming Features',
-        upcoming_b1:'📣 Event Office 2.0 — smarter reminders (UTC), weekly cycles, fewer duplicates',
-        upcoming_b2:'🧭 Labyrinth Helper — zone schedule + recommended troop mixes',
-        upcoming_b3:'🏆 Tundra Arms League — match pings, registration checks, roster snapshots',
-        upcoming_b4:'🌍 Multilingual menus (EN/DE/PL/FR/IT/TH) — auto-detect & per-server defaults',
-        upcoming_b5:'📊 Alliance Tools — invites planner, transfer tracker, NAP quick lookup'
+        footer_brand:'Bros24 • State 214'
       },
 
       de:{
@@ -576,6 +581,19 @@
         feature_calc_title:'🧮 Rechner & Utilities',feature_calc_text:'Ofen- & Ressourcenplanung, Chief-Gear & Charms, Island Guide, Ranking & Welcome, plus Minigames.',
 
         shots_title:'Screenshots',
+
+        // Coming / Roadmap
+        coming_title:'🚀 Bald verfügbar',
+        coming_text:'Neue Funktionen kommen bald in den Bros24 Bot — für Allianzen, bessere Koordination und mehr Spaß in Whiteout Survival. Hast du Ideen? Melde dich!',
+        coming_cta_invite:'Bros24 einladen',
+        coming_cta_discord:'Discord beitreten',
+        upcoming_title:'🧩 Demnächst',
+        upcoming_b1:'📣 Event Office 2.0 — smartere Erinnerungen (UTC), Wochenzyklen, weniger Duplikate',
+        upcoming_b2:'🧭 Labyrinth-Helfer — Zonenplan + empfohlene Truppenmischungen',
+        upcoming_b3:'🏆 Tundra Arms League — Match-Pings, Registrierungschecks, Kader-Snapshots',
+        upcoming_b4:'🌍 Mehrsprachige Menüs (EN/DE/PL/FR/IT/TH) — Auto-Detect & Server-Defaults',
+        upcoming_b5:'📊 Allianz-Tools — Invite-Planer, Transfer-Tracker, NAP-Quick Lookup',
+
         cmd_title:'Slash-Befehle',
         cmd_menu_title:'/menu',cmd_menu_text:'Zentrales Hub für alle Features.',
         cmd_event_title:'/event',cmd_event_text:'Events & Erinnerungen erstellen und planen.',
@@ -608,18 +626,7 @@
         support_player_id_label:'Player ID',support_payment_label:'Zahlung',
         support_join_btn:'Support-Server beitreten',support_contact_btn:'Support kontaktieren',
         support_copy_btn:'Kontakt-ID kopieren',support_copied:'ID kopiert!',copy_failed:'Kopieren fehlgeschlagen',
-        footer_brand:'Bros24 • State 214',
-
-        coming_title:'🚀 Bald verfügbar',
-        coming_text:'Neue Funktionen für den Bros24-Bot — für Allianzen, bessere Koordination und mehr Spaß in Whiteout Survival. Ideen? Meld dich!',
-        coming_cta_invite:'Bros24 einladen',
-        coming_cta_discord:'Discord beitreten',
-        upcoming_title:'🧩 Bevorstehende Features',
-        upcoming_b1:'📣 Event Office 2.0 — schlauere Erinnerungen (UTC), Wochenzyklen, weniger Duplikate',
-        upcoming_b2:'🧭 Labyrinth-Helfer — Zonenplan + empfohlene Truppenmischungen',
-        upcoming_b3:'🏆 Tundra Arms League — Match-Pings, Registrierung, Roster-Snapshots',
-        upcoming_b4:'🌍 Mehrsprachige Menüs (EN/DE/PL/FR/IT/TH) — Auto-Detect & pro Server',
-        upcoming_b5:'📊 Allianz-Tools — Invite-Planer, Transfer-Tracker, NAP-Lookup'
+        footer_brand:'Bros24 • State 214'
       },
 
       pl:{
@@ -650,6 +657,18 @@
         feature_calc_title:'🧮 Kalkulatory i narzędzia',feature_calc_text:'Planowanie pieca i zasobów, obliczenia ekwipunku i charmsów, przewodnik wyspy, rangi i powitania, plus minigry.',
 
         shots_title:'Zrzuty ekranu',
+
+        coming_title:'🚀 Wkrótce dostępne',
+        coming_text:'Nowe funkcje już wkrótce w bocie Bros24 — dla sojuszy, mądrzejszej koordynacji i większej frajdy w Whiteout Survival. Masz pomysł? Daj nam znać!',
+        coming_cta_invite:'Zaproś Bros24',
+        coming_cta_discord:'Dołącz na Discord',
+        upcoming_title:'🧩 Nadchodzące funkcje',
+        upcoming_b1:'📣 Event Office 2.0 — sprytniejsze przypomnienia (UTC), cykle tygodniowe, mniej duplikatów',
+        upcoming_b2:'🧭 Labyrinth Helper — harmonogram stref + rekomendowane składy',
+        upcoming_b3:'🏆 Tundra Arms League — pingi meczowe, sprawdzanie rejestracji, snapshoty składów',
+        upcoming_b4:'🌍 Wielojęzyczne menu (EN/DE/PL/FR/IT/TH) — auto-wykrywanie i domyślne na serwer',
+        upcoming_b5:'📊 Narzędzia sojuszu — planer zaproszeń, tracker transferów, szybki podgląd NAP',
+
         cmd_title:'Komendy',
         cmd_menu_title:'/menu',cmd_menu_text:'Główne centrum wszystkich funkcji.',
         cmd_event_title:'/event',cmd_event_text:'Twórz i zarządzaj przypomnieniami i harmonogramami.',
@@ -682,18 +701,7 @@
         support_player_id_label:'Player ID',support_payment_label:'Płatność',
         support_join_btn:'Dołącz na serwer wsparcia',support_contact_btn:'Skontaktuj się ze wsparciem',
         support_copy_btn:'Kopiuj ID kontaktu',support_copied:'Skopiowano ID!',copy_failed:'Błąd kopiowania',
-        footer_brand:'Bros24 • State 214',
-
-        coming_title:'🚀 Wkrótce dostępne',
-        coming_text:'Nowe funkcje w bocie Bros24 dla sojuszy, lepszej koordynacji i zabawy. Masz pomysł? Daj znać!',
-        coming_cta_invite:'Zaproś Bros24',
-        coming_cta_discord:'Dołącz na Discord',
-        upcoming_title:'🧩 Nadchodzące funkcje',
-        upcoming_b1:'📣 Event Office 2.0 — sprytniejsze przypomnienia (UTC), cykle tygodniowe',
-        upcoming_b2:'🧭 Labyrinth Helper — harmonogram stref + rekomendowane składy',
-        upcoming_b3:'🏆 Tundra Arms League — pingi, rejestracja, zrzuty list',
-        upcoming_b4:'🌍 Wielojęzyczne menu (EN/DE/PL/FR/IT/TH)',
-        upcoming_b5:'📊 Narzędzia sojuszu — plan zaproszeń, transfery, NAP'
+        footer_brand:'Bros24 • State 214'
       },
 
       it:{
@@ -724,6 +732,18 @@
         feature_calc_title:'🧮 Calcolatori & Utility',feature_calc_text:'Pianificazione fonderia e risorse, gear & charm del Chief, guida all’isola, ranking & benvenuto, più minigiochi.',
 
         shots_title:'Screenshot',
+
+        coming_title:'🚀 In arrivo',
+        coming_text:'Nuove funzioni arriveranno presto nel bot Bros24 — per alleanze, coordinamento più smart e più divertimento in Whiteout Survival. Idee? Scrivici!',
+        coming_cta_invite:'Invita Bros24',
+        coming_cta_discord:'Unisciti a Discord',
+        upcoming_title:'🧩 Prossime funzionalità',
+        upcoming_b1:'📣 Event Office 2.0 — promemoria più intelligenti (UTC), cicli settimanali, meno duplicati',
+        upcoming_b2:'🧭 Labyrinth Helper — calendario zone + composizioni consigliate',
+        upcoming_b3:'🏆 Tundra Arms League — ping match, verifiche registrazioni, snapshot roster',
+        upcoming_b4:'🌍 Menu multilingua (EN/DE/PL/FR/IT/TH) — auto-detect & default per server',
+        upcoming_b5:'📊 Strumenti alleanza — planner inviti, tracker trasferimenti, NAP quick lookup',
+
         cmd_title:'Comandi',
         cmd_menu_title:'/menu',cmd_menu_text:'Centro principale di tutte le funzioni.',
         cmd_event_title:'/event',cmd_event_text:'Crea e gestisci promemorie e pianificazioni.',
@@ -756,18 +776,7 @@
         support_player_id_label:'Player ID',support_payment_label:'Pagamento',
         support_join_btn:'Entra nel server di supporto',support_contact_btn:'Contatta il supporto',
         support_copy_btn:'Copia ID contatto',support_copied:'ID copiato!',copy_failed:'Copia non riuscita',
-        footer_brand:'Bros24 • State 214',
-
-        coming_title:'🚀 In arrivo',
-        coming_text:'Nuove funzioni per il bot Bros24 — per alleanze, coordinazione più smart e più divertimento.',
-        coming_cta_invite:'Invita Bros24',
-        coming_cta_discord:'Unisciti su Discord',
-        upcoming_title:'🧩 Prossime funzioni',
-        upcoming_b1:'📣 Event Office 2.0 — promemoria intelligenti (UTC), cicli settimanali',
-        upcoming_b2:'🧭 Labyrinth Helper — orari zone + setup consigliati',
-        upcoming_b3:'🏆 Tundra Arms League — ping match, registrazione, roster',
-        upcoming_b4:'🌍 Menu multilingua (EN/DE/PL/FR/IT/TH)',
-        upcoming_b5:'📊 Strumenti alleanza — inviti, trasferimenti, NAP'
+        footer_brand:'Bros24 • State 214'
       },
 
       fr:{
@@ -798,6 +807,18 @@
         feature_calc_title:'🧮 Calculateurs & Outils',feature_calc_text:'Planification des ressources & de la fonderie, équipement & charms du Chief, guide de l’île, classement & accueil, plus des mini-jeux.',
 
         shots_title:'Captures',
+
+        coming_title:'🚀 Bientôt disponible',
+        coming_text:'De nouvelles fonctions arrivent bientôt dans le bot Bros24 — pour les alliances, une meilleure coordination et plus de fun dans Whiteout Survival. Des idées ? Dites-le nous !',
+        coming_cta_invite:'Inviter Bros24',
+        coming_cta_discord:'Rejoindre Discord',
+        upcoming_title:'🧩 Fonctionnalités à venir',
+        upcoming_b1:'📣 Event Office 2.0 — rappels plus malins (UTC), cycles hebdo, moins de doublons',
+        upcoming_b2:'🧭 Labyrinth Helper — planning des zones + compositions recommandées',
+        upcoming_b3:'🏆 Tundra Arms League — pings de matchs, vérifs d’inscriptions, snapshots d’effectifs',
+        upcoming_b4:'🌍 Menus multilingues (EN/DE/PL/FR/IT/TH) — auto-détection & défauts par serveur',
+        upcoming_b5:'📊 Outils d’alliance — planificateur d’invitations, suivi des transferts, NAP quick lookup',
+
         cmd_title:'Commandes',
         cmd_menu_title:'/menu',cmd_menu_text:'Hub principal pour toutes les fonctions.',
         cmd_event_title:'/event',cmd_event_text:'Créer et gérer rappels et plannings.',
@@ -816,7 +837,7 @@
         menu_update_title:'🚀 /menu — propre et sans erreur',menu_update_date:'2025-08-26',
         menu_update_b1:'Hub pour Boost, Events, Languages, Hero Info, Chief, Calculator, Island, Welcome, Ranking, Games.',
         menu_update_b2:'Multilingue (EN, DE, FR, IT, PL, TH).',
-        menu_update_b3:'Correction de « Unknown Interaction (10062) ».',        
+        menu_update_b3:'Correction de « Unknown Interaction (10062) ».',
         boost_update_title:'⚡ Améliorations du Boost Center',boost_update_date:'2025-08-26',
         boost_update_b1:'Suivi en direct + rapprochement horaire',
         boost_update_b2:'Fenêtre active 28 jours (expiration auto)',
@@ -830,18 +851,7 @@
         support_player_id_label:'Player ID',support_payment_label:'Paiement',
         support_join_btn:'Rejoindre le serveur support',support_contact_btn:'Contacter le support',
         support_copy_btn:"Copier l’ID de contact",support_copied:'ID copié !',copy_failed:'Échec de la copie',
-        footer_brand:'Bros24 • State 214',
-
-        coming_title:'🚀 Bientôt disponible',
-        coming_text:'De nouvelles fonctions arrivent sur le bot Bros24 — pour les alliances, une meilleure coordination et plus de fun.',
-        coming_cta_invite:'Inviter Bros24',
-        coming_cta_discord:'Rejoindre Discord',
-        upcoming_title:'🧩 À venir',
-        upcoming_b1:'📣 Event Office 2.0 — rappels intelligents (UTC)',
-        upcoming_b2:'🧭 Labyrinth Helper — planning des zones + compos',
-        upcoming_b3:'🏆 Tundra Arms League — pings, inscription, effectifs',
-        upcoming_b4:'🌍 Menus multilingues (EN/DE/PL/FR/IT/TH)',
-        upcoming_b5:'📊 Outils d’alliance — invites, transferts, NAP'
+        footer_brand:'Bros24 • State 214'
       },
 
       th:{
@@ -872,6 +882,18 @@
         feature_calc_title:'🧮 เครื่องคิดเลข & เครื่องมือ',feature_calc_text:'วางแผนเตาหลอมและทรัพยากร อุปกรณ์และชาร์มของ Chief ไกด์เกาะ จัดอันดับ & ต้อนรับ พร้อมมินิเกม',
 
         shots_title:'สกรีนช็อต',
+
+        coming_title:'🚀 เร็ว ๆ นี้',
+        coming_text:'ฟังก์ชันใหม่ ๆ กำลังจะมาในบอท Bros24 — เพื่อกิลด์ การประสานงานที่ฉลาดขึ้น และความสนุกใน Whiteout Survival ใครมีไอเดียบอกเราได้เลย!',
+        coming_cta_invite:'เชิญ Bros24',
+        coming_cta_discord:'เข้าร่วม Discord',
+        upcoming_title:'🧩 ฟีเจอร์ที่กำลังมา',
+        upcoming_b1:'📣 Event Office 2.0 — เตือนอัจฉริยะ (UTC) วนรายสัปดาห์ ลดปัญหาซ้ำ',
+        upcoming_b2:'🧭 Labyrinth Helper — ตารางโซน + คอมโบหน่วยแนะนำ',
+        upcoming_b3:'🏆 Tundra Arms League — ping แมตช์ ตรวจลงทะเบียน สแน็ปช็อตรายชื่อ',
+        upcoming_b4:'🌍 เมนูหลายภาษา (EN/DE/PL/FR/IT/TH) — ตรวจจับอัตโนมัติ & ค่าเริ่มต้นรายกิลด์',
+        upcoming_b5:'📊 เครื่องมือกิลด์ — วางแผนเชิญ ติดตามการย้าย ดู NAP แบบรวดเร็ว',
+
         cmd_title:'คำสั่ง',
         cmd_menu_title:'/menu',cmd_menu_text:'ศูนย์รวมทุกฟีเจอร์',
         cmd_event_title:'/event',cmd_event_text:'สร้างและจัดการการเตือน/ตารางเวลา',
@@ -904,18 +926,7 @@
         support_player_id_label:'Player ID',support_payment_label:'การชำระเงิน',
         support_join_btn:'เข้าร่วมเซิร์ฟเวอร์ซัพพอร์ต',support_contact_btn:'ติดต่อซัพพอร์ต',
         support_copy_btn:'คัดลอก ID ติดต่อ',support_copied:'คัดลอกแล้ว!',copy_failed:'คัดลอกไม่สำเร็จ',
-        footer_brand:'Bros24 • State 214',
-
-        coming_title:'🚀 เร็ว ๆ นี้',
-        coming_text:'ฟีเจอร์ใหม่ ๆ สำหรับบอท Bros24 เพื่อกิลด์ การประสานงานที่ฉลาดขึ้น และความสนุกมากขึ้น',
-        coming_cta_invite:'เชิญ Bros24',
-        coming_cta_discord:'เข้าร่วม Discord',
-        upcoming_title:'🧩 ฟีเจอร์ที่กำลังมา',
-        upcoming_b1:'📣 Event Office 2.0 — เตือนอัจฉริยะ (UTC)',
-        upcoming_b2:'🧭 Labyrinth Helper — ตารางโซน + แนะนํากองกำลัง',
-        upcoming_b3:'🏆 Tundra Arms League — พิงแมตช์ ลงทะเบียน รายชื่อ',
-        upcoming_b4:'🌍 เมนูหลายภาษา (EN/DE/PL/FR/IT/TH)',
-        upcoming_b5:'📊 เครื่องมือกิลด์ — แผนเชิญ ติดตามย้าย NAP'
+        footer_brand:'Bros24 • State 214'
       }
     };
 
@@ -1006,13 +1017,7 @@
       setText('event_update_title', d.event_update_title); setText('event_update_date', d.event_update_date);
       setText('event_update_text', d.event_update_text);
 
-      // Ideas / Support / Footer
-      setText('ideas_title', d.ideas_title || ''); setText('ideas_text', d.ideas_text || '');
-      setText('ideas_cta_discord', d.ideas_cta_discord || ''); setText('ideas_cta_invite', d.ideas_cta_invite || '');
-      setText('support_highlight_title', d.support_highlight_title); setText('support_highlight_text', d.support_highlight_text);
-      setText('support_player_id_label', d.support_player_id_label); setText('support_payment_label', d.support_payment_label);
-      setText('support_join_btn', d.support_join_btn); setText('support_contact_btn', d.support_contact_btn);
-      setText('support_copy_btn', d.support_copy_btn); copyBtn && copyBtn.setAttribute('data-copied', d.support_copied || 'ID Copied!');
+      // Footer
       setText('footer_brand', d.footer_brand);
 
       // Save & set html lang + sync dropdown
