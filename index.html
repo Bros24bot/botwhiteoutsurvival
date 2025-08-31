@@ -13,7 +13,7 @@
   <meta property="og:image" content="assets/social-preview.jpg" />
   <meta name="theme-color" content="#0ea5e9" />
 
-  <!-- Preload videos -->
+  <!-- Preload: Videos -->
   <link rel="preload" as="video" href="assets/manager.webm" type="video/webm" />
   <link rel="preload" as="video" href="assets/manager.mp4"  type="video/mp4" />
 
@@ -35,84 +35,26 @@
   <style>
     .gradient-text{background:linear-gradient(90deg,#38bdf8,#a78bfa,#f472b6);-webkit-background-clip:text;background-clip:text;color:transparent}
     .title-gradient{background:linear-gradient(90deg,#93c5fd,#a78bfa,#38bdf8);-webkit-background-clip:text;background-clip:text;color:transparent}
-
-    /* 3D card */
-    .card-3d{
-      position:relative;border-radius:1rem;overflow:hidden;
-      background:linear-gradient(180deg,#0f141f 0%, #0b0f1a 100%);
-      border:1px solid rgba(255,255,255,.06);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.06),
-        0 10px 24px -12px rgba(0,0,0,.8),
-        0 22px 50px -24px rgba(2,132,199,.25);
-      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-    }
-    .card-3d::before{
-      content:""; position:absolute; inset:0 0 auto 0; height:28px; pointer-events:none;
-      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,0));
-    }
-    .card-3d:hover{
-      transform:translateY(-3px);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.06),
-        0 16px 36px -18px rgba(0,0,0,.85),
-        0 28px 60px -28px rgba(14,165,233,.35);
-      border-color: rgba(255,255,255,.10);
-    }
-
+    .card-3d{position:relative;border-radius:1rem;overflow:hidden;background:linear-gradient(180deg,#0f141f 0%, #0b0f1a 100%);border:1px solid rgba(255,255,255,.06);box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 10px 24px -12px rgba(0,0,0,.8),0 22px 50px -24px rgba(2,132,199,.25);transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;}
+    .card-3d::before{content:""; position:absolute; inset:0 0 auto 0; height:28px; pointer-events:none; background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,0));}
+    .card-3d:hover{transform:translateY(-3px);box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 16px 36px -18px rgba(0,0,0,.85),0 28px 60px -28px rgba(14,165,233,.35);border-color: rgba(255,255,255,.10);}
     .shot-box{ position:relative; border-radius:0.75rem; overflow:hidden; aspect-ratio:16/9; background:#0b1220; border:1px solid rgba(255,255,255,.08) }
     .shot{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover }
     .is-lightbox{ cursor:zoom-in }
-
-    .logo-stage{
-      position:relative; border-radius:1.25rem; overflow:hidden;
-      background: radial-gradient(120% 120% at 10% 10%, #0b1220 0%, #0b1220 35%, rgba(2,6,23,1) 100%);
-      border:1px solid rgba(255,255,255,.08);
-      box-shadow: 0 0 0 2px rgba(56,189,248,.18) inset, 0 22px 60px -22px rgba(56,189,248,.35);
-      transform-style: preserve-3d; perspective: 900px; padding: 20px;
-    }
+    .logo-stage{position:relative; border-radius:1.25rem; overflow:hidden;background: radial-gradient(120% 120% at 10% 10%, #0b1220 0%, #0b1220 35%, rgba(2,6,23,1) 100%);border:1px solid rgba(255,255,255,.08);box-shadow: 0 0 0 2px rgba(56,189,248,.18) inset, 0 22px 60px -22px rgba(56,189,248,.35);transform-style: preserve-3d; perspective: 900px;padding: 20px;}
     .logo-wrap{ position:relative; display:grid; place-items:center; padding:10px }
-    .logo-img{
-      width:min(320px, 68%); height:auto; display:block;
-      transform: translateZ(40px) rotateX(2deg) rotateY(-4deg);
-      filter: drop-shadow(0 14px 26px rgba(0,0,0,.45));
-    }
-    .logo-glow{position:absolute; inset:-20%; background:
-        radial-gradient(60% 60% at 50% 55%, rgba(56,189,248,.24), transparent 60%),
-        radial-gradient(30% 30% at 75% 25%, rgba(167,139,250,.18), transparent 70%);
-      filter: blur(26px); pointer-events:none;}
-    .logo-shine{
-      position:absolute; inset:0; pointer-events:none;
-      background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.22) 50%, transparent 65%);
-      transform: translateX(-160%);
-      animation: sweep 5.8s linear infinite;
-      mix-blend-mode: screen; opacity:.6;
-    }
+    .logo-img{width:min(320px, 68%); height:auto; display:block; transform: translateZ(40px) rotateX(2deg) rotateY(-4deg); filter: drop-shadow(0 14px 26px rgba(0,0,0,.45));}
+    .logo-glow{position:absolute; inset:-20%; background:radial-gradient(60% 60% at 50% 55%, rgba(56,189,248,.24), transparent 60%),radial-gradient(30% 30% at 75% 25%, rgba(167,139,250,.18), transparent 70%); filter: blur(26px); pointer-events:none;}
+    .logo-shine{position:absolute; inset:0; pointer-events:none;background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.22) 50%, transparent 65%); transform: translateX(-160%); animation: sweep 5.8s linear infinite; mix-blend-mode: screen; opacity:.6;}
     @keyframes sweep{ to{ transform: translateX(160%)} }
-    @media (prefers-reduced-motion: reduce){
-      .logo-img{ transform:none }
-      .logo-shine{ display:none }
-    }
-
-    .video-box{
-      position:relative;border:1px solid rgba(255,255,255,.1);border-radius:0.9rem;
-      box-shadow:0 0 0 2px rgba(56,189,248,.18) inset, 0 12px 28px -14px rgba(56,189,248,.25);
-      overflow:hidden;background:#0b1220;aspect-ratio:16/9;
-      max-width:min(960px, 94vw);max-height:clamp(220px, 52vh, 560px);margin-inline:auto;
-    }
+    @media (prefers-reduced-motion: reduce){ .logo-img{ transform:none } .logo-shine{ display:none } }
+    .video-box{position:relative;border-radius:0.9rem;border:1px solid rgba(255,255,255,.1);box-shadow:0 0 0 2px rgba(56,189,248,.18) inset, 0 12px 28px -14px rgba(56,189,248,.25);overflow:hidden;background:#0b1220;aspect-ratio:16/9;max-width:min(960px, 94vw);max-height:clamp(220px, 52vh, 560px);margin-inline:auto;}
     .video-skel{position:absolute;inset:0;background:linear-gradient(90deg,#0b1220 0%,#0e1629 50%,#0b1220 100%);animation:shimmer 1.3s infinite;opacity:.9}
     @keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
     .video-el{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .35s ease}
     .video-el.is-ready{opacity:1}
-
-    .community-card .comm-img{
-      aspect-ratio:16/9; width:min(760px, 88%); height:auto; object-fit:cover; border-radius:0.75rem;
-      display:block; margin-inline:auto;
-      box-shadow: 0 8px 30px -12px rgba(0,0,0,.65);
-      border:1px solid rgba(255,255,255,.08);
-    }
+    .community-card .comm-img{aspect-ratio:16/9; width:min(760px, 88%); height:auto; object-fit:cover; border-radius:0.75rem; display:block; margin-inline:auto; box-shadow: 0 8px 30px -12px rgba(0,0,0,.65); border:1px solid rgba(255,255,255,.08);}
     @media(max-width:640px){ .community-card .comm-img{ width:min(520px, 96%) } }
-
     .topgg-bot{ height:11.5rem } .topgg-srv{ height:11.5rem }
     @media(min-width:640px){ .topgg-bot{ height:12.5rem } .topgg-srv{ height:12.5rem } }
   </style>
@@ -239,7 +181,7 @@
     </div>
   </section>
 
-  <!-- COMING SOON -->
+  <!-- Coming Soon -->
   <section id="coming" class="py-12">
     <div class="mx-auto max-w-7xl px-4">
       <div class="card-3d p-6">
@@ -253,8 +195,18 @@
         <div class="mt-8">
           <div class="video-box">
             <div class="video-skel" id="videoSkel" aria-hidden="true"></div>
-            <video id="comingVideo" class="video-el" preload="metadata" autoplay muted loop playsinline webkit-playsinline
-                   controls poster="assets/social-preview.jpg" controlslist="nodownload noplaybackrate" disablepictureinpicture>
+            <video id="comingVideo"
+                  class="video-el"
+                  preload="metadata"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  webkit-playsinline
+                  controls
+                  poster="assets/social-preview.jpg"
+                  controlslist="nodownload noplaybackrate"
+                  disablepictureinpicture>
               <source src="assets/manager.webm" type="video/webm">
               <source src="assets/manager.mp4"  type="video/mp4">
               <source src="assets/manager.mov"  type="video/quicktime">
@@ -280,9 +232,9 @@
 
       <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <figure class="card-3d p-3"><div class="shot-box"><img id="shot_menu"  src="assets/menu.png"          alt="Main Menu — /menu"    class="shot is-lightbox" loading="lazy"></div></figure>
-        <figure class="card-3d p-3"><div class="shot-box"><img id="shot_event" src="assets/event-center.png"   alt="Event Center — /event" class="shot is-lightbox" loading="lazy"></div></figure>
-        <figure class="card-3d p-3"><div class="shot-box"><img id="shot_boost" src="assets/boost-center.png"   alt="Boost Center — /boost" class="shot is-lightbox" loading="lazy"></div></figure>
-        <figure class="card-3d p-3"><div class="shot-box"><img id="shot_rank"  src="assets/rank-card.png"      alt="Ranking — Level Card"  class="shot is-lightbox" loading="lazy"></div></figure>
+        <figure class="card-3d p-3"><div class="shot-box"><img id="shot_event" src="assets/event-center.png"  alt="Event Center — /event" class="shot is-lightbox" loading="lazy"></div></figure>
+        <figure class="card-3d p-3"><div class="shot-box"><img id="shot_boost" src="assets/boost-center.png"  alt="Boost Center — /boost" class="shot is-lightbox" loading="lazy"></div></figure>
+        <figure class="card-3d p-3"><div class="shot-box"><img id="shot_rank"  src="assets/rank-card.png"     alt="Ranking — Level Card"  class="shot is-lightbox" loading="lazy"></div></figure>
       </div>
     </div>
   </section>
@@ -302,14 +254,14 @@
     </div>
   </section>
 
-  <!-- Community (combined) -->
+  <!-- Community -->
   <section id="community" class="py-12">
     <div class="mx-auto max-w-7xl px-4">
       <div class="card-3d p-6 community-card">
         <div class="max-w-4xl mx-auto text-center">
           <img id="community_img" src="assets/coverdoa.jpg" alt="Join the DOA 214 Community" loading="lazy" class="comm-img">
           <div class="mt-5">
-            <h3 id="community_title" class="text-2xl font-extrabold gradient-text">Join the ❄ Whiteout Survival | DOA 214 Community</h3>
+            <h3 class="text-2xl font-extrabold gradient-text" id="community_title">Join the ❄ Whiteout Survival | DOA 214 Community</h3>
             <p id="community_sub" class="mt-2 text-slate-300">Events, guides, alliance tools & more — be part of it.</p>
           </div>
 
@@ -319,16 +271,16 @@
             <p id="community_p3"><strong>New to the game?</strong> We’ll walk you through the first days and weeks: what to build first, how to pace research, which heroes and pets to focus, how to set daily routines, and where to get the most value as F2P. No fluff—just clear steps you can follow.</p>
             <p id="community_p4"><strong>Already experienced?</strong> Dive into meta chats, tested team comps, damage math, spreadsheets, and high-level planning for Castle/Strongholds 🏰, Frost Dragon Tyrant 🐉, and cross-state coordination. Think your lineup is unbeatable? Post it—let’s test and optimize it together.</p>
             <p id="community_p5"><strong>Never miss rewards again.</strong> Our custom bots run smart timers, rally planners, and reminders so your alliance stays organized without spam. ⏰ Opt in for what you want, mute what you don’t.</p>
-            <p id="community_p6"><strong>Communication is effortless</strong> thanks to dedicated language channels for each community. 🌐 🇬🇧 English • 🇩🇪 Deutsch • 🇵🇱 Polski • 🇫🇷 Français • 🇮🇹 Italiano • 🇹🇭 ไทย … and more on request.</p>
+            <p id="community_p6"><strong>Communication is effortless</strong> thanks to dedicated language channels for each community. 🌐 Post in your language and you’ll get help—fast.</p>
             <p id="community_p7"><strong>Leaders and guide creators</strong> are welcome. Share strategies, coordinate cross-state projects, recruit respectfully, and build healthier alliances. We keep it fair-play, helpful, and drama-free. 🚫 No account selling/trading.</p>
-            <p id="community_p8"><strong>Jump in</strong>, say hello in <code>#arrival</code>, tell us your state and language, and we’ll unlock the right channels. Start learning, winning, and meeting great people today. If you like the vibe, please ⭐ vote for us on top.gg and invite your friends—let’s grow a stronger Whiteout Survival community together!</p>
+            <p id="community_p8"><strong>Jump in</strong>, say hello in <code>#arrival</code>, tell us your state and language, and we’ll unlock the right channels. If you like the vibe, please ⭐ vote for us on top.gg and invite your friends!</p>
           </div>
 
           <div class="mt-6 flex flex-wrap justify-center gap-3">
-            <a id="community_join_btn" href="https://discord.gg/rNtp9vrkk9" target="_blank" rel="noopener"
-               class="rounded-xl bg-brand-500 hover:bg-brand-600 px-6 py-3 font-semibold text-slate-900 shadow-glow">Join the Community</a>
-            <a id="community_vote_btn" href="https://top.gg/discord/servers/747709873159839744" target="_blank" rel="noopener"
-               class="rounded-xl bg-white/10 hover:bg-white/15 px-6 py-3 font-semibold">Vote on top.gg ⭐</a>
+            <a href="https://discord.gg/rNtp9vrkk9" target="_blank" rel="noopener"
+               class="rounded-xl bg-brand-500 hover:bg-brand-600 px-6 py-3 font-semibold text-slate-900 shadow-glow" id="community_join_btn">Join the Community</a>
+            <a href="https://top.gg/discord/servers/747709873159839744" target="_blank" rel="noopener"
+               class="rounded-xl bg-white/10 hover:bg-white/15 px-6 py-3 font-semibold" id="community_vote_btn">Vote on top.gg ⭐</a>
           </div>
         </div>
       </div>
@@ -388,17 +340,6 @@
         </ul>
       </article>
 
-      <!-- NEW: /language bug fix — today's date auto -->
-      <article class="card-3d p-6" id="lang-update">
-        <div class="flex items-center justify-between gap-2">
-          <h3 id="lang_update_title" class="text-xl font-semibold">🌐 /lang — language menu bug fixed</h3>
-          <span id="lang_update_date" class="text-xs text-slate-400">—</span>
-        </div>
-        <ul class="mt-3 space-y-2 text-slate-300 list-disc list-inside">
-          <li id="lang_update_b1">Fixed: language picker opening/visibility issue. Menu is now visible for everyone and opens reliably. Translations apply site-wide and persist across reloads.</li>
-        </ul>
-      </article>
-
       <article class="card-3d p-6 lg:col-span-2" id="event-update">
         <div class="flex items-center justify-between gap-2">
           <h3 id="event_update_title" class="text-xl font-semibold">📅 Event Center — New!</h3>
@@ -406,6 +347,17 @@
         </div>
         <p id="event_update_text" class="mt-3 text-slate-300">
           Create events with titles, messages, images, thumbnails, and custom footers. Schedule daily, every 48h, weekly, bi-weekly, every 4 weeks, or custom intervals. Target channels, @everyone, roles, or members. Edit & delete via menu.
+        </p>
+      </article>
+
+      <!-- NEW: /language fix card (date = today Europe/Warsaw) -->
+      <article class="card-3d p-6 lg:col-span-2" id="lang-update">
+        <div class="flex items-center justify-between gap-2">
+          <h3 id="lang_update_title" class="text-xl font-semibold">🌐 /language — live & persistent</h3>
+          <span id="lang_update_date" class="text-xs text-slate-400">—</span>
+        </div>
+        <p id="lang_update_b1" class="mt-3 text-slate-300">
+          Language switch fixed: remembers your choice and updates dates dynamically (Europe/Warsaw).
         </p>
       </article>
     </div>
@@ -440,17 +392,18 @@
       <div id="topgg" class="flex items-center justify-center gap-3 flex-wrap mb-5">
         <a href="https://top.gg/bot/1387844888187375758" target="_blank" rel="noopener"
            class="rounded-lg border border-white/10 bg-white/5 p-2 hover:bg-white/10 transition">
-          <img src="https://top.gg/api/widget/1387844888187375758.svg" alt="Vote on top.gg" class="w-auto object-contain topgg-bot">
+          <img src="https://top.gg/api/widget/1387844888187375758.svg" alt="Vote on top.gg"
+               class="w-auto object-contain topgg-bot">
         </a>
         <a href="https://top.gg/discord/servers/747709873159839744" target="_blank" rel="noopener"
            class="rounded-lg border border-white/10 bg-white/5 p-2 hover:bg-white/10 transition">
-          <img src="https://top.gg/api/v1/widgets/large/747709873159839744" alt="WS Community (State 214) on top.gg" class="w-auto object-contain topgg-srv">
+          <img src="https://top.gg/api/v1/widgets/large/747709873159839744" alt="WS Community (State 214) on top.gg"
+               class="w-auto object-contain topgg-srv">
         </a>
       </div>
 
       <p class="text-center text-slate-400 text-sm">
-        © <span id="year"></span>
-        <span id="footer_owner">Bros24</span> — <span id="footer_product">Whiteout Survival Discord Bot</span> •
+        © <span id="year"></span> Bros24 — Whiteout Survival Discord Bot •
         <span id="footer_brand" class="text-slate-300">Bros24 • State 214</span>
       </p>
     </div>
@@ -462,60 +415,68 @@
   </div>
 
   <script>
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // ====== UTIL ======
+    const $ = (id)=>document.getElementById(id);
+    const setText = (id, v)=>{ const el=$(id); if(el && typeof v==='string') el.textContent=v; };
+    const setAttr = (id, attr, v)=>{ const el=$(id); if(el && typeof v==='string') el.setAttribute(attr, v); };
+    const todayISO = ()=> new Date().toLocaleDateString('en-CA', { timeZone:'Europe/Warsaw' }); // YYYY-MM-DD
 
-    // Copy Discord ID
-    const copyBtn = document.getElementById('copyId');
-    function resetCopyBtnLabel(){
-      const lang = document.documentElement.lang || 'en';
-      copyBtn.textContent = (T[lang]?.support_copy_btn) || 'Copy Contact ID';
-    }
-    if (copyBtn) copyBtn.addEventListener('click', async () => {
-      try {
-        await navigator.clipboard.writeText('1154018970572169267');
-        const label = T[document.documentElement.lang]?.support_copied || copyBtn.getAttribute('data-copied') || 'ID Copied!';
-        copyBtn.textContent = label;
-        setTimeout(resetCopyBtnLabel, 1600);
-      } catch {
-        copyBtn.textContent = T[document.documentElement.lang]?.copy_failed || 'Copy failed';
-        setTimeout(resetCopyBtnLabel, 1600);
+    // Year
+    setText('year', String(new Date().getFullYear()));
+
+    // Copy Discord ID (with i18n labels)
+    (function(){
+      const copyBtn = $('copyId');
+      function resetCopyBtnLabel(){
+        const lang = document.documentElement.lang || 'en';
+        copyBtn.textContent = (window.T?.[lang]?.support_copy_btn) || 'Copy Contact ID';
       }
-    });
+      if (copyBtn){
+        copyBtn.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText('1154018970572169267');
+            const lang = document.documentElement.lang || 'en';
+            copyBtn.textContent = (window.T?.[lang]?.support_copied) || copyBtn.getAttribute('data-copied') || 'ID Copied!';
+            setTimeout(resetCopyBtnLabel, 1600);
+          } catch {
+            const lang = document.documentElement.lang || 'en';
+            copyBtn.textContent = (window.T?.[lang]?.copy_failed) || 'Copy failed';
+            setTimeout(resetCopyBtnLabel, 1600);
+          }
+        });
+      }
+    })();
 
     // Lightbox
-    const lb = document.getElementById('lightbox');
-    const lbImg = document.getElementById('lightbox-img');
-    document.querySelectorAll('.is-lightbox').forEach(img => {
-      img.addEventListener('click', () => {
-        lbImg.src = img.getAttribute('src');
-        lb.classList.remove('hidden');
-        document.body.classList.add('modal-open');
-      });
-    });
-    lb.addEventListener('click', () => {
-      lb.classList.add('hidden'); lbImg.src = ''; document.body.classList.remove('modal-open');
-    });
-
-    // Video: fade-in & pause offscreen
     (function(){
-      const v = document.getElementById('comingVideo');
-      const skel = document.getElementById('videoSkel');
+      const lb = $('lightbox'), lbImg = $('lightbox-img');
+      document.querySelectorAll('.is-lightbox').forEach(img=>{
+        img.addEventListener('click', ()=>{
+          lbImg.src = img.getAttribute('src');
+          lb.classList.remove('hidden');
+          document.body.classList.add('modal-open');
+        });
+      });
+      lb.addEventListener('click', ()=>{
+        lb.classList.add('hidden'); lbImg.src=''; document.body.classList.remove('modal-open');
+      });
+    })();
+
+    // Video fade & autopause
+    (function(){
+      const v = $('comingVideo'), skel = $('videoSkel');
       if(!v) return;
-      v.addEventListener('loadeddata', ()=>{ v.classList.add('is-ready'); if(skel) skel.style.display = 'none'; }, { once:true });
-      v.addEventListener('error', ()=>{ if(skel) skel.style.display = 'none'; });
+      v.addEventListener('loadeddata', ()=>{ v.classList.add('is-ready'); if(skel) skel.style.display='none'; }, { once:true });
+      v.addEventListener('error', ()=>{ if(skel) skel.style.display='none'; });
       const io = new IntersectionObserver(entries=>{
-        for(const e of entries){
-          if(e.isIntersecting){ try{ v.play(); }catch(_){} }
-          else { try{ v.pause(); }catch(_){} }
-        }
+        for(const e of entries){ if(e.isIntersecting){ try{ v.play(); }catch(_){} } else { try{ v.pause(); }catch(_){} } }
       }, { threshold: 0.25 });
       io.observe(v);
     })();
 
-    // Logo 3D tilt
+    // Logo tilt (desktop)
     (function(){
-      const stage = document.getElementById('logoStage');
+      const stage = $('logoStage');
       const mq = window.matchMedia('(pointer:fine) and (hover:hover)');
       const rm = window.matchMedia('(prefers-reduced-motion: reduce)');
       if(!stage || !mq.matches || rm.matches) return;
@@ -528,154 +489,49 @@
         const rotX = (+dy*5).toFixed(2);
         const rotY = (-dx*7).toFixed(2);
         cancelAnimationFrame(rafId);
-        rafId = requestAnimationFrame(()=>{
-          stage.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
-        });
+        rafId = requestAnimationFrame(()=>{ stage.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg)`; });
       });
       stage.addEventListener('mouseleave', ()=>{ stage.style.transform='perspective(900px) rotateX(0deg) rotateY(0deg)'; });
     })();
 
-    // === i18n ===
-    // Minimal baseline (EN) so page still renders if external JSON fails to load.
-    const T = {
-      en: {
-        // META
-        meta_title:'Bros24 — Whiteout Survival Discord Bot | All-in-One',
-        meta_desc:'One bot. All applications. Events, Boosts, Heroes, Calculators & more — built by players for players.',
-        meta_keywords:'Bros24, Whiteout Survival, Discord Bot, Event Center, Boost, Hero, Calculator, Ranking, Welcome, State 214, DOA, guide, wos bot, bros24bot',
-
-        // NAV + HEADER
-        nav_features:'Features',nav_media:'Screenshots',nav_coming:'Coming Soon',nav_commands:'Commands',nav_updates:'Updates',nav_topgg:'top.gg',nav_support:'Support',
-        header_invite:'➕ Invite Bot',
-
-        // HERO
-        hero_title_1:'One Bot.',hero_title_2:'All Applications.',
-        hero_text:'Stop stacking extra Discord bots. The Bros24 Whiteout Survival bot unites Events, Boosts, Heroes, Calculators, Welcome & Ranking in one multilingual assistant — built by players for players.',
-        hero_invite:'Invite Now',hero_features:'See Features',hero_badge:'By players, for players — Whiteout Survival',
-
-        // USP
-        usp1_title:'All-in-One for Whiteout Survival',usp1_text:'Event Center, Boost tracking, Hero Hub, Calculators, Welcome & Ranking — everything in one bot.',
-        usp2_title:'No Extra Bots Needed',usp2_text:'Less setup, less clutter. One clean, modern menu flow for everyone.',
-        usp3_title:'By Players, For Players',usp3_text:'You shape the bot with your requests. Community feedback ships weekly.',
-
-        // FEATURES
-        features_title:'What you get',features_sub:'Everything your alliance needs — in one place.',
-        feature_event_title:'📅 Event Center',feature_event_text:'Create reminders (title, message, images, thumbnails, custom footer). Schedules: daily / 48h / weekly / bi-weekly / every 4 weeks / custom. Target channels, @everyone, roles or members. Edit & delete via menu.',
-        feature_boost_title:'🚀 Boost Center',feature_boost_b1:'Live tracking + hourly reconcile',feature_boost_b2:'28-day active window (auto-expire)',feature_boost_b3:'Persistent public menu • restart-safe',feature_boost_b4:'Weekly summary (Sun 18:00 UTC)',feature_boost_b5:'Per-guild language switcher',
-        feature_hero_title:'🦸 Hero Hub & Guides',feature_hero_text:'Hero details, skills, tier lists, building strategies and advanced mechanics.',
-        feature_calc_title:'🧮 Calculators & Utilities',feature_calc_text:'Furnace & resource planning, chief gear & charm math, island guide, ranking & welcome, plus minigames.',
-
-        // MEDIA
-        shots_title:'Screenshots',
-
-        // COMING
-        coming_title:'🚀 Coming Soon',coming_text:'New features for Bros24 are on the way — crafted for alliances, smarter coordination and more fun in Whiteout Survival. Got ideas? Tell us!',
-        coming_cta_invite:'Invite Bros24',coming_cta_discord:'Join Discord',
-
-        // UPCOMING
-        upcoming_title:'🧩 Upcoming Features',
-        upcoming_b1:'📣 Event Office 2.0 — smarter reminders (UTC), weekly cycles, fewer duplicates',
-        upcoming_b2:'🧭 Labyrinth Helper — zone schedule + recommended troop mixes',
-        upcoming_b4:'🌍 Multilingual menus (EN/DE/PL/FR/IT/TH) — auto-detect & per-server defaults',
-        upcoming_b5:'📊 Alliance Tools — invites planner, transfer tracker, NAP quick lookup',
-
-        // COMMANDS
-        cmd_title:'Slash Commands',
-        cmd_menu_title:'/menu',cmd_menu_text:'Main hub for all features.',
-        cmd_event_title:'/event',cmd_event_text:'Create & manage reminders and schedules.',
-        cmd_boost_title:'/boost',cmd_boost_text:'Track boosts, set goals, view leaderboards.',
-        cmd_boostmenu_title:'/boostmenu',cmd_boostmenu_text:'Open the public Boost menu.',
-        cmd_hero_title:'/hero',cmd_hero_text:'Hero details, stats, skills & tiers.',
-        cmd_chief_title:'/chief',cmd_chief_text:'Chief gear & charm calculators.',
-        cmd_calc_title:'/calc',cmd_calc_text:'Universal calculator (resources, furnaces, etc.).',
-        cmd_island_title:'/island',cmd_island_text:'Island guide (buildings & strategies).',
-        cmd_ranking_title:'/ranking',cmd_ranking_text:'XP, leaderboards & rank cards.',
-        cmd_welcome_title:'/welcome',cmd_welcome_text:'Automated welcome system.',
-        cmd_lang_title:'/lang',cmd_lang_text:'Switch UI language per guild.',
-        cmd_games_title:'/games',cmd_games_text:'Minigames like Hangman (EN/DE).',
-
-        // UPDATES (existing)
-        updates_title:'Latest Updates',
-        menu_update_title:'🚀 /menu — clean & error-free',menu_update_date:'2025-08-26',
-        menu_update_b1:'Hub for Boost, Events, Languages, Hero Info, Chief, Calculator, Island, Welcome, Ranking, Games.',
-        menu_update_b2:'Multilingual (EN, DE, FR, IT, PL, TH).',
-        menu_update_b3:'Fixed Unknown Interaction (10062).',
-        boost_update_title:'⚡ Boost Center Improvements',boost_update_date:'2025-08-26',
-        boost_update_b1:'Live tracking + hourly reconcile',boost_update_b2:'28-day active window (auto-expire)',
-        boost_update_b3:'Persistent public menu via /boost',boost_update_b4:'Weekly summary every Sunday 18:00 UTC',
-        event_update_title:'📅 Event Center — New!',event_update_date:'2025-08-26',
-        event_update_text:'Create events with titles, messages, images, thumbnails, and custom footers. Schedule daily, every 48h, weekly, bi-weekly, every 4 weeks, or custom intervals. Target channels, @everyone, roles, or members. Edit & delete via menu.',
-
-        // NEW: /language bug fix card
-        lang_update_title:'🌐 /lang — language menu bug fixed',
-        lang_update_date:'', /* will be set to today */
-        lang_update_b1:'Fixed: language picker opening/visibility issue. Menu is now visible for everyone and opens reliably. Translations apply site-wide and persist across reloads.',
-
-        // SUPPORT / FOOTER
-        support_highlight_title:'Support the Project — Optional',
-        support_highlight_text:'Bros24 stays free for everyone. If you’d like to help with server costs & weekly development, you can support via Frost Stars in Whiteout Survival — totally optional, no pressure.',
-        support_player_id_label:'Player ID',support_payment_label:'Payment',
-        support_join_btn:'Join Support Server',support_contact_btn:'Contact Support',
-        support_copy_btn:'Copy Contact ID',support_copied:'ID Copied!',copy_failed:'Copy failed',
-
-        // Footer lines
-        footer_owner:'Bros24',
-        footer_product:'Whiteout Survival Discord Bot',
-        footer_brand:'Bros24 • State 214',
-
-        // Community block + ALTs
-        community_title:"Join the ❄ Whiteout Survival | DOA 214 Community",
-        community_sub:"Events, guides, alliance tools & more — be part of it.",
-        community_p1:"Do you play Whiteout Survival and want to get better—faster? Ever wondered how top states plan Bear Trap 🐻, perfect Frostfire Mine ❄️🔥 rotations, or squeeze every drop from SVS ⚔️? You’re in the right place.",
-        community_p2:"We’re DOA’s community from State 214, but our doors are open to every state and every alliance. Join for teamwork, practical guides, and quick help from daily players—beginners to min-max pros.",
-        community_p3:"New to the game? We’ll walk you through the first days and weeks: what to build first, how to pace research, which heroes and pets to focus, daily routines, and best F2P value.",
-        community_p4:"Already experienced? Dive into meta chats, tested comps, damage math, spreadsheets, and high-level planning for Castles/Strongholds 🏰, Frost Dragon Tyrant 🐉, and cross-state coordination.",
-        community_p5:"Never miss rewards again. Our custom bots run smart timers, rally planners, and reminders so your alliance stays organized without spam. Opt in for what you want, mute what you don’t.",
-        community_p6:"Communication is effortless with dedicated language channels. 🌐 English • Deutsch • Polski • Français • Italiano • ไทย … and more on request.",
-        community_p7:"Leaders and guide creators are welcome. Share strategies, coordinate cross-state projects, recruit respectfully, and build healthier alliances. No account selling/trading.",
-        community_p8:"Jump in, say hello in #arrival, tell us your state and language, and we’ll unlock the right channels. If you like the vibe, please ⭐ vote on top.gg and invite your friends.",
-        community_join_btn:"Join the Community",
-        community_vote_btn:"Vote on top.gg ⭐",
-        community_image_alt:"Join the DOA 214 Community",
-
-        // Screenshot ALT (keep /commands in EN)
-        alt_menu:"Main Menu — /menu",
-        alt_event_center:"Event Center — /event",
-        alt_boost_center:"Boost Center — /boost",
-        alt_rank_card:"Ranking — Level Card"
-      }
-    };
+    // ====== I18N LOADER (fetch index.json located next to index.html) ======
+    window.T = {}; // translations map loaded from JSON
 
     async function loadExternalTranslations(){
-      try{
-        const r = await fetch('assets/i18n/index.json',{cache:'no-store'});
-        if(r.ok){
-          const ext = await r.json();
-          // Merge languages shallowly
-          for (const k of Object.keys(ext)) {
-            T[k] = Object.assign({}, T[k]||{}, ext[k]);
+      const base = document.baseURI || location.href;
+      const candidates = [
+        new URL('index.json', base).href,              // same folder as index.html (recommended on GitHub Pages)
+        new URL('i18n.json', base).href,               // optional alias
+        new URL('assets/i18n/index.json', base).href   // legacy path
+      ];
+      for (const url of candidates){
+        try{
+          const r = await fetch(url, { cache: 'no-store' });
+          if (r.ok){
+            window.T = await r.json();
+            console.info('[i18n] loaded:', url);
+            return true;
           }
+        }catch(e){
+          console.warn('[i18n] failed:', url, e);
         }
-      }catch(_){}
+      }
+      // Minimal EN fallback so the page still works
+      window.T = { en: {} };
+      console.warn('[i18n] no external JSON found; using minimal EN fallback');
+      return false;
     }
-    function setText(id, v){ const el=document.getElementById(id); if(el && typeof v==='string'){ el.textContent=v; } }
-    function setAttr(id, attr, v){ const el=document.getElementById(id); if(el && typeof v==='string'){ el.setAttribute(attr, v); } }
-    function todayISO(){
-      const dt=new Date();
-      const y=dt.getFullYear(), m=String(dt.getMonth()+1).padStart(2,'0'), d=String(dt.getDate()).padStart(2,'0');
-      return `${y}-${m}-${d}`;
+
+    function setMeta(nameOrProp, content, isOg=false){
+      const selector = isOg ? `meta[property="${nameOrProp}"]` : `meta[name="${nameOrProp}"]`;
+      const el = document.querySelector(selector);
+      if (el && typeof content==='string') el.setAttribute('content', content);
     }
 
     function applyLang(lang){
-      const d = T[lang] || T.en;
-
-      // Meta
-      document.title = d.meta_title || document.title;
-      const setMeta = (nameOrProp, content, isOg=false)=>{
-        const selector = isOg ? `meta[property="${nameOrProp}"]` : `meta[name="${nameOrProp}"]`;
-        const el = document.querySelector(selector);
-        if (el && typeof content==='string') el.setAttribute('content', content);
-      };
+      const d = (window.T?.[lang]) || window.T?.en || {};
+      // Meta / Title
+      if (d.meta_title) document.title = d.meta_title;
       setMeta('description', d.meta_desc || '');
       setMeta('keywords', d.meta_keywords || '');
       setMeta('og:title', d.meta_title || '', true);
@@ -699,7 +555,7 @@
        'feature_hero_title','feature_hero_text','feature_calc_title','feature_calc_text']
         .forEach(id=> setText(id, d[id]));
 
-      // Coming + Upcoming + Media
+      // Coming Soon + Upcoming + Media
       ['shots_title','coming_title','coming_text','coming_cta_invite','coming_cta_discord',
        'upcoming_title','upcoming_b1','upcoming_b2','upcoming_b4','upcoming_b5']
         .forEach(id=> setText(id, d[id]));
@@ -711,68 +567,51 @@
        'cmd_welcome_title','cmd_welcome_text','cmd_lang_title','cmd_lang_text','cmd_games_title','cmd_games_text']
         .forEach(id=> setText(id, d[id]));
 
-      // Updates (existing)
+      // Updates
       ['updates_title','menu_update_title','menu_update_date','menu_update_b1','menu_update_b2','menu_update_b3',
        'boost_update_title','boost_update_date','boost_update_b1','boost_update_b2','boost_update_b3','boost_update_b4',
        'event_update_title','event_update_date','event_update_text',
-       // NEW /lang card
        'lang_update_title','lang_update_b1'
       ].forEach(id=> setText(id, d[id]));
-
-      // ALWAYS set /language fix date to TODAY (keeps site current)
+      // /language card date => always "today" in Europe/Warsaw
       setText('lang_update_date', todayISO());
 
+      // Community
+      ['community_title','community_sub','community_p1','community_p2','community_p3','community_p4','community_p5','community_p6','community_p7','community_p8',
+       'community_join_btn','community_vote_btn'].forEach(id=>{ if (d[id]) setText(id, d[id]); });
+      if (d.community_image_alt) setAttr('community_img','alt', d.community_image_alt);
+
+      // ALT for screenshots
+      if (d.alt_menu) setAttr('shot_menu','alt', d.alt_menu);
+      if (d.alt_event_center) setAttr('shot_event','alt', d.alt_event_center);
+      if (d.alt_boost_center) setAttr('shot_boost','alt', d.alt_boost_center);
+      if (d.alt_rank_card) setAttr('shot_rank','alt', d.alt_rank_card);
+
       // Footer
-      setText('footer_owner', d.footer_owner || 'Bros24');
-      setText('footer_product', d.footer_product || 'Whiteout Survival Discord Bot');
       setText('footer_brand', d.footer_brand || 'Bros24 • State 214');
 
-      // Community block
-      ['community_title','community_sub','community_p1','community_p2','community_p3','community_p4',
-       'community_p5','community_p6','community_p7','community_p8',
-       'community_join_btn','community_vote_btn'
-      ].forEach(id=> setText(id, d[id]));
-      setAttr('community_img','alt', d.community_image_alt || 'Join the DOA 214 Community');
-
-      // Screenshot ALT (keep command tokens EN)
-      setAttr('shot_menu','alt', d.alt_menu || 'Main Menu — /menu');
-      setAttr('shot_event','alt', d.alt_event_center || 'Event Center — /event');
-      setAttr('shot_boost','alt', d.alt_boost_center || 'Boost Center — /boost');
-      setAttr('shot_rank','alt', d.alt_rank_card || 'Ranking — Level Card');
-
-      // Save & sync
+      // Save & set html lang + sync dropdown
       localStorage.setItem('bros24_lang', lang);
       document.documentElement.setAttribute('lang', lang);
-      const sel=document.getElementById('langSelect'); if (sel && sel.value!==lang) sel.value=lang;
+      const sel = $('langSelect'); if (sel && sel.value !== lang) sel.value = lang;
 
-      // Refresh copy button label
-      resetCopyBtnLabel();
+      // Refresh copy button default label
+      const copyBtn = $('copyId');
+      if (copyBtn) copyBtn.textContent = (d.support_copy_btn) || 'Copy Contact ID';
     }
 
-    // Language select change
-    document.getElementById('langSelect').addEventListener('change', e=> applyLang(e.target.value));
+    // Language selector
+    $('langSelect').addEventListener('change', e=> applyLang(e.target.value));
 
     // Init
     (async ()=>{
       await loadExternalTranslations();
-      const saved = localStorage.getItem('bros24_lang') || 'en';
-      const sel = document.getElementById('langSelect'); if (sel) sel.value = saved;
-      applyLang(saved);
+      const saved = localStorage.getItem('bros24_lang');
+      const browser = (navigator.language||'en').slice(0,2).toLowerCase();
+      const lang = (window.T[saved] && saved) || (window.T[browser] && browser) || 'en';
+      const sel = $('langSelect'); if (sel) sel.value = lang;
+      applyLang(lang);
     })();
-
-    // Optional debug: list missing keys in current language
-    window.checkMissingKeys = (lang='en')=>{
-      const need = [
-        'footer_owner','footer_product',
-        'community_title','community_sub','community_p1','community_p2','community_p3','community_p4','community_p5','community_p6','community_p7','community_p8',
-        'community_join_btn','community_vote_btn','community_image_alt',
-        'alt_menu','alt_event_center','alt_boost_center','alt_rank_card',
-        'lang_update_title','lang_update_b1'
-      ];
-      const miss = need.filter(k => !(k in (T[lang]||{})));
-      if(miss.length) console.warn('[i18n] Missing in', lang, ':', miss);
-      else console.info('[i18n] All good for', lang);
-    };
   </script>
 </body>
 </html>
