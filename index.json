@@ -97,8 +97,9 @@
     "event_update_date": "2025-08-26",
     "event_update_text": "Create events with titles, messages, images, thumbnails, and custom footers. Schedule daily, every 48h, weekly, bi-weekly, every 4 weeks, or custom intervals. Target channels, @everyone, roles, or members. Edit & delete via menu.",
 
-    "topgg_title": "top.gg — Vote & Discover",
-    "topgg_text": "Vote for the bot, add it to your server, and discover our Whiteout Survival State 214 community.",
+    "lang_update_title": "🌐 /lang — language menu bug fixed",
+    "lang_update_date": "",
+    "lang_update_b1": "Fixed: language picker opening/visibility issue. Menu is now visible for everyone and opens reliably. Translations apply site-wide and persist across reloads.",
 
     "support_highlight_title": "Support the Project — Optional",
     "support_highlight_text": "Bros24 stays free for everyone. If you’d like to help with server costs & weekly development, you can support via Frost Stars in Whiteout Survival — totally optional, no pressure.",
@@ -109,9 +110,29 @@
     "support_copy_btn": "Copy Contact ID",
     "support_copied": "ID Copied!",
     "copy_failed": "Copy failed",
-    "support_brand_line": "Bros24 • DOA • State 214",
 
-    "footer_brand": "Bros24 • State 214"
+    "footer_owner": "Bros24",
+    "footer_product": "Whiteout Survival Discord Bot",
+    "footer_brand": "Bros24 • State 214",
+
+    "community_title": "Join the ❄ Whiteout Survival | DOA 214 Community",
+    "community_sub": "Events, guides, alliance tools & more — be part of it.",
+    "community_p1": "Do you play Whiteout Survival and want to get better—faster? Ever wondered how top states plan Bear Trap 🐻, perfect Frostfire Mine ❄️🔥 rotations, or squeeze every drop from SVS ⚔️? You’re in the right place.",
+    "community_p2": "We’re DOA’s community from State 214, but our doors are open to every state and every alliance. Join for teamwork, practical guides, and quick help from daily players—beginners to min-max pros.",
+    "community_p3": "New to the game? We’ll walk you through the first days and weeks: what to build first, how to pace research, which heroes and pets to focus, daily routines, and best F2P value.",
+    "community_p4": "Already experienced? Dive into meta chats, tested comps, damage math, spreadsheets, and high-level planning for Castles/Strongholds 🏰, Frost Dragon Tyrant 🐉, and cross-state coordination.",
+    "community_p5": "Never miss rewards again. Our custom bots run smart timers, rally planners, and reminders so your alliance stays organized without spam. Opt in for what you want, mute what you don’t.",
+    "community_p6": "Communication is effortless with dedicated language channels. 🌐 English • Deutsch • Polski • Français • Italiano • ไทย … and more on request.",
+    "community_p7": "Leaders and guide creators are welcome. Share strategies, coordinate cross-state projects, recruit respectfully, and build healthier alliances. No account selling/trading.",
+    "community_p8": "Jump in, say hello in #arrival, tell us your state and language, and we’ll unlock the right channels. If you like the vibe, please ⭐ vote on top.gg and invite your friends.",
+    "community_join_btn": "Join the Community",
+    "community_vote_btn": "Vote on top.gg ⭐",
+    "community_image_alt": "Join the DOA 214 Community",
+
+    "alt_menu": "Main Menu — /menu",
+    "alt_event_center": "Event Center — /event",
+    "alt_boost_center": "Boost Center — /boost",
+    "alt_rank_card": "Ranking — Level Card"
   },
 
   "de": {
@@ -212,8 +233,9 @@
     "event_update_date": "2025-08-26",
     "event_update_text": "Events mit Titeln, Nachrichten, Bildern, Thumbnails und Custom-Footer. Zeitpläne: täglich, alle 48h, wöchentlich, zweiwöchentlich, alle 4 Wochen oder frei. Ziel-Channel, @everyone, Rollen oder Member. Bearbeitung & Löschen im Menü.",
 
-    "topgg_title": "top.gg — Vote & Discover",
-    "topgg_text": "Vote für den Bot, füge ihn deinem Server hinzu und entdecke unsere Whiteout-Survival-Community (State 214).",
+    "lang_update_title": "🌐 /lang — Sprachmenü-Bug behoben",
+    "lang_update_date": "",
+    "lang_update_b1": "Behoben: Öffnen/Sichtbarkeit des Sprachmenüs. Menü ist nun für alle sichtbar und öffnet zuverlässig. Übersetzungen greifen seitenweit und bleiben nach Reload bestehen.",
 
     "support_highlight_title": "Projekt unterstützen — optional",
     "support_highlight_text": "Bros24 bleibt für alle kostenlos. Wenn du Serverkosten & wöchentliche Entwicklung unterstützen willst, geht das über Frost Stars in Whiteout Survival — komplett optional, ohne Druck.",
@@ -224,9 +246,29 @@
     "support_copy_btn": "Kontakt-ID kopieren",
     "support_copied": "ID kopiert!",
     "copy_failed": "Kopieren fehlgeschlagen",
-    "support_brand_line": "Bros24 • DOA • State 214",
 
-    "footer_brand": "Bros24 • State 214"
+    "footer_owner": "Bros24",
+    "footer_product": "Whiteout Survival Discord Bot",
+    "footer_brand": "Bros24 • State 214",
+
+    "community_title": "Tritt der ❄ Whiteout Survival | DOA 214 Community bei",
+    "community_sub": "Events, Guides, Allianz-Tools & mehr — mach mit.",
+    "community_p1": "Du spielst Whiteout Survival und willst schneller besser werden? Fragst du dich, wie Top-States Bärenfalle 🐻, perfekte Frostfire-Mine ❄️🔥 Rotationen oder SVS ⚔️ planen? Dann bist du hier richtig.",
+    "community_p2": "Wir sind die DOA-Community aus State 214, aber offen für alle States und Allianzen. Teamwork, praxisnahe Guides und schnelle Hilfe — vom Einsteiger bis zum Min-Max-Pro.",
+    "community_p3": "Neu im Spiel? Wir begleiten dich durch die ersten Tage/Wochen: Bau-Prioritäten, Forschungs-Tempo, Fokus-Helden & Pets, Daily-Routinen und bestes F2P-Value.",
+    "community_p4": "Schon erfahren? Meta-Talks, getestete Team-Comps, Damage-Mathe, Spreadsheets und High-Level-Planung für Burgen/Festungen 🏰, Frost-Dragon Tyrant 🐉 und Cross-State-Koordination.",
+    "community_p5": "Keine Belohnungen mehr verpassen. Unsere Bots liefern smarte Timer, Rally-Planner und Reminder — organisiert ohne Spam. Opt-in was du willst, mute was nicht.",
+    "community_p6": "Einfache Kommunikation dank Sprachkanälen: 🌐 English • Deutsch • Polski • Français • Italiano • ไทย … weitere auf Anfrage.",
+    "community_p7": "Leader & Guide-Creator willkommen. Teile Strategien, koordiniere Projekte, rekrutiere fair und stärke gesunde Allianzen. Kein Account-Handel.",
+    "community_p8": "Komm rein, sag Hallo in #arrival, nenne State & Sprache — wir schalten passende Channels frei. Gefällt’s? ⭐ Stimme auf top.gg ab und lade Freunde ein.",
+    "community_join_btn": "Community beitreten",
+    "community_vote_btn": "Auf top.gg abstimmen ⭐",
+    "community_image_alt": "DOA 214 Community beitreten",
+
+    "alt_menu": "Hauptmenü — /menu",
+    "alt_event_center": "Event Center — /event",
+    "alt_boost_center": "Boost Center — /boost",
+    "alt_rank_card": "Ranking — Level Card"
   },
 
   "pl": {
@@ -327,8 +369,9 @@
     "event_update_date": "2025-08-26",
     "event_update_text": "Twórz wydarzenia z tytułem, wiadomością, obrazami, miniaturami i własną stopką. Harmonogramy: codziennie, co 48h, co tydzień, co dwa tygodnie, co 4 tygodnie lub własne. Kanały, @everyone, role lub członkowie. Edycja i usuwanie w menu.",
 
-    "topgg_title": "top.gg — Głosuj i odkrywaj",
-    "topgg_text": "Głosuj na bota, dodaj go na serwer i poznaj naszą społeczność Whiteout Survival State 214.",
+    "lang_update_title": "🌐 /lang — naprawiono błąd menu języka",
+    "lang_update_date": "",
+    "lang_update_b1": "Naprawiono: problem z otwieraniem/widocznością selektora języka. Menu jest widoczne dla wszystkich i działa niezawodnie. Tłumaczenia działają globalnie i trwają po odświeżeniu.",
 
     "support_highlight_title": "Wesprzyj projekt — opcjonalnie",
     "support_highlight_text": "Bros24 pozostaje darmowy dla wszystkich. Jeśli chcesz pomóc w kosztach serwera i cotygodniowym rozwoju, możesz wesprzeć nas przez Frost Stars w Whiteout Survival — całkowicie opcjonalnie.",
@@ -339,9 +382,29 @@
     "support_copy_btn": "Kopiuj ID kontaktu",
     "support_copied": "Skopiowano ID!",
     "copy_failed": "Błąd kopiowania",
-    "support_brand_line": "Bros24 • DOA • State 214",
 
-    "footer_brand": "Bros24 • State 214"
+    "footer_owner": "Bros24",
+    "footer_product": "Bot Discord dla Whiteout Survival",
+    "footer_brand": "Bros24 • State 214",
+
+    "community_title": "Dołącz do społeczności ❄ Whiteout Survival | DOA 214",
+    "community_sub": "Wydarzenia, poradniki, narzędzia sojuszu i więcej — dołącz!",
+    "community_p1": "Grasz w Whiteout Survival i chcesz szybciej się poprawić? Jak topowe stany planują Pułapkę na Niedźwiedzia 🐻, rotacje Frostfire ❄️🔥 czy maksują SVS ⚔️? Jesteś we właściwym miejscu.",
+    "community_p2": "To społeczność DOA ze Stanu 214, ale drzwi są otwarte dla każdego stanu i sojuszu. Teamwork, praktyczne poradniki i szybka pomoc — od początkujących po min-max pro.",
+    "community_p3": "Nowy w grze? Przeprowadzimy cię przez pierwsze dni: priorytety budowy, tempo badań, na jakich bohaterach/pupilkach się skupić, rutyny dzienne i najlepsza wartość F2P.",
+    "community_p4": "Masz doświadczenie? Wejdź w meta-dyskusje, sprawdzone składy, matematykę obrażeń, arkusze i planowanie na poziomie zamków/twierdz 🏰, Tyranta Smoka Lodu 🐉 i koordynację między stanami.",
+    "community_p5": "Nie przegap już nagród. Nasze boty dają sprytne timery, planery rajdów i przypomnienia — porządek bez spamu. Opt-in co chcesz, wycisz resztę.",
+    "community_p6": "Komunikacja jest prosta dzięki kanałom językowym: 🌐 English • Deutsch • Polski • Français • Italiano • ไทย … i więcej na życzenie.",
+    "community_p7": "Liderzy i twórcy poradników mile widziani. Dziel się strategiami, koordynuj projekty, rekrutuj z szacunkiem i buduj zdrowsze sojusze. Bez handlu kontami.",
+    "community_p8": "Wskakuj, przywitaj się na #arrival, podaj stan i język — odblokujemy odpowiednie kanały. Lubisz klimat? ⭐ Zagłosuj na top.gg i zaproś znajomych.",
+    "community_join_btn": "Dołącz do społeczności",
+    "community_vote_btn": "Głosuj na top.gg ⭐",
+    "community_image_alt": "Dołącz do społeczności DOA 214",
+
+    "alt_menu": "Główne menu — /menu",
+    "alt_event_center": "Event Center — /event",
+    "alt_boost_center": "Boost Center — /boost",
+    "alt_rank_card": "Ranking — Karta poziomu"
   },
 
   "it": {
@@ -419,7 +482,7 @@
     "cmd_island_text": "Guida isola (edifici e strategie).",
     "cmd_ranking_title": "/ranking",
     "cmd_ranking_text": "XP, classifiche e card di rango.",
-    "cmd_wwelcome_title": "/welcome",
+    "cmd_welcome_title": "/welcome",
     "cmd_welcome_text": "Sistema di benvenuto automatico.",
     "cmd_lang_title": "/lang",
     "cmd_lang_text": "Cambia lingua UI per server.",
@@ -442,8 +505,9 @@
     "event_update_date": "2025-08-26",
     "event_update_text": "Crea eventi con titoli, messaggi, immagini, miniature e footer personalizzati. Pianifica giornalmente, ogni 48h, settimanalmente, bisettimanalmente, ogni 4 settimane o personalizzato. Target canali, @everyone, ruoli o membri. Modifica ed elimina dal menu.",
 
-    "topgg_title": "top.gg — Vota & Scopri",
-    "topgg_text": "Vota il bot, aggiungilo al tuo server e scopri la nostra community Whiteout Survival State 214.",
+    "lang_update_title": "🌐 /lang — risolto bug del menu lingue",
+    "lang_update_date": "",
+    "lang_update_b1": "Risolto: problema di apertura/visibilità del selettore lingua. Il menu ora è visibile a tutti e si apre in modo affidabile. Le traduzioni si applicano a tutta la pagina e persistono dopo il reload.",
 
     "support_highlight_title": "Sostieni il progetto — Opzionale",
     "support_highlight_text": "Bros24 resta gratuito per tutti. Se vuoi aiutare con i costi del server e lo sviluppo settimanale, puoi sostenerci con Frost Stars in Whiteout Survival — del tutto opzionale.",
@@ -454,9 +518,29 @@
     "support_copy_btn": "Copia ID contatto",
     "support_copied": "ID copiato!",
     "copy_failed": "Copia non riuscita",
-    "support_brand_line": "Bros24 • DOA • State 214",
 
-    "footer_brand": "Bros24 • State 214"
+    "footer_owner": "Bros24",
+    "footer_product": "Bot Discord Whiteout Survival",
+    "footer_brand": "Bros24 • State 214",
+
+    "community_title": "Unisciti alla community ❄ Whiteout Survival | DOA 214",
+    "community_sub": "Eventi, guide, strumenti per alleanze e altro — entra anche tu.",
+    "community_p1": "Giochi a Whiteout Survival e vuoi migliorare più in fretta? Come pianificano i top-state la Bear Trap 🐻, le rotazioni Frostfire ❄️🔥 o massimizzano l’SVS ⚔️? Sei nel posto giusto.",
+    "community_p2": "Siamo la community DOA dello State 214, ma le porte sono aperte a tutti gli state e a ogni alleanza. Teamwork, guide pratiche e aiuto rapido — dai principianti ai min-max pro.",
+    "community_p3": "Nuovo al gioco? Ti guidiamo nei primi giorni/settimane: priorità di costruzione, ritmo ricerca, eroi/pet su cui concentrarsi, routine giornaliere e miglior valore F2P.",
+    "community_p4": "Già esperto? Meta-chat, composizioni testate, matematica del danno, fogli di calcolo e pianificazione avanzata per Castelli/Fortezze 🏰, Frost Dragon Tyrant 🐉 e coordinamento cross-state.",
+    "community_p5": "Niente più ricompense perse. I nostri bot offrono timer smart, planner per rally e promemoria — ordine senza spam. Opt-in su ciò che vuoi, silenzia il resto.",
+    "community_p6": "Comunicazione semplice con canali linguistici dedicati: 🌐 English • Deutsch • Polski • Français • Italiano • ไทย … altri su richiesta.",
+    "community_p7": "Benvenuti leader e autori di guide. Condividi strategie, coordina progetti, recluta con rispetto e costruisci alleanze sane. No vendita/scambio account.",
+    "community_p8": "Entra, saluta in #arrival, indica state e lingua — sblocchiamo i canali giusti. Se ti piace, ⭐ vota su top.gg e invita gli amici.",
+    "community_join_btn": "Unisciti alla community",
+    "community_vote_btn": "Vota su top.gg ⭐",
+    "community_image_alt": "Unisciti alla community DOA 214",
+
+    "alt_menu": "Menu principale — /menu",
+    "alt_event_center": "Event Center — /event",
+    "alt_boost_center": "Boost Center — /boost",
+    "alt_rank_card": "Classifica — Scheda livello"
   },
 
   "fr": {
@@ -557,21 +641,42 @@
     "event_update_date": "2025-08-26",
     "event_update_text": "Créez des évènements avec titres, messages, images, miniatures et pied personnalisé. Planifiez quotidien, 48h, hebdo, bi-hebdo, toutes les 4 semaines ou personnalisé. Ciblez salons, @everyone, rôles ou membres. Modifier & supprimer dans le menu.",
 
-    "topgg_title": "top.gg — Voter & Découvrir",
-    "topgg_text": "Votez pour le bot, ajoutez-le à votre serveur et découvrez notre communauté Whiteout Survival State 214.",
+    "lang_update_title": "🌐 /lang — correction du bug du menu des langues",
+    "lang_update_date": "",
+    "lang_update_b1": "Corrigé : problème d’ouverture/visibilité du sélecteur de langue. Le menu est désormais visible pour tous et s’ouvre de manière fiable. Les traductions s’appliquent à tout le site et persistent après rechargement.",
 
     "support_highlight_title": "Soutenir le projet — optionnel",
     "support_highlight_text": "Bros24 reste gratuit pour tous. Pour aider aux coûts serveur et au développement hebdo, vous pouvez soutenir via Frost Stars dans Whiteout Survival — totalement optionnel.",
     "support_player_id_label": "Player ID",
     "support_payment_label": "Paiement",
-    "support_join_btn": "Rejoindre le serveur support",
+    "support_join_btn": "Rejoindre la communauté",
     "support_contact_btn": "Contacter le support",
     "support_copy_btn": "Copier l’ID de contact",
     "support_copied": "ID copié !",
     "copy_failed": "Échec de la copie",
-    "support_brand_line": "Bros24 • DOA • State 214",
 
-    "footer_brand": "Bros24 • State 214"
+    "footer_owner": "Bros24",
+    "footer_product": "Bot Discord Whiteout Survival",
+    "footer_brand": "Bros24 • State 214",
+
+    "community_title": "Rejoignez la communauté ❄ Whiteout Survival | DOA 214",
+    "community_sub": "Évènements, guides, outils d’alliance & plus — participez.",
+    "community_p1": "Vous jouez à Whiteout Survival et voulez progresser plus vite ? Comment les meilleurs états planifient Bear Trap 🐻, les rotations Frostfire ❄️🔥 ou optimisent le SVS ⚔️ ? Vous êtes au bon endroit.",
+    "community_p2": "Nous sommes la communauté DOA de l’État 214, mais nos portes sont ouvertes à tous les états et alliances. Esprit d’équipe, guides pratiques et aide rapide — du débutant au min-max pro.",
+    "community_p3": "Nouveau dans le jeu ? On vous guide pour les premiers jours/semaines : priorités de construction, rythme de recherche, héros/compagnons à privilégier, routines quotidiennes et meilleur rapport F2P.",
+    "community_p4": "Déjà expérimenté ? Plongez dans les discussions meta, compos testées, maths des dégâts, tableurs et planification avancée pour Châteaux/Forteresses 🏰, Frost Dragon Tyrant 🐉 et coordination inter-états.",
+    "community_p5": "Ne ratez plus de récompenses. Nos bots proposent des minuteries intelligentes, planification de rally et rappels — organisation sans spam. Optez pour ce que vous voulez, coupez le reste.",
+    "community_p6": "Communication fluide avec des salons dédiés par langue : 🌐 English • Deutsch • Polski • Français • Italiano • ไทย … plus sur demande.",
+    "community_p7": "Leaders et créateurs de guides bienvenus. Partagez des stratégies, coordonnez des projets, recrutez avec respect et bâtissez des alliances saines. Pas de vente/échange de comptes.",
+    "community_p8": "Rejoignez-nous, dites bonjour dans #arrival, indiquez votre état et langue — nous ouvrirons les bons salons. Si vous aimez, ⭐ votez sur top.gg et invitez vos amis.",
+    "community_join_btn": "Rejoindre la communauté",
+    "community_vote_btn": "Voter sur top.gg ⭐",
+    "community_image_alt": "Rejoindre la communauté DOA 214",
+
+    "alt_menu": "Menu principal — /menu",
+    "alt_event_center": "Event Center — /event",
+    "alt_boost_center": "Boost Center — /boost",
+    "alt_rank_card": "Classement — Carte de niveau"
   },
 
   "th": {
@@ -661,7 +766,7 @@
     "menu_update_date": "2025-08-26",
     "menu_update_b1": "ศูนย์รวม Boost, Events, Languages, Hero Info, Chief, Calculator, Island, Welcome, Ranking, Games",
     "menu_update_b2": "รองรับหลายภาษา (EN, DE, FR, IT, PL, TH)",
-    "menu_update_b3": "แก้ไขปัญหา “Unknown Interaction (10062)”",
+    "menu_update_b3": "แก้ไข “Unknown Interaction (10062)”",
     "boost_update_title": "⚡ ปรับปรุง Boost Center",
     "boost_update_date": "2025-08-26",
     "boost_update_b1": "ติดตามสด + กระทบยอดทุกชั่วโมง",
@@ -672,8 +777,9 @@
     "event_update_date": "2025-08-26",
     "event_update_text": "สร้างอีเวนต์พร้อมชื่อ ข้อความ รูปภาพ ธัมบ์ และฟุตเตอร์ ตั้งเวลาแบบรายวัน ทุก 48 ชม. รายสัปดาห์ สองสัปดาห์ ทุก 4 สัปดาห์ หรือกำหนดเอง เลือกแชนแนล @everyone บทบาท หรือสมาชิก แก้ไข/ลบในเมนู",
 
-    "topgg_title": "top.gg — โหวต & ค้นพบ",
-    "topgg_text": "โหวตให้บอท เพิ่มเข้าดิสคอร์ดของคุณ และเข้าร่วมชุมชน Whiteout Survival State 214 ของเรา",
+    "lang_update_title": "🌐 /lang — แก้บั๊กเมนูภาษาแล้ว",
+    "lang_update_date": "",
+    "lang_update_b1": "แก้ไข: ปัญหาการเปิด/การแสดงผลตัวเลือกภาษา เมนูมองเห็นได้สำหรับทุกคนและเปิดได้อย่างเสถียร การแปลมีผลทั้งหน้าและยังคงอยู่หลังรีโหลด",
 
     "support_highlight_title": "สนับสนุนโปรเจกต์ — ไม่บังคับ",
     "support_highlight_text": "Bros24 ฟรีสำหรับทุกคน หากต้องการช่วยค่าบริการเซิร์ฟเวอร์และการพัฒนารายสัปดาห์ สามารถสนับสนุนผ่าน Frost Stars ใน Whiteout Survival (ไม่บังคับ)",
@@ -684,8 +790,28 @@
     "support_copy_btn": "คัดลอก ID ติดต่อ",
     "support_copied": "คัดลอกแล้ว!",
     "copy_failed": "คัดลอกไม่สำเร็จ",
-    "support_brand_line": "Bros24 • DOA • State 214",
 
-    "footer_brand": "Bros24 • State 214"
+    "footer_owner": "Bros24",
+    "footer_product": "บอท Discord สำหรับ Whiteout Survival",
+    "footer_brand": "Bros24 • State 214",
+
+    "community_title": "เข้าร่วมชุมชน ❄ Whiteout Survival | DOA 214",
+    "community_sub": "อีเวนต์ ไกด์ เครื่องมือพันธมิตร ฯลฯ — มาร่วมกัน",
+    "community_p1": "เล่น Whiteout Survival และอยากเก่งขึ้นไว ๆ ไหม? ท็อปสเตทรัน Bear Trap 🐻 หมุน Frostfire ❄️🔥 หรือดัน SVS ⚔️ อย่างไร? มาถูกที่แล้ว",
+    "community_p2": "เราคือคอมมิวนิตี้ DOA จาก State 214 แต่เปิดรับทุกสเตทและทุกพันธมิตร เข้าร่วมเพื่อทีมเวิร์ก ไกด์ใช้งานจริง และความช่วยเหลือรวดเร็ว ตั้งแต่มือใหม่ถึงสายมินแมกซ์",
+    "community_p3": "เพิ่งเริ่ม? เราช่วยไกด์วัน/สัปดาห์แรก ๆ: ลำดับการสร้าง จังหวะวิจัย โฟกัสดี ๆ สำหรับฮีโร่/เพ็ท รูทีนประจำวัน และความคุ้มค่าสายฟรี",
+    "community_p4": "มีประสบการณ์แล้ว? คุยเมตา ทีมที่ทดสอบจริง สูตรดาเมจ สเปรดชีต และการวางแผนระดับสูงสำหรับปราสาท/ป้อม 🏰 Frost Dragon Tyrant 🐉 และการประสานงานข้ามสเตท",
+    "community_p5": "ไม่พลาดรางวัลอีกต่อไป บอทของเรามีไทม์เมอร์อัจฉริยะ ตัววางแผนแรลลี่ และการเตือนให้เป็นระเบียบไร้สแปม เลือกติดตามที่ต้องการและปิดเสียงสิ่งที่ไม่ต้องการ",
+    "community_p6": "สื่อสารง่ายด้วยห้องภาษาเฉพาะ 🌐 English • Deutsch • Polski • Français • Italiano • ไทย … เพิ่มเติมได้ตามคำขอ",
+    "community_p7": "ยินดีต้อนรับผู้นำและผู้ทำไกด์ แชร์กลยุทธ์ ประสานโปรเจกต์ รับสมัครอย่างสุภาพ และสร้างพันธมิตรที่สุขภาพดี ห้ามซื้อขาย/แลกเปลี่ยนบัญชี",
+    "community_p8": "เข้ามาทักที่ #arrival บอกสเตทและภาษาของคุณ แล้วเราจะปลดล็อกห้องที่เหมาะสม ชอบบรรยากาศไหม? ⭐ โหวตบน top.gg และชวนเพื่อน ๆ มาได้เลย",
+    "community_join_btn": "เข้าร่วมชุมชน",
+    "community_vote_btn": "โหวตบน top.gg ⭐",
+    "community_image_alt": "เข้าร่วมชุมชน DOA 214",
+
+    "alt_menu": "เมนูหลัก — /menu",
+    "alt_event_center": "Event Center — /event",
+    "alt_boost_center": "Boost Center — /boost",
+    "alt_rank_card": "แรงก์ — การ์ดระดับ"
   }
 }
