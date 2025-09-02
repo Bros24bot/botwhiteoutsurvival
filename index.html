@@ -304,6 +304,14 @@
         <div class="card-3d p-5"><h3 id="cmd_welcome_title" class="font-semibold">/welcome</h3><p id="cmd_welcome_text" class="text-slate-300">Automated welcome system.</p></div>
         <div class="card-3d p-5"><h3 id="cmd_lang_title" class="font-semibold">/lang</h3><p id="cmd_lang_text" class="text-slate-300">Switch UI language per guild.</p></div>
         <div class="card-3d p-5"><h3 id="cmd_games_title" class="font-semibold">/games</h3><p id="cmd_games_text" class="text-slate-300">Minigames like Hangman (EN/DE).</p></div>
+
+        <!-- NEW: /birthday -->
+        <div class="card-3d p-5">
+          <h3 id="cmd_birthday_title" class="font-semibold">/birthday</h3>
+          <p id="cmd_birthday_text" class="text-slate-300">
+            Birthday system: create/edit signup panel, greeting text, image & optional footer.
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -350,7 +358,7 @@
         </p>
       </article>
 
-      <!-- NEW: /language fix card (date = today Europe/Warsaw) -->
+      <!-- /language fix card (date = today Europe/Warsaw) -->
       <article class="card-3d p-6 lg:col-span-2" id="lang-update">
         <div class="flex items-center justify-between gap-2">
           <h3 id="lang_update_title" class="text-xl font-semibold">🌐 /language — live & persistent</h3>
@@ -359,6 +367,19 @@
         <p id="lang_update_b1" class="mt-3 text-slate-300">
           Language switch fixed: remembers your choice and updates dates dynamically (Europe/Warsaw).
         </p>
+      </article>
+
+      <!-- NEW: Birthday System release card (date = today Europe/Warsaw) -->
+      <article class="card-3d p-6 lg:col-span-2" id="birthday-update">
+        <div class="flex items-center justify-between gap-2">
+          <h3 id="birthday_update_title" class="text-xl font-semibold">🎂 Birthday System — New</h3>
+          <span id="birthday_update_date" class="text-xs text-slate-400">—</span>
+        </div>
+        <ul class="mt-3 space-y-2 text-slate-300 list-disc list-inside">
+          <li id="birthday_update_b1">Signup panel with “Add/Update birthday” & “Remove my entry” (restart-safe).</li>
+          <li id="birthday_update_b2">Auto-congratulations daily (server time) with {mention}/{user} placeholders.</li>
+          <li id="birthday_update_b3">Clean setup wizard: channels, texts, image & optional footer.</li>
+        </ul>
       </article>
     </div>
   </section>
@@ -560,21 +581,25 @@
        'upcoming_title','upcoming_b1','upcoming_b2','upcoming_b4','upcoming_b5']
         .forEach(id=> setText(id, d[id]));
 
-      // Commands
+      // Commands (includes NEW birthday ids)
       ['cmd_title','cmd_menu_title','cmd_menu_text','cmd_event_title','cmd_event_text','cmd_boost_title','cmd_boost_text',
        'cmd_boostmenu_title','cmd_boostmenu_text','cmd_hero_title','cmd_hero_text','cmd_chief_title','cmd_chief_text',
        'cmd_calc_title','cmd_calc_text','cmd_island_title','cmd_island_text','cmd_ranking_title','cmd_ranking_text',
-       'cmd_welcome_title','cmd_welcome_text','cmd_lang_title','cmd_lang_text','cmd_games_title','cmd_games_text']
-        .forEach(id=> setText(id, d[id]));
+       'cmd_welcome_title','cmd_welcome_text','cmd_lang_title','cmd_lang_text','cmd_games_title','cmd_games_text',
+       'cmd_birthday_title','cmd_birthday_text'
+      ].forEach(id=> setText(id, d[id]));
 
-      // Updates
+      // Updates (includes NEW birthday ids)
       ['updates_title','menu_update_title','menu_update_date','menu_update_b1','menu_update_b2','menu_update_b3',
        'boost_update_title','boost_update_date','boost_update_b1','boost_update_b2','boost_update_b3','boost_update_b4',
        'event_update_title','event_update_date','event_update_text',
-       'lang_update_title','lang_update_b1'
+       'lang_update_title','lang_update_b1',
+       'birthday_update_title','birthday_update_date','birthday_update_b1','birthday_update_b2','birthday_update_b3'
       ].forEach(id=> setText(id, d[id]));
-      // /language card date => always "today" in Europe/Warsaw
+
+      // dynamic dates (Europe/Warsaw)
       setText('lang_update_date', todayISO());
+      setText('birthday_update_date', todayISO());
 
       // Community
       ['community_title','community_sub','community_p1','community_p2','community_p3','community_p4','community_p5','community_p6','community_p7','community_p8',
