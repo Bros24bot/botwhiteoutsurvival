@@ -81,6 +81,9 @@
     "cmd_games_title": "/games",
     "cmd_games_text": "Minigames like Hangman (EN/DE).",
 
+    "cmd_birthday_title": "/birthday",
+    "cmd_birthday_text": "Birthday system: create/edit signup panel, greeting text, image & optional footer.",
+
     "updates_title": "Latest Updates",
     "menu_update_title": "🚀 /menu — clean & error-free",
     "menu_update_date": "2025-08-26",
@@ -99,6 +102,11 @@
 
     "lang_update_title": "🌐 /language — live & persistent",
     "lang_update_b1": "Language switch fixed: remembers your choice and updates dates dynamically (Europe/Warsaw).",
+
+    "birthday_update_title": "🎂 Birthday System — New",
+    "birthday_update_b1": "Signup panel with “Add/Update birthday” & “Remove my entry” (restart-safe).",
+    "birthday_update_b2": "Auto-congratulations daily (server time) with {mention}/{user} placeholders.",
+    "birthday_update_b3": "Clean setup wizard: channels, texts, image & optional footer.",
 
     "topgg_title": "top.gg — Vote & Discover",
     "topgg_text": "Vote for the bot, add it to your server, and discover our Whiteout Survival State 214 community.",
@@ -121,11 +129,11 @@
     "community_p1": "Do you play Whiteout Survival and want to get better—faster? Ever wondered how top states plan Bear Trap, Frostfire Mine, or squeeze every drop from SVS? You’re in the right place.",
     "community_p2": "We’re DOA’s community from State 214, open to every state and alliance. Join for teamwork, practical guides, and quick help — from beginners to min-max pros.",
     "community_p3": "New to the game? We’ll guide your first weeks: what to build, research pacing, which heroes & pets to focus, daily routines, and best F2P value.",
-    "community_p4": "Experienced? Dive into meta chats, comps, damage math, sheets, and high-level planning for Castle/Strongholds, Frost Dragon Tyrant, and cross-state play.",
+    "community_p4": "Already experienced? Dive into meta chats, comps, damage math, sheets, and high-level planning for Castle/Strongholds, Frost Dragon Tyrant, and cross-state play.",
     "community_p5": "Never miss rewards: custom bots run smart timers, rally planners, and reminders — organized, not spammy.",
     "community_p6": "Effortless communication with language channels for each community. Post in your language and get help fast.",
     "community_p7": "Leaders & creators welcome. Share strategies, coordinate cross-state projects, recruit respectfully, and keep it fair-play.",
-    "community_p8": "Jump in, say hello in #arrival, tell us your state & language, and we’ll unlock the right channels. If you like it, please ⭐ vote on top.gg!",
+    "community_p8": "Jump in, say hello in #arrival, tell us your state and language, and we’ll unlock the right channels. If you like it, please ⭐ vote on top.gg!",
     "community_image_alt": "Join the DOA 214 Community",
     "alt_menu": "Main Menu — /menu",
     "alt_event_center": "Event Center — /event",
@@ -215,6 +223,9 @@
     "cmd_games_title": "/games",
     "cmd_games_text": "Minigames wie Hangman (EN/DE).",
 
+    "cmd_birthday_title": "/birthday",
+    "cmd_birthday_text": "Geburtstags-System: Anmelde-Panel erstellen/bearbeiten, Glückwunschtext, Bild & optionaler Footer.",
+
     "updates_title": "Neueste Updates",
     "menu_update_title": "🚀 /menu — sauber & fehlerfrei",
     "menu_update_date": "2025-08-26",
@@ -233,6 +244,11 @@
 
     "lang_update_title": "🌐 /language — live & persistent",
     "lang_update_b1": "Sprachwechsel gefixt: merkt sich deine Auswahl und aktualisiert Daten dynamisch (Europa/Warschau).",
+
+    "birthday_update_title": "🎂 Geburtstags-System — Neu",
+    "birthday_update_b1": "Anmeldepanel mit „Geburtstag hinzufügen/aktualisieren“ & „Eintrag entfernen“ (restart-sicher).",
+    "birthday_update_b2": "Auto-Gratulation täglich (Serverzeit) mit Platzhaltern {mention}/{user}.",
+    "birthday_update_b3": "Klarer Setup-Wizard: Channels, Texte, Bild & optionaler Footer.",
 
     "topgg_title": "top.gg — Vote & Discover",
     "topgg_text": "Vote für den Bot, füge ihn deinem Server hinzu und entdecke unsere Whiteout-Survival-Community (State 214).",
@@ -349,6 +365,9 @@
     "cmd_games_title": "/games",
     "cmd_games_text": "Minigry, np. Wisielec (EN/DE).",
 
+    "cmd_birthday_title": "/birthday",
+    "cmd_birthday_text": "System urodzin: utwórz/edytuj panel zapisu, tekst życzeń, obraz i opcjonalny footer.",
+
     "updates_title": "Najnowsze aktualizacje",
     "menu_update_title": "🚀 /menu — czyste i bez błędów",
     "menu_update_date": "2025-08-26",
@@ -367,6 +386,11 @@
 
     "lang_update_title": "🌐 /language — działa i zapamiętuje",
     "lang_update_b1": "Naprawiono przełączanie języka: zapamiętuje wybór i aktualizuje daty (Europa/Warszawa).",
+
+    "birthday_update_title": "🎂 System urodzin — Nowość",
+    "birthday_update_b1": "Panel zapisu z „Dodaj/Aktualizuj urodziny” i „Usuń mój wpis” (odporne na restart).",
+    "birthday_update_b2": "Auto-życzenia codziennie (czas serwera) z placeholderami {mention}/{user}.",
+    "birthday_update_b3": "Czysty kreator konfiguracji: kanały, teksty, obraz i opcjonalny footer.",
 
     "topgg_title": "top.gg — Głosuj i odkrywaj",
     "topgg_text": "Głosuj na bota, dodaj go na serwer i poznaj naszą społeczność Whiteout Survival State 214.",
@@ -483,6 +507,9 @@
     "cmd_games_title": "/games",
     "cmd_games_text": "Minigiochi come Impiccato (EN/DE).",
 
+    "cmd_birthday_title": "/birthday",
+    "cmd_birthday_text": "Sistema compleanni: crea/modifica pannello iscrizione, testo auguri, immagine e footer opzionale.",
+
     "updates_title": "Ultimi aggiornamenti",
     "menu_update_title": "🚀 /menu — pulito e senza errori",
     "menu_update_date": "2025-08-26",
@@ -501,6 +528,11 @@
 
     "lang_update_title": "🌐 /language — attivo e persistente",
     "lang_update_b1": "Fix al cambio lingua: ricorda la scelta e aggiorna le date (Europa/Warsaw).",
+
+    "birthday_update_title": "🎂 Sistema Compleanni — Nuovo",
+    "birthday_update_b1": "Pannello iscrizione con “Aggiungi/Aggiorna compleanno” e “Rimuovi il mio record” (resistente ai riavvii).",
+    "birthday_update_b2": "Auguri automatici giornalieri (ora server) con placeholder {mention}/{user}.",
+    "birthday_update_b3": "Wizard di setup pulito: canali, testi, immagine e footer opzionale.",
 
     "topgg_title": "top.gg — Vota & Scopri",
     "topgg_text": "Vota il bot, aggiungilo al tuo server e scopri la nostra community Whiteout Survival State 214.",
@@ -617,6 +649,9 @@
     "cmd_games_title": "/games",
     "cmd_games_text": "Mini-jeux comme le pendu (EN/DE).",
 
+    "cmd_birthday_title": "/birthday",
+    "cmd_birthday_text": "Système d’anniversaire : créer/modifier le panneau d’inscription, message de vœux, image & pied facultatif.",
+
     "updates_title": "Dernières mises à jour",
     "menu_update_title": "🚀 /menu — propre et sans erreur",
     "menu_update_date": "2025-08-26",
@@ -635,6 +670,11 @@
 
     "lang_update_title": "🌐 /language — actif et persistant",
     "lang_update_b1": "Changement de langue corrigé : mémorise votre choix et met à jour les dates (Europe/Warsaw).",
+
+    "birthday_update_title": "🎂 Système d’anniversaire — Nouveau",
+    "birthday_update_b1": "Panneau d’inscription avec « Ajouter/Mettre à jour mon anniversaire » & « Supprimer mon entrée » (résistant au redémarrage).",
+    "birthday_update_b2": "Félicitations automatiques quotidiennes (heure du serveur) avec placeholders {mention}/{user}.",
+    "birthday_update_b3": "Assistant de configuration clair : salons, textes, image & pied facultatif.",
 
     "topgg_title": "top.gg — Voter & Découvrir",
     "topgg_text": "Votez pour le bot, ajoutez-le à votre serveur et découvrez notre communauté Whiteout Survival State 214.",
@@ -751,6 +791,9 @@
     "cmd_games_title": "/games",
     "cmd_games_text": "มินิเกม เช่น Hangman (EN/DE)",
 
+    "cmd_birthday_title": "/birthday",
+    "cmd_birthday_text": "ระบบวันเกิด: สร้าง/แก้ไขแผงลงทะเบียน ข้อความอวยพร รูปภาพ และฟุตเตอร์เสริม",
+
     "updates_title": "อัปเดตล่าสุด",
     "menu_update_title": "🚀 /menu — สะอาดและไร้ข้อผิดพลาด",
     "menu_update_date": "2025-08-26",
@@ -769,6 +812,11 @@
 
     "lang_update_title": "🌐 /language — ใช้งานได้จริงและจดจำค่า",
     "lang_update_b1": "แก้ไขตัวสลับภาษา: จำภาษาที่เลือก และอัปเดตวันที่ (ยุโรป/วอร์ซอ)",
+
+    "birthday_update_title": "🎂 ระบบวันเกิด — ใหม่",
+    "birthday_update_b1": "แผงลงทะเบียนพร้อม “เพิ่ม/อัปเดตวันเกิด” และ “ลบรายการของฉัน” (ทนต่อการรีสตาร์ต)",
+    "birthday_update_b2": "อวยพรอัตโนมัติทุกวัน (ตามเวลาเซิร์ฟเวอร์) รองรับ {mention}/{user}",
+    "birthday_update_b3": "วิซาร์ดตั้งค่าที่เรียบง่าย: ช่อง ข้อความ รูปภาพ และฟุตเตอร์ไม่บังคับ",
 
     "topgg_title": "top.gg — โหวต & ค้นพบ",
     "topgg_text": "โหวตให้บอท เพิ่มเข้าดิสคอร์ดของคุณ และเข้าร่วมชุมชน Whiteout Survival State 214 ของเรา",
