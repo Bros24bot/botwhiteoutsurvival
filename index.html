@@ -380,6 +380,21 @@
           <li id="birthday_update_b3">Clean setup wizard: channels, texts, image & optional footer.</li>
         </ul>
       </article>
+
+      <!-- NEW: Rally Planner release card (date = today Europe/Warsaw) -->
+      <article class="card-3d p-6 lg:col-span-2" id="rally-update">
+        <div class="flex items-center justify-between gap-2">
+          <h3 id="rally_update_title" class="text-xl font-semibold">🎯 Rally Planner — New</h3>
+          <span id="rally_update_date" class="text-xs text-slate-400">—</span>
+        </div>
+        <ul class="mt-3 space-y-2 text-slate-300 list-disc list-inside">
+          <li id="rally_update_b1">Exact UTC scheduling — rallies start to the second.</li>
+          <li id="rally_update_b2">Automatic pings for all rally participants.</li>
+          <li id="rally_update_b3">Pet & buff integration for optimized planning.</li>
+          <li id="rally_update_b4">Auto-cleanup after 30s (visible & hidden fields).</li>
+          <li id="rally_update_b5">Multilingual support (EN/DE/PL/FR/IT/TH).</li>
+        </ul>
+      </article>
     </div>
   </section>
 
@@ -588,17 +603,20 @@
        'cmd_birthday_title','cmd_birthday_text'
       ].forEach(id=> setText(id, d[id]));
 
-      // Updates (includes NEW birthday ids)
+      // Updates (includes NEW birthday + NEW rally ids)
       ['updates_title','menu_update_title','menu_update_date','menu_update_b1','menu_update_b2','menu_update_b3',
        'boost_update_title','boost_update_date','boost_update_b1','boost_update_b2','boost_update_b3','boost_update_b4',
        'event_update_title','event_update_date','event_update_text',
        'lang_update_title','lang_update_b1',
-       'birthday_update_title','birthday_update_date','birthday_update_b1','birthday_update_b2','birthday_update_b3'
+       'birthday_update_title','birthday_update_date','birthday_update_b1','birthday_update_b2','birthday_update_b3',
+       // NEW Rally IDs
+       'rally_update_title','rally_update_date','rally_update_b1','rally_update_b2','rally_update_b3','rally_update_b4','rally_update_b5'
       ].forEach(id=> setText(id, d[id]));
 
       // dynamic dates (Europe/Warsaw)
       setText('lang_update_date', todayISO());
       setText('birthday_update_date', todayISO());
+      setText('rally_update_date', todayISO());
 
       // Community
       ['community_title','community_sub','community_p1','community_p2','community_p3','community_p4','community_p5','community_p6','community_p7','community_p8',
