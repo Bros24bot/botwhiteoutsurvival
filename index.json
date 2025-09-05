@@ -108,6 +108,13 @@
     "birthday_update_b2": "Auto-congratulations daily (server time) with {mention}/{user} placeholders.",
     "birthday_update_b3": "Clean setup wizard: channels, texts, image & optional footer.",
 
+    "rally_update_title": "🎯 Rally Planner — New",
+    "rally_update_b1": "Exact UTC scheduling — rallies start to the second.",
+    "rally_update_b2": "Automatic pings for all rally participants.",
+    "rally_update_b3": "Pet & buff integration for optimized planning.",
+    "rally_update_b4": "Auto-cleanup after 30s (visible & hidden fields).",
+    "rally_update_b5": "Multilingual support (EN/DE/PL/FR/IT/TH).",
+
     "topgg_title": "top.gg — Vote & Discover",
     "topgg_text": "Vote for the bot, add it to your server, and discover our Whiteout Survival State 214 community.",
 
@@ -249,6 +256,13 @@
     "birthday_update_b1": "Anmeldepanel mit „Geburtstag hinzufügen/aktualisieren“ & „Eintrag entfernen“ (restart-sicher).",
     "birthday_update_b2": "Auto-Gratulation täglich (Serverzeit) mit Platzhaltern {mention}/{user}.",
     "birthday_update_b3": "Klarer Setup-Wizard: Channels, Texte, Bild & optionaler Footer.",
+
+    "rally_update_title": "🎯 Rally Planner — Neu",
+    "rally_update_b1": "Exakte UTC-Planung — Rallys starten auf die Sekunde.",
+    "rally_update_b2": "Automatische Pings für alle Rally-Teilnehmer.",
+    "rally_update_b3": "Pet- & Buff-Integration für optimierte Planung.",
+    "rally_update_b4": "Auto-Cleanup nach 30s (sichtbare & versteckte Felder).",
+    "rally_update_b5": "Mehrsprachig (EN/DE/PL/FR/IT/TH).",
 
     "topgg_title": "top.gg — Vote & Discover",
     "topgg_text": "Vote für den Bot, füge ihn deinem Server hinzu und entdecke unsere Whiteout-Survival-Community (State 214).",
@@ -392,6 +406,13 @@
     "birthday_update_b2": "Auto-życzenia codziennie (czas serwera) z placeholderami {mention}/{user}.",
     "birthday_update_b3": "Czysty kreator konfiguracji: kanały, teksty, obraz i opcjonalny footer.",
 
+    "rally_update_title": "🎯 Rally Planner — Nowość",
+    "rally_update_b1": "Dokładne planowanie UTC — start co do sekundy.",
+    "rally_update_b2": "Automatyczne pingowanie uczestników rally.",
+    "rally_update_b3": "Integracja petów i buffów dla lepszego planowania.",
+    "rally_update_b4": "Auto-cleanup po 30 s (pola widoczne i ukryte).",
+    "rally_update_b5": "Wielojęzyczne wsparcie (EN/DE/PL/FR/IT/TH).",
+
     "topgg_title": "top.gg — Głosuj i odkrywaj",
     "topgg_text": "Głosuj na bota, dodaj go na serwer i poznaj naszą społeczność Whiteout Survival State 214.",
 
@@ -533,6 +554,13 @@
     "birthday_update_b1": "Pannello iscrizione con “Aggiungi/Aggiorna compleanno” e “Rimuovi il mio record” (resistente ai riavvii).",
     "birthday_update_b2": "Auguri automatici giornalieri (ora server) con placeholder {mention}/{user}.",
     "birthday_update_b3": "Wizard di setup pulito: canali, testi, immagine e footer opzionale.",
+
+    "rally_update_title": "🎯 Rally Planner — Nuovo",
+    "rally_update_b1": "Pianificazione UTC precisa — rally al secondo.",
+    "rally_update_b2": "Ping automatici a tutti i partecipanti.",
+    "rally_update_b3": "Integrazione pet & buff per planning ottimizzato.",
+    "rally_update_b4": "Auto-cleanup dopo 30s (campi visibili & nascosti).",
+    "rally_update_b5": "Supporto multilingue (EN/DE/PL/FR/IT/TH).",
 
     "topgg_title": "top.gg — Vota & Scopri",
     "topgg_text": "Vota il bot, aggiungilo al tuo server e scopri la nostra community Whiteout Survival State 214.",
@@ -676,6 +704,13 @@
     "birthday_update_b2": "Félicitations automatiques quotidiennes (heure du serveur) avec placeholders {mention}/{user}.",
     "birthday_update_b3": "Assistant de configuration clair : salons, textes, image & pied facultatif.",
 
+    "rally_update_title": "🎯 Rally Planner — Nouveau",
+    "rally_update_b1": "Planification UTC précise — rally à la seconde.",
+    "rally_update_b2": "Pings automatiques pour tous les participants.",
+    "rally_update_b3": "Intégration pets & buffs pour un planning optimisé.",
+    "rally_update_b4": "Nettoyage auto après 30 s (champs visibles & cachés).",
+    "rally_update_b5": "Support multilingue (EN/DE/PL/FR/IT/TH).",
+
     "topgg_title": "top.gg — Voter & Découvrir",
     "topgg_text": "Votez pour le bot, ajoutez-le à votre serveur et découvrez notre communauté Whiteout Survival State 214.",
 
@@ -817,6 +852,13 @@
     "birthday_update_b1": "แผงลงทะเบียนพร้อม “เพิ่ม/อัปเดตวันเกิด” และ “ลบรายการของฉัน” (ทนต่อการรีสตาร์ต)",
     "birthday_update_b2": "อวยพรอัตโนมัติทุกวัน (ตามเวลาเซิร์ฟเวอร์) รองรับ {mention}/{user}",
     "birthday_update_b3": "วิซาร์ดตั้งค่าที่เรียบง่าย: ช่อง ข้อความ รูปภาพ และฟุตเตอร์ไม่บังคับ",
+
+    "rally_update_title": "🎯 Rally Planner — ใหม่",
+    "rally_update_b1": "ตั้งเวลาแบบ UTC แม่นยำ — เริ่มแรลลี่ตรงวินาที",
+    "rally_update_b2": "แจ้งเตือนอัตโนมัติให้ผู้เข้าร่วมแรลลี่ทุกคน",
+    "rally_update_b3": "ทำงานร่วมกับสัตว์เลี้ยงและบัฟ เพื่อวางแผนที่เหมาะสม",
+    "rally_update_b4": "ล้างข้อมูลอัตโนมัติภายใน 30 วินาที (ทั้งฟิลด์ที่เห็น & ซ่อน)",
+    "rally_update_b5": "รองรับหลายภาษา (EN/DE/PL/FR/IT/TH)",
 
     "topgg_title": "top.gg — โหวต & ค้นพบ",
     "topgg_text": "โหวตให้บอท เพิ่มเข้าดิสคอร์ดของคุณ และเข้าร่วมชุมชน Whiteout Survival State 214 ของเรา",
