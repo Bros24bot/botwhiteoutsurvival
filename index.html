@@ -56,6 +56,31 @@
     @media(max-width:640px){ .community-card .comm-img{ width:min(520px, 96%) } }
     .topgg-bot{ height:11.5rem } .topgg-srv{ height:11.5rem }
     @media(min-width:640px){ .topgg-bot{ height:12.5rem } .topgg-srv{ height:12.5rem } }
+
+    /* --- Gift Code Center: modern 3D accent card & preview size --- */
+    .gift-3d{
+      border:1px solid rgba(56,189,248,.25);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.06),
+        0 10px 24px -12px rgba(0,0,0,.8),
+        0 22px 50px -24px rgba(2,132,199,.28),
+        0 0 0 2px rgba(56,189,248,.18) inset;
+      background:
+        radial-gradient(120% 120% at 10% 0%, rgba(56,189,248,.08), transparent 60%),
+        radial-gradient(80% 80% at 90% 20%, rgba(167,139,250,.06), transparent 70%),
+        linear-gradient(180deg,#0f141f 0%, #0b0f1a 100%);
+    }
+    .gift-3d::after{
+      content:"";
+      position:absolute; inset:-1px;
+      border-radius:1rem;
+      background:linear-gradient(120deg, rgba(56,189,248,.45), rgba(167,139,250,.35), rgba(244,114,182,.35));
+      opacity:.18; pointer-events:none; filter:blur(12px);
+      mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude;
+      padding:2px;
+    }
+    .gift-preview{max-width:min(960px, 94%); margin-inline:auto}
   </style>
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans">
@@ -323,7 +348,7 @@
 
     <div class="mt-8 grid gap-6 lg:grid-cols-2">
       <!-- NEW: Gift Code Center release card (date = today Europe/Warsaw) -->
-      <article class="card-3d p-6 lg:col-span-2" id="giftcode-update">
+      <article class="card-3d gift-3d p-6 lg:col-span-2" id="giftcode-update">
         <div class="flex items-center justify-between gap-2">
           <h3 id="gift_update_title" class="text-xl font-semibold">🎁 Gift Code Center — New</h3>
           <span id="gift_update_date" class="text-xs text-slate-400">—</span>
@@ -344,7 +369,7 @@
         </ul>
 
         <h4 class="mt-5 font-semibold text-slate-200">📸 Preview</h4>
-        <div class="mt-2">
+        <div class="mt-2 gift-preview">
           <div class="shot-box">
             <!-- Replace the src with your actual screenshot when ready -->
             <img id="shot_giftcodes" src="assets/gift-code-center.png" alt="Gift Code Center — preview"
