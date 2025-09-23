@@ -103,6 +103,9 @@
     "lang_update_title": "🌐 /language — live & persistent",
     "lang_update_b1": "Language switch fixed: remembers your choice and updates dates dynamically (Europe/Warsaw).",
 
+    "gift_update_title": "🎁 Gift Code Center — New",
+    "gift_update_date": "—",
+
     "birthday_update_title": "🎂 Birthday System — New",
     "birthday_update_b1": "Signup panel with “Add/Update birthday” & “Remove my entry” (restart-safe).",
     "birthday_update_b2": "Auto-congratulations daily (server time) with {mention}/{user} placeholders.",
@@ -251,6 +254,9 @@
 
     "lang_update_title": "🌐 /language — live & persistent",
     "lang_update_b1": "Sprachwechsel gefixt: merkt sich deine Auswahl und aktualisiert Daten dynamisch (Europa/Warschau).",
+
+    "gift_update_title": "🎁 Gift Code Center — Neu",
+    "gift_update_date": "—",
 
     "birthday_update_title": "🎂 Geburtstags-System — Neu",
     "birthday_update_b1": "Anmeldepanel mit „Geburtstag hinzufügen/aktualisieren“ & „Eintrag entfernen“ (restart-sicher).",
@@ -401,6 +407,9 @@
     "lang_update_title": "🌐 /language — działa i zapamiętuje",
     "lang_update_b1": "Naprawiono przełączanie języka: zapamiętuje wybór i aktualizuje daty (Europa/Warszawa).",
 
+    "gift_update_title": "🎁 Centrum kodów prezentowych — Nowość",
+    "gift_update_date": "—",
+
     "birthday_update_title": "🎂 System urodzin — Nowość",
     "birthday_update_b1": "Panel zapisu z „Dodaj/Aktualizuj urodziny” i „Usuń mój wpis” (odporne na restart).",
     "birthday_update_b2": "Auto-życzenia codziennie (czas serwera) z placeholderami {mention}/{user}.",
@@ -549,6 +558,9 @@
 
     "lang_update_title": "🌐 /language — attivo e persistente",
     "lang_update_b1": "Fix al cambio lingua: ricorda la scelta e aggiorna le date (Europa/Warsaw).",
+
+    "gift_update_title": "🎁 Centro Codici Regalo — Nuovo",
+    "gift_update_date": "—",
 
     "birthday_update_title": "🎂 Sistema Compleanni — Nuovo",
     "birthday_update_b1": "Pannello iscrizione con “Aggiungi/Aggiorna compleanno” e “Rimuovi il mio record” (resistente ai riavvii).",
@@ -699,6 +711,9 @@
     "lang_update_title": "🌐 /language — actif et persistant",
     "lang_update_b1": "Changement de langue corrigé : mémorise votre choix et met à jour les dates (Europe/Warsaw).",
 
+    "gift_update_title": "🎁 Centre des codes-cadeaux — Nouveau",
+    "gift_update_date": "—",
+
     "birthday_update_title": "🎂 Système d’anniversaire — Nouveau",
     "birthday_update_b1": "Panneau d’inscription avec « Ajouter/Mettre à jour mon anniversaire » & « Supprimer mon entrée » (résistant au redémarrage).",
     "birthday_update_b2": "Félicitations automatiques quotidiennes (heure du serveur) avec placeholders {mention}/{user}.",
@@ -743,8 +758,7 @@
     "alt_boost_center": "Boost Center — /boost",
     "alt_rank_card": "Ranking — Carte de niveau"
   },
-
-  "th": {
+    "th": {
     "meta_title": "Bros24 — Whiteout Survival Discord Bot | All-in-One",
     "meta_desc": "บอทเดียว ครบทุกเครื่องมือ — กิจกรรม บูสต์ ฮีโร่ เครื่องคิดเลข และอื่น ๆ สร้างโดยผู้เล่นเพื่อผู้เล่น",
     "meta_keywords": "Bros24, Whiteout Survival, Discord Bot, Event Center, Boost, Hero, Calculator, Ranking, Welcome, State 214, DOA, guide, wos bot, bros24bot",
@@ -890,6 +904,9 @@
     "alt_menu": "เมนูหลัก — /menu",
     "alt_event_center": "Event Center — /event",
     "alt_boost_center": "Boost Center — /boost",
-    "alt_rank_card": "Ranking — การ์ดเลเวล"
+    "alt_rank_card": "Ranking — การ์ดเลเวล",
+
+    "gift_update_title": "🎁 Gift Code Center — ใหม่",
+    "gift_update_date": "—"
   }
 }
