@@ -322,6 +322,51 @@
     </div>
 
     <div class="mt-8 grid gap-6 lg:grid-cols-2">
+      <!-- NEW: Gift Code Center release card (date = today Europe/Warsaw) -->
+      <article class="card-3d p-6 lg:col-span-2" id="giftcode-update">
+        <div class="flex items-center justify-between gap-2">
+          <h3 id="gift_update_title" class="text-xl font-semibold">🎁 Gift Code Center — New</h3>
+          <span id="gift_update_date" class="text-xs text-slate-400">—</span>
+        </div>
+
+        <p class="mt-3 text-slate-300">
+          From now on, the Bros24-Whiteout Survival Guide includes a fully automated Gift Code Center.
+          Never miss a code again — the bot takes care of it for your server!
+        </p>
+
+        <h4 class="mt-4 font-semibold text-slate-200">🔑 Highlights</h4>
+        <ul class="mt-2 space-y-2 text-slate-300 list-disc list-inside">
+          <li><strong>Automatic refresh every 30 minutes</strong> — the bot checks for new gift codes regularly.</li>
+          <li><strong>Automatic posts in your server</strong> — select a text or announcement channel and the bot will post all active gift codes there.</li>
+          <li><strong>Interactive buttons</strong> — redeem directly and copy the code instantly.</li>
+          <li><strong>Multi-language support</strong> — messages appear in your configured server language (EN/DE/PL/FR/IT/TH).</li>
+          <li><strong>No duplicates</strong> — each code is only posted once per server.</li>
+        </ul>
+
+        <h4 class="mt-5 font-semibold text-slate-200">📸 Preview</h4>
+        <div class="mt-2">
+          <div class="shot-box">
+            <!-- Replace the src with your actual screenshot when ready -->
+            <img id="shot_giftcodes" src="assets/gift-code-center.png" alt="Gift Code Center — preview"
+                 class="shot is-lightbox" loading="lazy">
+          </div>
+        </div>
+
+        <h4 class="mt-5 font-semibold text-slate-200">🚀 How to activate the feature</h4>
+        <ol class="mt-2 space-y-2 text-slate-300 list-decimal list-inside">
+          <li>Open <code>/menu</code> or <code>!menu</code>.</li>
+          <li>Click <strong>🎁 Gift Code Center</strong>.</li>
+          <li>Select your desired text or announcement channel.</li>
+          <li>Done — the bot will immediately post all currently active codes and continue automatically every 30 minutes.</li>
+        </ol>
+
+        <h4 class="mt-5 font-semibold text-slate-200">ℹ️ Notes</h4>
+        <ul class="mt-2 space-y-2 text-slate-300 list-disc list-inside">
+          <li>If you change the channel, all active codes will be posted again in the new channel.</li>
+          <li>Make sure the bot has <em>Send Messages</em> and <em>Embed Links</em> permissions in the selected channel.</li>
+        </ul>
+      </article>
+
       <article class="card-3d p-6" id="menu-update">
         <div class="flex items-center justify-between gap-2">
           <h3 id="menu_update_title" class="text-xl font-semibold">🚀 /menu — clean & error-free</h3>
@@ -603,13 +648,14 @@
        'cmd_birthday_title','cmd_birthday_text'
       ].forEach(id=> setText(id, d[id]));
 
-      // Updates (includes NEW birthday + NEW rally ids)
+      // Updates (includes NEW giftcode + birthday + rally ids)
       ['updates_title','menu_update_title','menu_update_date','menu_update_b1','menu_update_b2','menu_update_b3',
        'boost_update_title','boost_update_date','boost_update_b1','boost_update_b2','boost_update_b3','boost_update_b4',
        'event_update_title','event_update_date','event_update_text',
        'lang_update_title','lang_update_b1',
+       // Gift Code Center (optional i18n keys; if missing, existing text stays)
+       'gift_update_title','gift_update_date',
        'birthday_update_title','birthday_update_date','birthday_update_b1','birthday_update_b2','birthday_update_b3',
-       // NEW Rally IDs
        'rally_update_title','rally_update_date','rally_update_b1','rally_update_b2','rally_update_b3','rally_update_b4','rally_update_b5'
       ].forEach(id=> setText(id, d[id]));
 
@@ -617,6 +663,7 @@
       setText('lang_update_date', todayISO());
       setText('birthday_update_date', todayISO());
       setText('rally_update_date', todayISO());
+      setText('gift_update_date', todayISO()); // NEW: Gift Code Center date
 
       // Community
       ['community_title','community_sub','community_p1','community_p2','community_p3','community_p4','community_p5','community_p6','community_p7','community_p8',
