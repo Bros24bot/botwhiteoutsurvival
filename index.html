@@ -57,57 +57,14 @@
     .topgg-bot{ height:11.5rem } .topgg-srv{ height:11.5rem }
     @media(min-width:640px){ .topgg-bot{ height:12.5rem } .topgg-srv{ height:12.5rem } }
 
-    /* Gift Code card */
+    /* Gift Code Center card */
     .gift-3d{
       border:1px solid rgba(56,189,248,.25);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.06),
-                  0 10px 24px -12px rgba(0,0,0,.8),
-                  0 22px 50px -24px rgba(2,132,199,.28),
-                  0 0 0 2px rgba(56,189,248,.18) inset;
-      background: radial-gradient(120% 120% at 10% 0%, rgba(56,189,248,.08), transparent 60%),
-                  radial-gradient(80% 80% at 90% 20%, rgba(167,139,250,.06), transparent 70%),
-                  linear-gradient(180deg,#0f141f 0%, #0b0f1a 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 10px 24px -12px rgba(0,0,0,.8), 0 22px 50px -24px rgba(2,132,199,.28), 0 0 0 2px rgba(56,189,248,.18) inset;
+      background: radial-gradient(120% 120% at 10% 0%, rgba(56,189,248,.08), transparent 60%), radial-gradient(80% 80% at 90% 20%, rgba(167,139,250,.06), transparent 70%), linear-gradient(180deg,#0f141f 0%, #0b0f1a 100%);
     }
-    .gift-3d::after{
-      content:""; position:absolute; inset:-1px; border-radius:1rem;
-      background:linear-gradient(120deg, rgba(56,189,248,.45), rgba(167,139,250,.35), rgba(244,114,182,.35));
-      opacity:.18; pointer-events:none; filter:blur(12px);
-      mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      -webkit-mask-composite:xor; mask-composite:exclude; padding:2px;
-    }
+    .gift-3d::after{content:"";position:absolute;inset:-1px;border-radius:1rem;background:linear-gradient(120deg, rgba(56,189,248,.45), rgba(167,139,250,.35), rgba(244,114,182,.35));opacity:.18;pointer-events:none;filter:blur(12px);mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;padding:2px}
     .gift-preview{max-width:min(960px, 94%); margin-inline:auto}
-
-    /* Toolbar helpers: gleich hohe Controls (36px) */
-    .toolbar { display:flex; align-items:center; gap:.5rem; }
-    .select-wrap{ position:relative; }
-    .select-wrap svg{ position:absolute; right:.5rem; top:50%; transform:translateY(-50%); pointer-events:none; opacity:.7; }
-    .select-clean{
-      height:2.25rem; appearance:none;
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.1);
-      border-radius:.625rem;
-      padding:.25rem 2rem .25rem .75rem;
-      color:#e5e7eb;
-    }
-    .select-clean:hover{ background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.16); }
-    .nav-pill{
-      display:inline-flex; align-items:center; justify-content:center;
-      height:2.25rem; padding:0 .75rem; border-radius:.625rem;
-      color:#e5e7eb; transition:background .15s ease,color .15s ease;
-    }
-    .nav-pill:hover{ background:rgba(255,255,255,.06); color:#fff; }
-    .btn-prim{
-      display:inline-flex; align-items:center; justify-content:center;
-      height:2.25rem; padding:0 .9rem; border-radius:.75rem; font-weight:600;
-      background:#0ea5e9; color:#0b1220; border:1px solid rgba(255,255,255,.1);
-    }
-    .btn-prim:hover{ background:#0284c7; }
-    .btn-img{
-      display:inline-flex; align-items:center; justify-content:center;
-      height:2.25rem; border-radius:.625rem; overflow:hidden;
-      border:1px solid rgba(255,255,255,.1); background:rgba(255,255,255,.05);
-    }
-    .btn-img:hover{ background:rgba(255,255,255,.1); }
   </style>
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans">
@@ -115,44 +72,34 @@
   <!-- Header -->
   <header class="sticky top-0 z-30 border-b border-white/5 bg-slate-950/80 backdrop-blur">
     <div class="mx-auto max-w-7xl px-4 h-16 flex items-center justify-between">
-      <!-- Left: Logo -->
       <a href="#" class="flex items-center gap-3">
         <img src="assets/logo.png" alt="Bros24 Logo" class="h-10 w-10 rounded-xl ring-1 ring-white/10" loading="eager">
         <span class="font-extrabold tracking-tight gradient-text">Bros24 — Whiteout Survival Bot</span>
       </a>
 
-      <!-- Center: Nav -->
-      <nav class="hidden md:flex items-center gap-2 text-sm">
-        <a id="nav_features"  href="#features" class="nav-pill">Features</a>
-        <a id="nav_media"     href="#media"    class="nav-pill">Screenshots</a>
-        <a id="nav_coming"    href="#coming"   class="nav-pill">Coming Soon</a>
-        <a id="nav_commands"  href="#commands" class="nav-pill">Commands</a>
-        <a id="nav_updates"   href="#updates"  class="nav-pill">Updates</a>
-        <a id="nav_topgg"     href="#topgg"    class="nav-pill">top.gg</a>
-        <a id="nav_support"   href="#support"  class="nav-pill">Support</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a id="nav_features" href="#features" class="hover:text-brand-500">Features</a>
+        <a id="nav_media" href="#media" class="hover:text-brand-500">Screenshots</a>
+        <a id="nav_coming" href="#coming" class="hover:text-brand-500">Coming Soon</a>
+        <a id="nav_commands" href="#commands" class="hover:text-brand-500">Commands</a>
+        <a id="nav_updates" href="#updates" class="hover:text-brand-500">Updates</a>
+        <a id="nav_topgg" href="#topgg" class="hover:text-brand-500">top.gg</a>
+        <a id="nav_support" href="#support" class="hover:text-brand-500">Support</a>
       </nav>
 
-      <!-- Right: Language + Invite (BMC wurde entfernt) -->
-      <div class="toolbar">
-        <div class="select-wrap hidden sm:block">
-          <select id="langSelect" aria-label="Language" class="select-clean text-sm">
-            <option value="en">🇬🇧 English</option>
-            <option value="de">🇩🇪 Deutsch</option>
-            <option value="pl">🇵🇱 Polski</option>
-            <option value="it">🇮🇹 Italiano</option>
-            <option value="fr">🇫🇷 Français</option>
-            <option value="th">🇹🇭 ไทย</option>
-          </select>
-          <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" class="text-slate-300">
-            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 011.08 1.04l-4.25 4.25a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
-          </svg>
-        </div>
-
-        <a id="header_invite"
-           href="https://discord.com/oauth2/authorize?client_id=1387844888187375758&permissions=17869211692048&integration_type=0&scope=bot+applications.commands"
-           class="hidden sm:inline-flex btn-prim text-sm">
-          ➕ Invite Bot
-        </a>
+      <!-- Language dropdown + Invite -->
+      <div class="flex items-center gap-3">
+        <select id="langSelect" aria-label="Language"
+                class="block bg-white/10 hover:bg-white/15 border border-white/10 rounded-lg px-2 py-1 text-sm">
+          <option value="en">🇬🇧 English</option>
+          <option value="de">🇩🇪 Deutsch</option>
+          <option value="pl">🇵🇱 Polski</option>
+          <option value="it">🇮🇹 Italiano</option>
+          <option value="fr">🇫🇷 Français</option>
+          <option value="th">🇹🇭 ไทย</option>
+        </select>
+        <a id="header_invite" href="https://discord.com/oauth2/authorize?client_id=1387844888187375758&permissions=17869211692048&integration_type=0&scope=bot+applications.commands"
+           class="hidden sm:inline-flex rounded-xl bg-brand-500 px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-brand-600 shadow-glow">➕ Invite Bot</a>
       </div>
     </div>
   </header>
@@ -167,26 +114,11 @@
         <p id="hero_text" class="mt-6 text-slate-300 text-lg">
           Stop stacking extra Discord bots. The <strong>Bros24 Whiteout Survival</strong> bot unites Events, Boosts, Heroes, Calculators, Welcome & Ranking in one multilingual assistant — built by players for players.
         </p>
-        <div class="mt-8 flex flex-wrap items-center gap-3">
+        <div class="mt-8 flex flex-wrap gap-3">
           <a id="hero_invite" href="https://discord.com/oauth2/authorize?client_id=1387844888187375758&permissions=17869211692048&integration_type=0&scope=bot+applications.commands"
              class="bg-brand-500 hover:bg-brand-600 text-slate-900 font-semibold px-6 py-3 rounded-2xl shadow-glow">Invite Now</a>
           <a id="hero_features" href="#features" class="bg-white/10 hover:bg-white/15 font-semibold px-6 py-3 rounded-2xl">See Features</a>
-
-          <!-- NEU: BMC-Bild-Button ersetzt den Badge -->
-          <a
-            href="https://www.buymeacoffee.com/bros24bot"
-            target="_blank" rel="noopener"
-            aria-label="Buy Me a Coffee — bros24bot"
-            class="btn-img"
-          >
-            <img
-              src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
-              alt="Buy Me a Coffee"
-              width="217" height="60"
-              class="h-9 w-auto object-contain"
-              loading="eager" decoding="async"
-            />
-          </a>
+          <span id="hero_badge" class="bg-white/10 border border-white/10 rounded-2xl px-3 py-2 text-xs"></span>
         </div>
       </div>
 
@@ -381,7 +313,6 @@
         <div class="card-3d p-5"><h3 id="cmd_lang_title" class="font-semibold">/lang</h3><p id="cmd_lang_text" class="text-slate-300">Switch UI language per guild.</p></div>
         <div class="card-3d p-5"><h3 id="cmd_games_title" class="font-semibold">/games</h3><p id="cmd_games_text" class="text-slate-300">Minigames like Hangman (EN/DE).</p></div>
 
-        <!-- NEW: /birthday -->
         <div class="card-3d p-5">
           <h3 id="cmd_birthday_title" class="font-semibold">/birthday</h3>
           <p id="cmd_birthday_text" class="text-slate-300">
@@ -404,12 +335,10 @@
           <h3 id="gift_update_title" class="text-xl font-semibold">🎁 Gift Code Center — New</h3>
           <span id="gift_update_date" class="text-xs text-slate-400">—</span>
         </div>
-
         <p class="mt-3 text-slate-300">
           From now on, the Bros24-Whiteout Survival Guide includes a fully automated Gift Code Center.
           Never miss a code again — the bot takes care of it for your server!
         </p>
-
         <h4 class="mt-4 font-semibold text-slate-200">🔑 Highlights</h4>
         <ul class="mt-2 space-y-2 text-slate-300 list-disc list-inside">
           <li><strong>Automatic refresh every 30 minutes</strong> — the bot checks for new gift codes regularly.</li>
@@ -418,15 +347,12 @@
           <li><strong>Multi-language support</strong> — messages appear in your configured server language (EN/DE/PL/FR/IT/TH).</li>
           <li><strong>No duplicates</strong> — each code is only posted once per server.</li>
         </ul>
-
         <h4 class="mt-5 font-semibold text-slate-200">📸 Preview</h4>
         <div class="mt-2 gift-preview">
           <div class="shot-box">
-            <img id="shot_giftcodes" src="assets/gift-code-center.png" alt="Gift Code Center — preview"
-                 class="shot is-lightbox" loading="lazy">
+            <img id="shot_giftcodes" src="assets/gift-code-center.png" alt="Gift Code Center — preview" class="shot is-lightbox" loading="lazy">
           </div>
         </div>
-
         <h4 class="mt-5 font-semibold text-slate-200">🚀 How to activate the feature</h4>
         <ol class="mt-2 space-y-2 text-slate-300 list-decimal list-inside">
           <li>Open <code>/menu</code> or <code>!menu</code>.</li>
@@ -434,7 +360,6 @@
           <li>Select your desired text or announcement channel.</li>
           <li>Done — the bot will immediately post all currently active codes and continue automatically every 30 minutes.</li>
         </ol>
-
         <h4 class="mt-5 font-semibold text-slate-200">ℹ️ Notes</h4>
         <ul class="mt-2 space-y-2 text-slate-300 list-disc list-inside">
           <li>If you change the channel, all active codes will be posted again in the new channel.</li>
@@ -517,37 +442,42 @@
 
   <!-- Support -->
   <section id="support" class="py-14">
-    <div class="mx-auto max-w-7xl px-4">
+    <div class="mx-auto max-w-7xl px-4 grid gap-6">
       <div class="rounded-3xl p-8 bg-gradient-to-br from-brand-500/20 via-fuchsia-500/10 to-transparent border border-brand-500/30 shadow-glow">
         <div class="grid lg:grid-cols-3 gap-8 items-center">
           <div class="lg:col-span-2">
-            <h3 class="text-2xl sm:text-3xl font-extrabold">Support the Project — Optional</h3>
-            <p class="mt-3 text-slate-200">
-              Bros24 bleibt für alle kostenlos. Wenn dir der Bot hilft und du Serverkosten & Entwicklung unterstützen möchtest,
-              kannst du mir über <strong>Buy Me a Coffee</strong> etwas dalassen. Danke! ❤️
+            <h3 id="support_highlight_title" class="text-2xl font-extrabold">Support the Project — Optional</h3>
+            <p id="support_highlight_text" class="mt-2 text-slate-200">
+              Bros24 stays free for everyone. If the bot helps you and you want to support server costs & weekly development, you can tip via Buy Me a Coffee. Thank you! ❤️
             </p>
-            <ul class="mt-4 text-slate-100/90 text-sm space-y-2">
-              <li>✅ Keine Paywalls · keine Verpflichtungen</li>
-              <li>🚀 Hilft bei Hosting, Monitoring & wöchentlichen Updates</li>
-              <li>🤝 Direkt und transparent — ein Klick, fertig</li>
+
+            <!-- NEW: Bullets with i18n -->
+            <ul class="mt-4 text-sm text-slate-100/90 space-y-1">
+              <li id="support_b1">✅ No paywalls — no obligations</li>
+              <li id="support_b2">🚀 Helps cover hosting, monitoring & weekly updates</li>
+              <li id="support_b3">🤝 Direct & transparent — one click</li>
+            </ul>
+
+            <!-- Existing Player ID/Payment list -->
+            <ul class="mt-4 text-sm text-slate-100/90">
+              <li><strong id="support_player_id_label">Player ID</strong>: <code>32815614</code></li>
+              <li><strong id="support_payment_label">Payment</strong>: <a class="underline hover:text-brand-500" href="https://pay.whiteoutsurvival.com/">pay.whiteoutsurvival.com</a></li>
             </ul>
           </div>
 
-          <div class="flex flex-col items-center gap-3">
-            <a
-              href="https://www.buymeacoffee.com/bros24bot"
-              target="_blank" rel="noopener"
-              aria-label="Buy Me a Coffee — bros24bot"
-              class="btn-img"
-            >
-              <img
-                src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
-                alt="Buy Me a Coffee"
-                width="217" height="60"
-                class="h-9 w-auto object-contain"
-                loading="eager" decoding="async"
-              />
+          <div class="flex flex-col gap-3">
+            <a id="support_join_btn" href="https://discord.gg/dBZn8tFx7c" class="rounded-xl bg-brand-500 hover:bg-brand-600 px-6 py-3 font-semibold text-slate-900 shadow-glow text-center">Join Support Server</a>
+            <a id="support_contact_btn" href="https://discord.com/users/1154018970572169267" target="_blank" rel="noopener" class="rounded-xl bg-white/10 hover:bg-white/15 px-6 py-3 font-semibold text-center">Contact Support</a>
+
+            <!-- Buy Me a Coffee button (opens in new tab) -->
+            <a href="https://www.buymeacoffee.com/bros24bot" target="_blank" rel="noopener"
+               class="rounded-xl px-0 py-0 inline-flex justify-center">
+              <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
+                   alt="Buy Me a Coffee"
+                   style="height:60px;width:217px;border-radius:0.75rem;box-shadow:0 8px 24px -12px rgba(0,0,0,.6);">
             </a>
+
+            <button id="copyId" class="rounded-xl bg-white/10 hover:bg-white/15 px-6 py-3 font-semibold" data-copied="ID Copied!">Copy Contact ID</button>
           </div>
         </div>
       </div>
@@ -585,10 +515,35 @@
   <script>
     // ====== UTIL ======
     const $ = (id)=>document.getElementById(id);
-    const setText = (id, v)=>{ const el=$(id); if(el && typeof v==='string') el.textContent=v; };
+    const setText = (id, v)=>{ const el=$(id); if(el && typeof v==='string'){ el.textContent=v; if(!v.trim()) el.classList.add('hidden'); } };
     const setAttr = (id, attr, v)=>{ const el=$(id); if(el && typeof v==='string') el.setAttribute(attr, v); };
     const todayISO = ()=> new Date().toLocaleDateString('en-CA', { timeZone:'Europe/Warsaw' }); // YYYY-MM-DD
+
+    // Year
     setText('year', String(new Date().getFullYear()));
+
+    // Copy Discord ID (with i18n labels)
+    (function(){
+      const copyBtn = $('copyId');
+      function resetCopyBtnLabel(){
+        const lang = document.documentElement.lang || 'en';
+        copyBtn.textContent = (window.T?.[lang]?.support_copy_btn) || 'Copy Contact ID';
+      }
+      if (copyBtn){
+        copyBtn.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText('1154018970572169267');
+            const lang = document.documentElement.lang || 'en';
+            copyBtn.textContent = (window.T?.[lang]?.support_copied) || copyBtn.getAttribute('data-copied') || 'ID Copied!';
+            setTimeout(resetCopyBtnLabel, 1600);
+          } catch {
+            const lang = document.documentElement.lang || 'en';
+            copyBtn.textContent = (window.T?.[lang]?.copy_failed) || 'Copy failed';
+            setTimeout(resetCopyBtnLabel, 1600);
+          }
+        });
+      }
+    })();
 
     // Lightbox
     (function(){
@@ -672,30 +627,37 @@
 
     function applyLang(lang){
       const d = (window.T?.[lang]) || window.T?.en || {};
+      // Meta / Title
       if (d.meta_title) document.title = d.meta_title;
       setMeta('description', d.meta_desc || '');
       setMeta('keywords', d.meta_keywords || '');
       setMeta('og:title', d.meta_title || '', true);
       setMeta('og:description', d.meta_desc || '', true);
 
+      // NAV + header invite
       ['nav_features','nav_media','nav_coming','nav_commands','nav_updates','nav_topgg','nav_support','header_invite']
         .forEach(id=> setText(id, d[id]));
 
+      // HERO
       ['hero_title_1','hero_title_2','hero_text','hero_invite','hero_features','hero_badge']
         .forEach(id=> setText(id, d[id]));
 
+      // USP
       ['usp1_title','usp1_text','usp2_title','usp2_text','usp3_title','usp3_text']
         .forEach(id=> setText(id, d[id]));
 
+      // Features
       ['features_title','features_sub','feature_event_title','feature_event_text','feature_boost_title',
        'feature_boost_b1','feature_boost_b2','feature_boost_b3','feature_boost_b4','feature_boost_b5',
        'feature_hero_title','feature_hero_text','feature_calc_title','feature_calc_text']
         .forEach(id=> setText(id, d[id]));
 
+      // Coming Soon + Upcoming + Media
       ['shots_title','coming_title','coming_text','coming_cta_invite','coming_cta_discord',
        'upcoming_title','upcoming_b1','upcoming_b2','upcoming_b4','upcoming_b5']
         .forEach(id=> setText(id, d[id]));
 
+      // Commands (includes /birthday ids)
       ['cmd_title','cmd_menu_title','cmd_menu_text','cmd_event_title','cmd_event_text','cmd_boost_title','cmd_boost_text',
        'cmd_boostmenu_title','cmd_boostmenu_text','cmd_hero_title','cmd_hero_text','cmd_chief_title','cmd_chief_text',
        'cmd_calc_title','cmd_calc_text','cmd_island_title','cmd_island_text','cmd_ranking_title','cmd_ranking_text',
@@ -703,6 +665,7 @@
        'cmd_birthday_title','cmd_birthday_text'
       ].forEach(id=> setText(id, d[id]));
 
+      // Updates (includes giftcode/birthday/rally ids)
       ['updates_title','menu_update_title','menu_update_date','menu_update_b1','menu_update_b2','menu_update_b3',
        'boost_update_title','boost_update_date','boost_update_b1','boost_update_b2','boost_update_b3','boost_update_b4',
        'event_update_title','event_update_date','event_update_text',
@@ -712,25 +675,39 @@
        'rally_update_title','rally_update_date','rally_update_b1','rally_update_b2','rally_update_b3','rally_update_b4','rally_update_b5'
       ].forEach(id=> setText(id, d[id]));
 
+      // dynamic dates (Europe/Warsaw)
       setText('lang_update_date', todayISO());
       setText('birthday_update_date', todayISO());
       setText('rally_update_date', todayISO());
       setText('gift_update_date', todayISO());
 
+      // Community
       ['community_title','community_sub','community_p1','community_p2','community_p3','community_p4','community_p5','community_p6','community_p7','community_p8',
        'community_join_btn','community_vote_btn'].forEach(id=>{ if (d[id]) setText(id, d[id]); });
       if (d.community_image_alt) setAttr('community_img','alt', d.community_image_alt);
 
+      // ALT for screenshots
       if (d.alt_menu) setAttr('shot_menu','alt', d.alt_menu);
       if (d.alt_event_center) setAttr('shot_event','alt', d.alt_event_center);
       if (d.alt_boost_center) setAttr('shot_boost','alt', d.alt_boost_center);
       if (d.alt_rank_card) setAttr('shot_rank','alt', d.alt_rank_card);
 
+      // Support (NEW wiring for i18n)
+      ['support_highlight_title','support_highlight_text','support_b1','support_b2','support_b3',
+       'support_player_id_label','support_payment_label','support_join_btn','support_contact_btn','support_copy_btn']
+        .forEach(id=> setText(id, d[id]));
+
+      // Footer
       setText('footer_brand', d.footer_brand || 'Bros24 • State 214');
 
+      // Save & set html lang + sync dropdown
       localStorage.setItem('bros24_lang', lang);
       document.documentElement.setAttribute('lang', lang);
       const sel = $('langSelect'); if (sel && sel.value !== lang) sel.value = lang;
+
+      // Refresh copy button default label (already set above, keep fallback)
+      const copyBtn = $('copyId');
+      if (copyBtn && d.support_copy_btn) copyBtn.textContent = d.support_copy_btn;
     }
 
     // Language selector
@@ -745,20 +722,6 @@
       const sel = $('langSelect'); if (sel) sel.value = lang;
       applyLang(lang);
     })();
-  </script>
-
-  <!-- Buy Me a Coffee floating widget (Right) -->
-  <script
-    data-name="BMC-Widget"
-    data-cfasync="false"
-    src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
-    data-id="bros24bot"
-    data-description="Support me on Buy Me a Coffee!"
-    data-message=""
-    data-color="#0ea5e9"
-    data-position="Right"
-    data-x_margin="18"
-    data-y_margin="18">
   </script>
 </body>
 </html>
