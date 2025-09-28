@@ -56,6 +56,8 @@
     @media(max-width:640px){ .community-card .comm-img{ width:min(520px, 96%) } }
     .topgg-bot{ height:11.5rem } .topgg-srv{ height:11.5rem }
     @media(min-width:640px){ .topgg-bot{ height:12.5rem } .topgg-srv{ height:12.5rem } }
+
+    /* --- Gift Code Center: modern 3D accent card & preview size --- */
     .gift-3d{
       border:1px solid rgba(56,189,248,.25);
       box-shadow:
@@ -79,6 +81,39 @@
       padding:2px;
     }
     .gift-preview{max-width:min(960px, 94%); margin-inline:auto}
+
+    /* ===== Toolbar-Helpers: gleich hohe Controls + Select-Chevron ===== */
+    .toolbar { display:flex; align-items:center; gap:.5rem; }
+    .select-wrap{ position:relative; }
+    .select-wrap svg{ position:absolute; right:.5rem; top:50%; transform:translateY(-50%); pointer-events:none; opacity:.7; }
+    .select-clean{
+      height:2.25rem; /* 36px */
+      appearance:none; -webkit-appearance:none; -moz-appearance:none;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:.625rem; /* ~10px */
+      padding:.25rem 2rem .25rem .75rem;
+      color:#e5e7eb; /* slate-200 */
+    }
+    .select-clean:hover{ background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.16); }
+    .nav-pill{
+      display:inline-flex; align-items:center; justify-content:center;
+      height:2.25rem; padding:0 .75rem; border-radius:.625rem;
+      color:#e5e7eb; transition:background .15s ease,color .15s ease,border-color .15s ease,transform .15s ease;
+    }
+    .nav-pill:hover{ background:rgba(255,255,255,.06); color:#fff; }
+    .btn-prim{
+      display:inline-flex; align-items:center; justify-content:center;
+      height:2.25rem; padding:0 .9rem; border-radius:.75rem; font-weight:600;
+      background:#0ea5e9; color:#0b1220; border:1px solid rgba(255,255,255,.1);
+    }
+    .btn-prim:hover{ background:#0284c7; }
+    .btn-img{
+      display:inline-flex; align-items:center; justify-content:center;
+      height:2.25rem; border-radius:.625rem; overflow:hidden;
+      border:1px solid rgba(255,255,255,.1); background:rgba(255,255,255,.05);
+    }
+    .btn-img:hover{ background:rgba(255,255,255,.1); }
   </style>
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans">
@@ -86,46 +121,58 @@
   <!-- Header -->
   <header class="sticky top-0 z-30 border-b border-white/5 bg-slate-950/80 backdrop-blur">
     <div class="mx-auto max-w-7xl px-4 h-16 flex items-center justify-between">
+      <!-- Left: Logo -->
       <a href="#" class="flex items-center gap-3">
         <img src="assets/logo.png" alt="Bros24 Logo" class="h-10 w-10 rounded-xl ring-1 ring-white/10" loading="eager">
         <span class="font-extrabold tracking-tight gradient-text">Bros24 — Whiteout Survival Bot</span>
       </a>
 
-      <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a id="nav_features" href="#features" class="hover:text-brand-500">Features</a>
-        <a id="nav_media" href="#media" class="hover:text-brand-500">Screenshots</a>
-        <a id="nav_coming" href="#coming" class="hover:text-brand-500">Coming Soon</a>
-        <a id="nav_commands" href="#commands" class="hover:text-brand-500">Commands</a>
-        <a id="nav_updates" href="#updates" class="hover:text-brand-500">Updates</a>
-        <a id="nav_topgg" href="#topgg" class="hover:text-brand-500">top.gg</a>
-        <a id="nav_support" href="#support" class="hover:text-brand-500">Support</a>
+      <!-- Center: Nav -->
+      <nav class="hidden md:flex items-center gap-2 text-sm">
+        <a id="nav_features"  href="#features" class="nav-pill">Features</a>
+        <a id="nav_media"     href="#media"    class="nav-pill">Screenshots</a>
+        <a id="nav_coming"    href="#coming"   class="nav-pill">Coming Soon</a>
+        <a id="nav_commands"  href="#commands" class="nav-pill">Commands</a>
+        <a id="nav_updates"   href="#updates"  class="nav-pill">Updates</a>
+        <a id="nav_topgg"     href="#topgg"    class="nav-pill">top.gg</a>
+        <a id="nav_support"   href="#support"  class="nav-pill">Support</a>
       </nav>
 
-      <!-- Language dropdown + Invite + BuyMeACoffee -->
-      <div class="flex items-center gap-3">
-        <select id="langSelect" aria-label="Language"
-                class="block bg-white/10 hover:bg-white/15 border border-white/10 rounded-lg px-2 py-1 text-sm">
-          <option value="en">🇬🇧 English</option>
-          <option value="de">🇩🇪 Deutsch</option>
-          <option value="pl">🇵🇱 Polski</option>
-          <option value="it">🇮🇹 Italiano</option>
-          <option value="fr">🇫🇷 Français</option>
-          <option value="th">🇹🇭 ไทย</option>
-        </select>
-        <a id="header_invite" href="https://discord.com/oauth2/authorize?client_id=1387844888187375758&permissions=17869211692048&integration_type=0&scope=bot+applications.commands"
-           class="hidden sm:inline-flex rounded-xl bg-brand-500 px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-brand-600 shadow-glow">➕ Invite Bot</a>
+      <!-- Right: Controls (gleich hoch & bündig) -->
+      <div class="toolbar">
+        <!-- Language -->
+        <div class="select-wrap hidden sm:block">
+          <select id="langSelect" aria-label="Language" class="select-clean text-sm">
+            <option value="en">🇬🇧 English</option>
+            <option value="de">🇩🇪 Deutsch</option>
+            <option value="pl">🇵🇱 Polski</option>
+            <option value="it">🇮🇹 Italiano</option>
+            <option value="fr">🇫🇷 Français</option>
+            <option value="th">🇹🇭 ไทย</option>
+          </select>
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" class="text-slate-300">
+            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 011.08 1.04l-4.25 4.25a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
+          </svg>
+        </div>
 
-        <!-- NEW: Buy Me a Coffee image button in header -->
+        <!-- Invite -->
+        <a id="header_invite"
+           href="https://discord.com/oauth2/authorize?client_id=1387844888187375758&permissions=17869211692048&integration_type=0&scope=bot+applications.commands"
+           class="hidden sm:inline-flex btn-prim text-sm">
+          ➕ Invite Bot
+        </a>
+
+        <!-- Buy Me a Coffee (Bild-Button), gleiche Höhe -->
         <a id="header_bmc"
            href="https://www.buymeacoffee.com/bros24bot"
            target="_blank" rel="noopener"
            aria-label="Buy Me a Coffee — bros24bot"
-           class="hidden sm:inline-flex items-center rounded-xl ring-1 ring-white/10 hover:ring-white/20 shadow-glow transition transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-brand-500/60">
+           class="hidden sm:inline-flex btn-img">
           <img
             src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
             alt="Buy Me a Coffee"
-            width="130" height="36"
-            class="block h-9 w-auto object-contain"
+            height="36" width="130"
+            class="h-9 w-auto object-contain"
             loading="eager" decoding="async"
           />
         </a>
@@ -360,6 +407,7 @@
     </div>
 
     <div class="mt-8 grid gap-6 lg:grid-cols-2">
+      <!-- NEW: Gift Code Center release card (date = today Europe/Warsaw) -->
       <article class="card-3d gift-3d p-6 lg:col-span-2" id="giftcode-update">
         <div class="flex items-center justify-between gap-2">
           <h3 id="gift_update_title" class="text-xl font-semibold">🎁 Gift Code Center — New</h3>
@@ -438,6 +486,7 @@
         </p>
       </article>
 
+      <!-- /language fix card (date = today Europe/Warsaw) -->
       <article class="card-3d p-6 lg:col-span-2" id="lang-update">
         <div class="flex items-center justify-between gap-2">
           <h3 id="lang_update_title" class="text-xl font-semibold">🌐 /language — live & persistent</h3>
@@ -448,6 +497,7 @@
         </p>
       </article>
 
+      <!-- NEW: Birthday System release card (date = today Europe/Warsaw) -->
       <article class="card-3d p-6 lg:col-span-2" id="birthday-update">
         <div class="flex items-center justify-between gap-2">
           <h3 id="birthday_update_title" class="text-xl font-semibold">🎂 Birthday System — New</h3>
@@ -460,6 +510,7 @@
         </ul>
       </article>
 
+      <!-- NEW: Rally Planner release card (date = today Europe/Warsaw) -->
       <article class="card-3d p-6 lg:col-span-2" id="rally-update">
         <div class="flex items-center justify-between gap-2">
           <h3 id="rally_update_title" class="text-xl font-semibold">🎯 Rally Planner — New</h3>
@@ -495,23 +546,20 @@
             </ul>
           </div>
 
-          <!-- Primary CTA (Bild-Button) -->
-          <div class="flex flex-col items-stretch gap-3">
+          <!-- Primary CTA (Bild-Button im selben Stil) -->
+          <div class="flex flex-col items-center gap-3">
             <a
               href="https://www.buymeacoffee.com/bros24bot"
-              target="_blank"
-              rel="noopener"
+              target="_blank" rel="noopener"
               aria-label="Buy Me a Coffee — bros24bot"
-              class="inline-block rounded-2xl ring-1 ring-white/10 hover:ring-white/20 shadow-glow transition transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-brand-500/60 cursor-pointer self-center"
+              class="btn-img"
             >
               <img
                 src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
                 alt="Buy Me a Coffee"
-                width="217"
-                height="60"
-                class="block w-[217px] h-[60px] object-contain"
-                loading="eager"
-                decoding="async"
+                width="217" height="60"
+                class="h-9 w-auto object-contain"
+                loading="eager" decoding="async"
               />
             </a>
           </div>
@@ -557,29 +605,6 @@
 
     // Year
     setText('year', String(new Date().getFullYear()));
-
-    // (Old copyId logic safe)
-    (function(){
-      const copyBtn = $('copyId');
-      function resetCopyBtnLabel(){
-        const lang = document.documentElement.lang || 'en';
-        copyBtn && (copyBtn.textContent = (window.T?.[lang]?.support_copy_btn) || 'Copy Contact ID');
-      }
-      if (copyBtn){
-        copyBtn.addEventListener('click', async () => {
-          try {
-            await navigator.clipboard.writeText('1154018970572169267');
-            const lang = document.documentElement.lang || 'en';
-            copyBtn.textContent = (window.T?.[lang]?.support_copied) || copyBtn.getAttribute('data-copied') || 'ID Copied!';
-            setTimeout(resetCopyBtnLabel, 1600);
-          } catch {
-            const lang = document.documentElement.lang || 'en';
-            copyBtn.textContent = (window.T?.[lang]?.copy_failed) || 'Copy failed';
-            setTimeout(resetCopyBtnLabel, 1600);
-          }
-        });
-      }
-    })();
 
     // Lightbox
     (function(){
@@ -628,7 +653,7 @@
       stage.addEventListener('mouseleave', ()=>{ stage.style.transform='perspective(900px) rotateX(0deg) rotateY(0deg)'; });
     })();
 
-    // ====== I18N LOADER ======
+    // ====== I18N LOADER (optional external JSON) ======
     window.T = {}; // translations map loaded from JSON
 
     async function loadExternalTranslations(){
@@ -722,9 +747,6 @@
       localStorage.setItem('bros24_lang', lang);
       document.documentElement.setAttribute('lang', lang);
       const sel = $('langSelect'); if (sel && sel.value !== lang) sel.value = lang;
-
-      const copyBtn = $('copyId');
-      if (copyBtn) copyBtn.textContent = (d.support_copy_btn) || 'Copy Contact ID';
     }
 
     // Language selector
