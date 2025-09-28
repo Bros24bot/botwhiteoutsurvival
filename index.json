@@ -18,7 +18,7 @@
     "hero_text": "Stop stacking extra Discord bots. The Bros24 Whiteout Survival bot unites Events, Boosts, Heroes, Calculators, Welcome & Ranking in one multilingual assistant — built by players for players.",
     "hero_invite": "Invite Now",
     "hero_features": "See Features",
-    "hero_badge": "",
+    "hero_badge": "By players, for players — Whiteout Survival",
 
     "usp1_title": "All-in-One for Whiteout Survival",
     "usp1_text": "Event Center, Boost tracking, Hero Hub, Calculators, Welcome & Ranking — everything in one bot.",
@@ -122,7 +122,10 @@
     "topgg_text": "Vote for the bot, add it to your server, and discover our Whiteout Survival State 214 community.",
 
     "support_highlight_title": "Support the Project — Optional",
-    "support_highlight_text": "Bros24 stays free for everyone. If you’d like to help with server costs & weekly development, you can support via Frost Stars in Whiteout Survival — totally optional, no pressure.",
+    "support_highlight_text": "Bros24 stays free for everyone. If the bot helps you and you'd like to support server costs & development, you can leave a tip via Buy Me a Coffee. Thank you! ❤️",
+    "support_b1": "✅ No paywalls — no obligations",
+    "support_b2": "🚀 Helps cover hosting, monitoring & weekly updates",
+    "support_b3": "🤝 Direct & transparent — one click",
     "support_player_id_label": "Player ID",
     "support_payment_label": "Payment",
     "support_join_btn": "Join Support Server",
@@ -170,7 +173,7 @@
     "hero_text": "Schluss mit Bot-Chaos: Der Bros24-Bot für Whiteout Survival vereint Events, Boosts, Helden, Rechner, Welcome & Ranking in EINEM mehrsprachigen Assistenten — von Spielern für Spieler.",
     "hero_invite": "Jetzt einladen",
     "hero_features": "Features ansehen",
-    "hero_badge": "",
+    "hero_badge": "Von Spielern, für Spieler — Whiteout Survival",
 
     "usp1_title": "All-in-One für Whiteout Survival",
     "usp1_text": "Event Center, Boost-Tracking, Hero Hub, Rechner, Welcome & Ranking — alles in einem Bot.",
@@ -274,7 +277,10 @@
     "topgg_text": "Vote für den Bot, füge ihn deinem Server hinzu und entdecke unsere Whiteout-Survival-Community (State 214).",
 
     "support_highlight_title": "Projekt unterstützen — optional",
-    "support_highlight_text": "Bros24 bleibt für alle kostenlos. Wenn du Serverkosten & wöchentliche Entwicklung unterstützen willst, geht das über Frost Stars in Whiteout Survival — komplett optional, ohne Druck.",
+    "support_highlight_text": "Bros24 bleibt für alle kostenlos. Wenn dir der Bot hilft und du Serverkosten & Entwicklung unterstützen möchtest, kannst du mir über Buy Me a Coffee etwas dalassen. Danke! ❤️",
+    "support_b1": "✅ Keine Paywalls · keine Verpflichtungen",
+    "support_b2": "🚀 Hilft bei Hosting, Monitoring & wöchentlichen Updates",
+    "support_b3": "🤝 Direkt und transparent — ein Klick, fertig",
     "support_player_id_label": "Player ID",
     "support_payment_label": "Zahlung",
     "support_join_btn": "Support-Server beitreten",
@@ -322,7 +328,7 @@
     "hero_text": "Koniec z dodatkowymi botami. Bros24 dla Whiteout Survival łączy wydarzenia, boosty, bohaterów, kalkulatory, powitania i rangi w jednym wielojęzycznym asystencie — stworzonym przez graczy dla graczy.",
     "hero_invite": "Zaproś teraz",
     "hero_features": "Zobacz funkcje",
-    "hero_badge": "",
+    "hero_badge": "Od graczy, dla graczy — Whiteout Survival",
 
     "usp1_title": "All-in-One dla Whiteout Survival",
     "usp1_text": "Event Center, śledzenie boostów, Hero Hub, kalkulatory, powitania i rangi — wszystko w jednym bocie.",
@@ -426,7 +432,10 @@
     "topgg_text": "Głosuj na bota, dodaj go na serwer i poznaj naszą społeczność Whiteout Survival State 214.",
 
     "support_highlight_title": "Wesprzyj projekt — opcjonalnie",
-    "support_highlight_text": "Bros24 pozostaje darmowy dla wszystkich. Jeśli chcesz pomóc w kosztach serwera i cotygodniowym rozwoju, możesz wesprzeć nas przez Frost Stars w Whiteout Survival — całkowicie opcjonalnie.",
+    "support_highlight_text": "Bros24 jest darmowy dla wszystkich. Jeśli bot Ci pomaga i chcesz wesprzeć koszty serwera i rozwój, możesz postawić kawę przez Buy Me a Coffee. Dziękuję! ❤️",
+    "support_b1": "✅ Bez paywalli i zobowiązań",
+    "support_b2": "🚀 Pomaga w hostingu, monitoringu i cotygodniowych aktualizacjach",
+    "support_b3": "🤝 Bezpośrednio i przejrzyście — jeden klik",
     "support_player_id_label": "Player ID",
     "support_payment_label": "Płatność",
     "support_join_btn": "Dołącz na serwer wsparcia",
@@ -474,7 +483,7 @@
     "hero_text": "Basta con troppi bot. Il bot Bros24 per Whiteout Survival unisce Eventi, Boost, Eroi, Calcolatori, Benvenuto e Ranking in un unico assistente multilingue — creato dai giocatori per i giocatori.",
     "hero_invite": "Invita ora",
     "hero_features": "Vedi funzioni",
-    "hero_badge": "",
+    "hero_badge": "Da giocatori, per giocatori — Whiteout Survival",
 
     "usp1_title": "All-in-One per Whiteout Survival",
     "usp1_text": "Event Center, tracciamento Boost, Hero Hub, Calcolatori, Benvenuto e Ranking — tutto in un bot.",
@@ -577,8 +586,11 @@
     "topgg_title": "top.gg — Vota & Scopri",
     "topgg_text": "Vota il bot, aggiungilo al tuo server e scopri la nostra community Whiteout Survival State 214.",
 
-    "support_highlight_title": "Sostieni il progetto — Opzionale",
-    "support_highlight_text": "Bros24 resta gratuito per tutti. Se vuoi aiutare con i costi del server e lo sviluppo settimanale, puoi sostenerci con Frost Stars in Whiteout Survival — del tutto opzionale.",
+    "support_highlight_title": "Sostieni il progetto — opzionale",
+    "support_highlight_text": "Bros24 è gratuito per tutti. Se il bot ti è utile e vuoi aiutare con i costi del server e lo sviluppo, puoi offrirmi un caffè su Buy Me a Coffee. Grazie! ❤️",
+    "support_b1": "✅ Niente paywall né obblighi",
+    "support_b2": "🚀 Aiuta a coprire hosting, monitoring e update settimanali",
+    "support_b3": "🤝 Diretto e trasparente — un clic",
     "support_player_id_label": "Player ID",
     "support_payment_label": "Pagamento",
     "support_join_btn": "Entra nel server di supporto",
@@ -626,7 +638,7 @@
     "hero_text": "Fini l’empilement de bots. Le bot Bros24 pour Whiteout Survival réunit Évènements, Boosts, Héros, Calculateurs, Accueil et Classement dans un assistant multilingue — créé par des joueurs pour des joueurs.",
     "hero_invite": "Inviter",
     "hero_features": "Voir les fonctions",
-    "hero_badge": "",
+    "hero_badge": "Par des joueurs, pour des joueurs — Whiteout Survival",
 
     "usp1_title": "All-in-One pour Whiteout Survival",
     "usp1_text": "Event Center, suivi des boosts, Hero Hub, calculateurs, accueil et classement — le tout dans un seul bot.",
@@ -730,7 +742,10 @@
     "topgg_text": "Votez pour le bot, ajoutez-le à votre serveur et découvrez notre communauté Whiteout Survival State 214.",
 
     "support_highlight_title": "Soutenir le projet — optionnel",
-    "support_highlight_text": "Bros24 reste gratuit pour tous. Pour aider aux coûts serveur et au développement hebdo, vous pouvez soutenir via Frost Stars dans Whiteout Survival — totalement optionnel.",
+    "support_highlight_text": "Bros24 reste gratuit pour tous. Si le bot vous aide et que vous souhaitez soutenir les coûts serveurs et le développement, vous pouvez m’offrir un café via Buy Me a Coffee. Merci ! ❤️",
+    "support_b1": "✅ Pas de paywalls, aucune obligation",
+    "support_b2": "🚀 Aide à couvrir l’hébergement, le monitoring et les mises à jour hebdo",
+    "support_b3": "🤝 Direct et transparent — un clic",
     "support_player_id_label": "Player ID",
     "support_payment_label": "Paiement",
     "support_join_btn": "Rejoindre le serveur support",
@@ -778,7 +793,7 @@
     "hero_text": "ไม่ต้องใช้บอทหลายตัว บอท Bros24 สำหรับ Whiteout Survival รวมกิจกรรม บูสต์ ฮีโร่ เครื่องคิดเลข ระบบต้อนรับ และแรงก์ไว้ในที่เดียว — สร้างโดยผู้เล่นเพื่อผู้เล่น รองรับหลายภาษา",
     "hero_invite": "เชิญบอท",
     "hero_features": "ดูฟีเจอร์",
-    "hero_badge": "",
+    "hero_badge": "โดยผู้เล่น เพื่อผู้เล่น — Whiteout Survival",
 
     "usp1_title": "All-in-One สำหรับ Whiteout Survival",
     "usp1_text": "Event Center, ติดตามบูสต์, Hero Hub, เครื่องคิดเลข, Welcome และ Ranking — ทั้งหมดในบอทเดียว",
@@ -863,9 +878,6 @@
     "lang_update_title": "🌐 /language — ใช้งานได้จริงและจดจำค่า",
     "lang_update_b1": "แก้ไขตัวสลับภาษา: จำภาษาที่เลือก และอัปเดตวันที่ (ยุโรป/วอร์ซอ)",
 
-    "gift_update_title": "🎁 Gift Code Center — ใหม่",
-    "gift_update_date": "—",
-
     "birthday_update_title": "🎂 ระบบวันเกิด — ใหม่",
     "birthday_update_b1": "แผงลงทะเบียนพร้อม “เพิ่ม/อัปเดตวันเกิด” และ “ลบรายการของฉัน” (ทนต่อการรีสตาร์ต)",
     "birthday_update_b2": "อวยพรอัตโนมัติทุกวัน (ตามเวลาเซิร์ฟเวอร์) รองรับ {mention}/{user}",
@@ -882,7 +894,10 @@
     "topgg_text": "โหวตให้บอท เพิ่มเข้าดิสคอร์ดของคุณ และเข้าร่วมชุมชน Whiteout Survival State 214 ของเรา",
 
     "support_highlight_title": "สนับสนุนโปรเจกต์ — ไม่บังคับ",
-    "support_highlight_text": "Bros24 ฟรีสำหรับทุกคน หากต้องการช่วยค่าบริการเซิร์ฟเวอร์และการพัฒนารายสัปดาห์ สามารถสนับสนุนผ่าน Frost Stars ใน Whiteout Survival (ไม่บังคับ)",
+    "support_highlight_text": "Bros24 ใช้ได้ฟรีสำหรับทุกคน หากบอทช่วยคุณและอยากสนับสนุนค่าเซิร์ฟเวอร์และการพัฒนา สามารถ Buy Me a Coffee ให้เราได้ ขอบคุณมาก! ❤️",
+    "support_b1": "✅ ไม่มี Paywall · ไม่บังคับ",
+    "support_b2": "🚀 ช่วยค่าโฮสติ้ง มอนิเตอร์ และอัปเดตรายสัปดาห์",
+    "support_b3": "🤝 ตรงไปตรงมา — คลิกเดียวจบ",
     "support_player_id_label": "Player ID",
     "support_payment_label": "การชำระเงิน",
     "support_join_btn": "เข้าร่วมเซิร์ฟเวอร์ซัพพอร์ต",
@@ -908,6 +923,9 @@
     "alt_menu": "เมนูหลัก — /menu",
     "alt_event_center": "Event Center — /event",
     "alt_boost_center": "Boost Center — /boost",
-    "alt_rank_card": "Ranking — การ์ดเลเวล"
+    "alt_rank_card": "Ranking — การ์ดเลเวล",
+
+    "gift_update_title": "🎁 Gift Code Center — ใหม่",
+    "gift_update_date": "—"
   }
 }
