@@ -56,8 +56,6 @@
     @media(max-width:640px){ .community-card .comm-img{ width:min(520px, 96%) } }
     .topgg-bot{ height:11.5rem } .topgg-srv{ height:11.5rem }
     @media(min-width:640px){ .topgg-bot{ height:12.5rem } .topgg-srv{ height:12.5rem } }
-
-    /* --- Gift Code Center: modern 3D accent card & preview size --- */
     .gift-3d{
       border:1px solid rgba(56,189,248,.25);
       box-shadow:
@@ -103,7 +101,7 @@
         <a id="nav_support" href="#support" class="hover:text-brand-500">Support</a>
       </nav>
 
-      <!-- Language dropdown + Invite -->
+      <!-- Language dropdown + Invite + BuyMeACoffee -->
       <div class="flex items-center gap-3">
         <select id="langSelect" aria-label="Language"
                 class="block bg-white/10 hover:bg-white/15 border border-white/10 rounded-lg px-2 py-1 text-sm">
@@ -116,6 +114,21 @@
         </select>
         <a id="header_invite" href="https://discord.com/oauth2/authorize?client_id=1387844888187375758&permissions=17869211692048&integration_type=0&scope=bot+applications.commands"
            class="hidden sm:inline-flex rounded-xl bg-brand-500 px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-brand-600 shadow-glow">➕ Invite Bot</a>
+
+        <!-- NEW: Buy Me a Coffee image button in header -->
+        <a id="header_bmc"
+           href="https://www.buymeacoffee.com/bros24bot"
+           target="_blank" rel="noopener"
+           aria-label="Buy Me a Coffee — bros24bot"
+           class="hidden sm:inline-flex items-center rounded-xl ring-1 ring-white/10 hover:ring-white/20 shadow-glow transition transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-brand-500/60">
+          <img
+            src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
+            alt="Buy Me a Coffee"
+            width="130" height="36"
+            class="block h-9 w-auto object-contain"
+            loading="eager" decoding="async"
+          />
+        </a>
       </div>
     </div>
   </header>
@@ -347,7 +360,6 @@
     </div>
 
     <div class="mt-8 grid gap-6 lg:grid-cols-2">
-      <!-- NEW: Gift Code Center release card (date = today Europe/Warsaw) -->
       <article class="card-3d gift-3d p-6 lg:col-span-2" id="giftcode-update">
         <div class="flex items-center justify-between gap-2">
           <h3 id="gift_update_title" class="text-xl font-semibold">🎁 Gift Code Center — New</h3>
@@ -426,7 +438,6 @@
         </p>
       </article>
 
-      <!-- /language fix card (date = today Europe/Warsaw) -->
       <article class="card-3d p-6 lg:col-span-2" id="lang-update">
         <div class="flex items-center justify-between gap-2">
           <h3 id="lang_update_title" class="text-xl font-semibold">🌐 /language — live & persistent</h3>
@@ -437,7 +448,6 @@
         </p>
       </article>
 
-      <!-- NEW: Birthday System release card (date = today Europe/Warsaw) -->
       <article class="card-3d p-6 lg:col-span-2" id="birthday-update">
         <div class="flex items-center justify-between gap-2">
           <h3 id="birthday_update_title" class="text-xl font-semibold">🎂 Birthday System — New</h3>
@@ -450,7 +460,6 @@
         </ul>
       </article>
 
-      <!-- NEW: Rally Planner release card (date = today Europe/Warsaw) -->
       <article class="card-3d p-6 lg:col-span-2" id="rally-update">
         <div class="flex items-center justify-between gap-2">
           <h3 id="rally_update_title" class="text-xl font-semibold">🎯 Rally Planner — New</h3>
@@ -486,16 +495,25 @@
             </ul>
           </div>
 
-          <!-- Primary CTA -->
+          <!-- Primary CTA (Bild-Button) -->
           <div class="flex flex-col items-stretch gap-3">
-            <a href="https://buymeacoffee.com/bros24bot"
-               target="_blank" rel="noopener"
-               class="rounded-2xl bg-brand-500 hover:bg-brand-600 px-6 py-4 font-semibold text-slate-900 shadow-glow text-center text-lg">
-              ☕ Buy Me a Coffee
+            <a
+              href="https://www.buymeacoffee.com/bros24bot"
+              target="_blank"
+              rel="noopener"
+              aria-label="Buy Me a Coffee — bros24bot"
+              class="inline-block rounded-2xl ring-1 ring-white/10 hover:ring-white/20 shadow-glow transition transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-brand-500/60 cursor-pointer self-center"
+            >
+              <img
+                src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
+                alt="Buy Me a Coffee"
+                width="217"
+                height="60"
+                class="block w-[217px] h-[60px] object-contain"
+                loading="eager"
+                decoding="async"
+              />
             </a>
-            <p class="text-xs text-slate-400 text-center">
-              Öffnet in neuem Tab. Zusätzlich erscheint ein schwebender Button (rechts).
-            </p>
           </div>
         </div>
       </div>
@@ -540,7 +558,7 @@
     // Year
     setText('year', String(new Date().getFullYear()));
 
-    // (Old copyId logic removed from DOM; listener stays safe due to null check)
+    // (Old copyId logic safe)
     (function(){
       const copyBtn = $('copyId');
       function resetCopyBtnLabel(){
